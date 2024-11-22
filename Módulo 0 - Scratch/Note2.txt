@@ -1,0 +1,51 @@
+CIÊNCIA DA COMPUTAÇÃO:
+    
+    INPUT -> ALGORITHM/CODE -> OUTPUT
+
+    Input  - Problema a ser resolvido.
+    Output - Resultado ou solução do problema.
+    Algorithm/Code - Passo a Passo de instruções para resolver um problema.
+
+ALGORITMO E CÓDIGO:
+
+    Um algoritmo pode ser algo que fazemos no nosso mundo físico
+    E o código é a implementação desses algoritmos em computadores.
+
+    Exemplo:
+
+        Se temos uma Lista Telefonica com mil páginas, organizada alfabéticamente.
+        Como podemos encontrar o nome do "João Pedro" na lista na seção J?
+
+            Podemos passar página por página até encontrarmos o nome na seção J do livro.
+                *Mas levariamos muito tempo para realizar essa ação.
+
+            Podemos passar duas páginas por vez, o que diminuiria nosso tempo pela metade.
+                *Mas, ainda sim, não seria rapido e eficiente.
+
+            Podemos então, abrir o livro ao meio, ir para metade onde pode estar a seção J, 
+            também abrir ao meio, e depois ao meio de novo e de novo, até encontrarmos.
+                *Assim temos um processo muito mais rápido e eficiênte.
+
+    Agora, transportando este exemplo para mundo do software. 
+    Um código rápido e eficiente, é sempre sinônimo de boa qualidade para a máquina, o programador e o usuário.
+
+PSEUDOCÓDIGO:
+
+    1. Pegue uma lista telefonica.                          # função
+    2. Abra a lista ao meio.                                # função
+    3. Olhe a página.                                       # função
+    4. Se 'Pessoa' estiver na Página.                       # condicional + expressão booleana
+    5.     Ligue para a 'Pessoa'.                           # função
+    6. Senão, se a 'Pessoa' estiver no início da lista.     # condicional + expressão booleana
+    7.     Abra no meio da metade esquerda da lista.        # função
+    8.     Volte para a linha 3.                            # loop
+    9. Senão, se a 'Pessoa' estiver no final da lista.      # condicional + expressão booleana
+   10.     Abra no meio da metade direita da lista.         # função
+   11.     Volte para a linha 3.                            # loop
+   12. Senão esta na lista.                                 # condicional
+   13.     Saia.                                            # função
+
+    Funções - São como ações ou verbos que dizem o que fazer.
+    Condições - São birfucações que levam pra um ou outro caminho.
+    Expressão Booleana - Geralmente é uma "pergunta" de sim/não, verdadeiro/falso, 0/1.
+    Loop - Um ciclo que faz algo repetidamente.
