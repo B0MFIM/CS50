@@ -11,7 +11,7 @@ FIRST CODE:
 
     int main(void)      -> 
     {
-        printf("Hello, World!\n");  -> Exibir Texto no Terminal
+        printf("Hello, World!\n");  -> Exibir Texto no Terminal a partir do argumento dentro dos "()"
     }
 
 SECOND CODE:
@@ -21,6 +21,100 @@ SECOND CODE:
 
     int main(void)
     {
-        string answer = get_string("What's your name? ");   ->
-        printf("Hello, %s\n", answer);                      ->
+        string answer = get_string("What's your name? ");   -> "get_string("");" recebe uma string (texto) | "answer" é uma variável do tipo "string"
+        printf("Hello, %s\n", answer);                      -> "%s" recebe e adiciona uma string, do segundo parâmetro "answer", ao seu texto
+    }
+
+DATA TYPES:
+
+    bool    - valores de verdadeiro e falso
+    char    - %c  - valores de caracteres básicos
+    double  - %lf - valores numéricos quebrados maiores e mais preciso
+    float   - %f  - valores numéricos quebrados menores
+    int     - %i  - valores numéricos inteiros
+    long    - %li - Valores numéricos inteiros longos
+    string  - %s  - valores de caracteres complexos
+    ...
+
+CONDITIONALS:
+
+    simples:
+
+        if (x < y)  -> expressão booleana, um valor de verdadeiro ou falso
+        {
+            printf("x is less than y\n");
+        }
+        else        -> outro caminho de código, caso a expresão acima seja falsa
+        {
+            printf("x is not less than y\n");
+        }
+
+    complexas:
+
+        if (x < y)
+        {
+            printf("x is less than y\n");
+        }
+        else if (x > y)     -> outro caminho de código, para outro valor de verdadeiro ou falso
+        {
+            printf("x is greater than y\n");
+        }
+        else if (x == y)    -> outro caminho de código, para outro valor de verdadeiro ou falso | "==" uma valor igual a outro | "=" atribuir um valor a uma variável
+        {
+            printf("x is equal to y\n");
+        }
+
+        ou 
+
+        if (x < y)
+        {
+            printf("x is less than y\n");
+        }
+        else if (x > y)
+        {
+            printf("x is greater than y\n");
+        }
+        else    -> não precisamos perder tempo, adicionando "(x == y)", se a única opção que temos seja que eles são iguais.
+        {
+            printf("x is equal to y\n");
+        }
+
+VARIABLES:
+
+    int counter = 0; -> é assim que digo para C para fornecer uma variável chamada counter do tipo "int" e inicialize-o para um valor "0" 
+
+    formas de adicionarmos mais valores para essa variável em C:
+
+        counter = counter + 1;
+        counter += 1;
+        counter++;
+
+    formas de diminuir valores para essa variável em C:
+
+        counter = counter - 1;
+        counter -= 1;
+        counter--;
+
+CODE COMPARE.C:
+
+    #include <cs50.h>
+    #include <stdio.h>
+
+    int main(void)
+    {
+        int x = get_int("What's x? ");  -> recebe um valor inteiro e aloca na variável x
+        int y = get_int("What's y? ");  -> recebe um valor inteiro e aloca na variável y
+
+        if (x < y)      -> expressão booleana que verifica se x é menor que y
+        {
+            printf("x is less than y\n");
+        }
+        else if (x > y) -> expressão booleana que verifica se x é maior que y
+        {
+            printf("x is greater than y\n");
+        }
+        else            -> ultimo caminho de código, para caso as duas acimas sejam expressões falsas
+        {
+            printf("x is equal to y\n");
+        }
     }

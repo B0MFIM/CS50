@@ -2,5 +2,5 @@
 
 int main(void) /*  */
 {
-    printf("Hello, World\n"); /* exibe um texto no terminal | \n pula para próxima linha */
+    printf("Hello, World\n"); /* exibir texto na tela a partir do argumento dos () | "\n" pula para próxima linha */
 }
