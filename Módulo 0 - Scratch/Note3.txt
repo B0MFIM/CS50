@@ -1,0 +1,17 @@
+Fazendo Atividade no Scratch:
+
+    1 - Seu projeto deve usar pelo menos dois sprites, dos quais pelo menos um não deve ser um gato.
+    2 - Seu projeto deve ter pelo menos três scripts no total (ou seja, não necessariamente três por sprite).
+    3 - Seu projeto deve usar pelo menos uma condicional, pelo menos um loop e pelo menos uma variável.
+    4 - Seu projeto deve usar pelo menos um bloco personalizado que você mesmo criou 
+        (por meio do recurso Criar um Bloco), que deve receber pelo menos uma entrada.
+    5 - Seu projeto deve ser mais complexo do que a maioria dos demonstrados em palestras 
+        (muitos dos quais, embora instrutivos, foram bem curtos), mas pode ser menos complexo do que Oscartime 
+        e Ivy’s Hardest Game.
+
+Dino Run:
+
+    Foi a atividade que desenvolvi no scratch. com um sprite de dinossauro azul
+    que corre e pula de obstáculos que são outros dois sprites de dinosauro.
+
+    link -> 
