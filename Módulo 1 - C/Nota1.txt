@@ -1,5 +1,26 @@
 PROGRAMANDO EM C, NA NUVEM DO CURSO:
 
-    code hello.c  -> abrir ou criar um arquivo
-    make hello    -> o compilador do programa
-    ./hello       -> executar o código
+    Comandos importantes para o compilador da CS50:
+        code hello.c  -> abrir ou criar um arquivo
+        make hello    -> o compilador do programa
+        ./hello       -> executar o código
+
+FIRST CODE:
+
+    #include <stdio.h>  -> Biblioteca Padrão
+
+    int main(void)      -> 
+    {
+        printf("Hello, World!\n");  -> Exibir Texto no Terminal
+    }
+
+SECOND CODE:
+
+    #include <stdio.h>
+    #include <cs50.h>   -> Biblioteca da CS50
+
+    int main(void)
+    {
+        string answer = get_string("What's your name? ");   ->
+        printf("Hello, %s\n", answer);                      ->
+    }
