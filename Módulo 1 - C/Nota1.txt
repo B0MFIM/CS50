@@ -1,0 +1,5 @@
+PROGRAMANDO EM C, NA NUVEM DO CURSO:
+
+    code hello.c  -> abrir ou criar um arquivo
+    make hello    -> o compilador do programa
+    ./hello       -> executar o código
