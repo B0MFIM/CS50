@@ -175,7 +175,7 @@ LOOPS:
 
     Loop For:
 
-        for (int i = 0; i < 3; i++) -> o primeiro "parâmetro" é para inicializar uma variável, o segundo é uma expressão booleana e o terceiro é o update da variável ao fim do loop
+        for (int i = 0; i < 3; i++) -> o primeiro argumento é para inicializar uma variável, o segundo é uma expressão booleana e o terceiro é o update da variável ao fim do loop
         {
             printf("meow\n");
         }
@@ -183,4 +183,51 @@ LOOPS:
 
 FUNCTIONS:
 
-    
+    void meow(void) -> dessa forma criamos uma função chamada meow, igual criar um bloco no scratch.
+    {
+        printf("meow\n"); -> e dentro da função se localiza a sua funcionalidade, o que ela faz.
+    }
+
+    int main(void)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            meow()  -> aqui nos chamamos a função criada
+        }
+    }
+
+    outro exemplo:
+
+        void meow(void); -> informa que a função existe ao compilador, não estiver aqui, va dar erro.
+
+        int main(void)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                meow()
+            }
+        }
+
+        void meow(void) -> dessa forma criamos uma função chamada meow, igual criar um bloco no scratch.
+        {
+            printf("meow\n"); -> e dentro da função se localiza a sua funcionalidade, o que ela faz.
+        }
+
+    outro exemplo:
+
+        void meow(int n);
+
+        int main(void)
+        {
+            meow(5) -> chamamos a função e agora inserimos um valor no argumento
+        }
+
+        void meow(int n) -> criamos uma função chamada meow, com um argumento "n" do tipo int, para receber um valor quando chamada
+        {
+            for (int i = 0; i < n; i++)
+            {
+                printf("meow\n");
+            }  
+        }
+
+
