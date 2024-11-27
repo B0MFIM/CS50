@@ -231,3 +231,47 @@ FUNCTIONS:
         }
 
 
+SCOPE:
+
+    Porque o código abaixo não funciona?
+
+        int add(void);
+
+        int main(void)
+        {
+            int x = get_int("x: ");
+            int y = get_int("y: ");
+            int z = add();
+
+            printf("%i\n", z);
+        }
+
+        int add(void)   -> aqui adicionamos um tipo de valor para que a função sempre retorne um valor inteiro
+        {
+            return x + y;   -> retorna a soma desses dois valores
+        }
+
+        # porque as variáveis foram declaradas na função "main", por isso a função "add" não as identifica.
+        # chamamos isso de problema de escopo, escopo se refere ao contexto em quais as variáveis existem.
+        # para a função "add": "x" e "y" estão fora do escopo inexistentes ou inacessíveis.
+
+    A maneira correta:
+
+        int add(int a, int b); 
+
+        int main(void)
+        {
+            int x = get_int("x: ");
+            int y = get_int("y: ");
+            int z = add(x, y); -> agora a função add() recebe dois valores.
+
+            printf("%i\n", z);
+        }
+
+        int add(int a, int b)  -> agora adicionamos dois argumentos, com uma variável, para a função receber dois valores inteiros.
+        {
+            return a + b;      -> retorna a soma desses dois valores
+        }
+
+        # Agora o problema do escopo é resolvido, com apenas dois argumentos na função add().
+        # Que recebe dois valores do tipo inteiro e retorna a sua soma.
