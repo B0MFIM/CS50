@@ -290,6 +290,7 @@ SCOPE:
             return a + b;
         }
 
+
 COMMAND TYPES:
 
     cd -> alterar diretório -> $ cd <nome_do_diretório> | $ cd (apenas para retornar para a pasta principal)
@@ -301,5 +302,76 @@ COMMAND TYPES:
     rmdir -> remover diretório
     ...
 
-MARIO:
 
+MARIO PROBLEM:
+
+    Imprimindo um grid de 3 "blocos" (#) por 3 na tela:
+
+        printf("###\n");
+        printf("###\n");
+        printf("###\n");
+
+    Agora com um loop para diminuir essa redundância:
+
+        for (int i = 0; i < 3; i++)
+        {
+            printf("###\n");
+        }
+
+    Agora com dois loops e uma variável constante para diminuirmos ainda mais a redundância do código 
+    e escolhermos o tamanho que quisermos para a grid, apenas alterando o valor da variável n:
+
+        const int n = 3; -> declarar uma variável com const, indica que ela é importante e que não se altere acidentalmente.
+        for (int i = 0; i < n; i++) - este loop é para as Linhas
+        {
+            for (int j = 0; j < n; j++) -> este loop é para as Colunas
+            {
+                printf("#");
+            }
+            printf("\n");
+        }
+
+    Agora com melhor dinamica para o usuário inserir o tamanho que quiser da grid:
+
+        int n = get_int("Size: );
+        while (n < 1)
+        {
+            n = get_int("Size: );
+        }
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                printf("#");
+            }
+            printf("\n");
+        }
+
+        # mas novamente o problema da redundancia aparece para nós
+
+    Agora com um melhor design e sem redundância, mas por que não funciona?
+
+        do -> isso é um "do while" loop, o que significa: quero repetir o que esta dentro do "do" se a expressão no "while" for verdadeira
+        {
+            int n = get_int("Size: "); -> ao declararmos a variável dentro do "do", o "while" não identificará essa variável como existente
+        }
+        while (n < 1);
+
+        # relembrando o problema do escopo, se declararmos a variável dentro do "do" while não identificará esta variável.
+    
+    
+    Basta declararmos a variável antes do "do". Assim:
+
+        int n;
+        do
+        {
+            n = get_int("Size: ");
+        }
+        while (n < 1);
+
+        # Dinâmico e sem redundâncias
+
+TRUNCATION:
+
+    
