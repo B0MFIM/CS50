@@ -450,7 +450,7 @@ FLOATING-POINT IMPRECISION:
 
         # chamamos esse problema de FLOATING-POINT IMPRECISION.
 
-        pois para um tipo float, o computador só suporta 8 bits.
+        pois para um tipo float, o computador só suporta 4 bytes de memória.
 
     E se quisermos mostrar mais casas decimais, mudariamos o tipo float do código para tipo double:
 
@@ -464,4 +464,4 @@ FLOATING-POINT IMPRECISION:
         }
 
         # teriamos mais 8 casas decimais adicionais para a precisão do valor, mas ao final teriamos o mesmo problema para as 4 ultimas casas,
-          pois o tipo double suporta apenas 16 bits.
+          pois o tipo double suporta apenas 8 bytes de memória.

@@ -1,0 +1,113 @@
+SHORTS - DATA TYPES and VARIABLES
+
+    INT:
+        * o tipo de dado int é usado para variáveis que armazenarão valores inteiros (1,2,3 ... -1,-2,-3).
+        * inteiros sempre ocupam quatro bytes de memória, ou seja, 32 bits. Isso significa que o intervalo de
+          valores que um número inteiro pode armazenar é limitado pelo que pode caber em 32 bits de infomação
+
+        # foi decidido que dividiríamos esse intervalo de 32 bits em inteiros negativos e inteiros positivos,
+          cada um obtendo metade do intervalo. Portanto, o intervalo de valores que representamos com um
+          número inteiro varia de -2 elevado à 31ª potência a 2 elevado a 31ª potência -1 (-1 porque támbem
+          precisamos de um espaço para o 0). E aproximadamente, isso é cerca de 2 bilhões de negativos e 
+          2 bilhões de positivos.
+
+    UNSIGNED INT:
+        * unsigned int não são um tipo separado de variável. Unsigned é o que chamamos de qualificador. Ele 
+          modifica ligeiramente o tipo de dados do número inteiro. E nesse caso, o que unsigned significa -
+          e você também pode usar outros tipos de dados unsigned, int não é o único - é dobrar o intervalo
+          positivo de valores que um número inteiro pode assumir, ás custas de não permitir mais que  você
+          assuma valores négativos.
+
+        # outros exemplos de qualificadores: short, long e const.
+
+    CHAR:
+        * o tipo de dado char é usado para variáveis que armazenarão caracteres únicos.
+        * chars sempre ocupam um byte de memória, ou seja, 8 bits. Isso significa que eles só podem ajustar
+          valores no intervalo de -2 elevado à 7ª potência, ou -128, a 2 elevado à 7ª potência -1, ou 127.
+        * graças ao ASCII, foi decidido que esses números positivos de 0 a 127 fossem mapeados para vários
+          caracteres que existem em nosso teclado.
+
+    FLOAT:
+        * o tipo de dado float é usado para variáveis que armazenarão valores de pontos-flutuantes, também
+          conhecido como números reais.
+        * floats sempre ocupam quatro bytes de memória, ou seja, 32 bits.
+        * é um pouco complicado para descrever o tamanho de um float, mas basta dizer que você tem 32 bits
+          para trabalhar. E se você tiver um número como pi, que tem parte inteira 3, e uma parte decimal 
+          0.14159 e assim por diante, você precisa ser capaz de representar tudo isso. Por isso o tipo 
+          float é limitado para o quão preciso é o valor de um número real, não podemos ter necessáriamente
+          uma parte decimal com precisão de 50, 100, 200 dígitos, porque só temos 32 bits para trabalhar.
+
+    DOUBLE:
+        * o tipo double é semelhante ao tipo float, que irá armazenar valores de pontos flutuantes.
+        * a diferença é que doubles tem a precisão dobrada, eles sempre ocupam 8 bytes de memória, ou seja,
+          64 bits.
+        * com um adicional de 32 bits de precisão relativo ao float, doubles nos ajuda a especificar um pouco
+          mais preciso os números reais
+
+    VOID:
+        * é um tipo, mas não um tipo de dado.
+        * funções podem ter um tipo de retorno vazio "void", significa que ela não retorna um valor.
+        * a lista de parâmetros de uma função também pode ser nula "(void)"
+
+        # por exempro "int main(void)" não aceita nenhum parâmetro, não há argumento que seja passado para
+          main. Mas, mais a frente veremos que existe uma maneira de passar argumentos para main.
+
+        * pode-se dizer que void é basicamente deveria servir como um espaço reservado para você pensar como
+          "nada". É um pouco mais complexo que isso, mas deve ser o suficiente para a maior parte do curso.
+
+    ESSES SÃO OS CINCO TIPOS QUE VOCÊ ENCONTRARÁ INTEGRADO AO C.
+
+    EM CS50 NOS TAMBÉM TEMOS UMA BIBLIOTECA (CS50.H). QUE NOS FORNECERÁ DOIS TIPOS ADICIONAIS QUE VOCÊ
+    PROVAVELMENTE PODERÁ USAR EM SUAS TAREFAS OU APENAS TRABALHANDO EM PROGRAMAÇÃO GERAL.
+
+    O PRIMEIRO DELES É:
+
+        BOOL:
+            * o tipo de dado bool é usado para variáveis que irão armazenar um valor booleano (0/1, TRUE/FALSE, SIM/NÃO).
+            * Mas esteja ciente de incluir "include <cs50.h>" no topo dos seus programas se quiser usar o tipo booleano.
+
+    O PRÓXIMO DELES É:
+
+        STRING:
+            * o tipo de dado string é usado para variáveis que irão armazenar uma série de caracteres, que os
+            programadores tipicamente chamam de string.
+            * strings incluem coisas como palavras, sentenças, parágrafos, etc.
+            * novamente, esteja ciente de incluir "include <cs50.h>" no topo dos seus programas se quiser um tipo string.
+
+    AGORA, MAIS ADIANTE NO CURSO, TAMBÉM VEREMOS QUE ESSA NÃO É TODA A HISTÓRIA AINDA.
+
+        ENCONTRAREMOS COISAS CHAMADAS 'STRUCTS" QUE PERMITEM AGRUPAR O QUE PODE SER UM NÚMERO INTEIRO E UMA STRING
+        EM UMA UNIDADE. E PODEMOS USAR ISSO PARA ALGUM PROPÓSITO. E TAMBÉM APRENDEREMOS SOBRE "DEFINED TYPES 
+        (TYPEDEFS)" QUE PERMITEM CRIAR SEUS PRÓPRIOS TIPOS DE DADOS.
+
+    AGORA VAMOS DISCUTIR COMO CRIAR, MANIPULAR E OUTRAS COISAS COM VARIÁVEIS, USANDO ESSES TIPOS DE DADOS.
+
+    SE VOCÊ QUER CRIAR UMA VARIÁVEL, PRECISAMOS FAZER DUAS COISAS:
+
+        1. primeiro precisamos de um tipo de dado.
+        2. segundo dar um nome a variável.
+
+        Exemplos: 
+            
+            int número;
+            char 'letra';
+
+        Se quisermos criar multiplas variáveis do mesmo tipo, podemos apenas especificar desta forma:
+
+            int num1, num2;
+            float sqrt1, sqrt2, pi;
+
+        De forma geral, é bom praticar apenas declarar variáveis quando se precisa delas.
+
+    AGORA, COMO USAMOS VARIÁVEIS?
+
+        Quando declarada a variável, quando a usarmos não precisamos novamente especificar seu tipo de dado.
+        Por exemplo:
+
+            int number;     // declaração
+            number = 17;    // atribuição
+
+        Se você quiser declarar simultaneamente e atribuir o valor da variável, você pode consolidar isso em
+        um passo (que chamamos de inicialização):
+
+            int number = 17;
