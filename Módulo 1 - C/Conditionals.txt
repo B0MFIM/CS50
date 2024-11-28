@@ -1,0 +1,153 @@
+CONDITIONAL STATEMENTS
+
+    EXPRESSÕES CONDICIONAIS PERMITEM QUE SEUS PROGRAMAS TOMEM DECISÕES E TOMEM DIFERENTES BIRFUCAÇÕES
+    NO CAMINHO, DEPENDENDO DOS VALORES DAS VARIÁVEIS OU COM BASE NO QUE O USUÁRIO INSERE NO PROGRAMA,
+    NA LINHA DE COMANDO, OU SE VOCÊ TEM UM PROMPT OU ALGO PARECIDO.
+
+    C TEM ALGUMAS MANEIRAS DIFERENTES DE EXPRESSAR EXPRESSÕES CONDICIONAIS, QUE ÀS VEZES TAMBÉM CHAMAREMOS
+    DE RAMIFICAÇÃO CONDICIONAL EM SEUS PROGRAMAS.
+
+    CONDITIONALS:
+
+            if (expressão booleana)
+            {
+                <code>
+            }
+
+        Se a expressão booleana na instrução "if" for verdadeira, toda a linha de código dentro desse "if"
+        será executada, se for falsa, pularemos tudo entre as chaves. Porque só queremos seguir nessa
+        bifurcação se a expressão booleana for verdadeira.
+
+            if (expressão booleana)
+            {
+                <code>
+            }
+            else
+            {
+                <code>
+            }
+
+        Se a expressão booleana na instrução "if" for verdadeira, toda a linha de código dentro desse "if"
+        será executada, caso  contrário, se for falsa, faça o que esta entre o segundo conjunto "else".
+
+            if (expressão booleana 1)
+            {
+                // primeiro caminho
+            }
+            else if (expressão booleana 2)
+            {
+                // segundo caminho
+            }
+            else if (expressão booleana 3)
+            {
+                // terceiro caminho
+            }
+            else
+            {
+                // quarto caminho
+            }
+
+        Em C podemos criar uma cadeia de if-else if-else. Novamente, como seria de esperar, todas essas
+        ramificações são mutuamente exclusivas. Você só pode descer um dos galhos. "Se isso for verdade.
+        Caso contrário, se isso for verdade. Caso contrário, se isso for verdade. Caso contrário, faça isso".
+
+        No entanto, é possível, e às vezes muito útil, criar uma cadeia de ramos não mutuamente exclusivos.
+
+            if (expressão booleana 1)
+            {
+                // primeiro caminho
+            }
+            if (expressão booleana 2)
+            {
+                // segundo caminho
+            }
+            if (expressão booleana 3)
+            {
+                // terceiro caminho
+            }
+            else
+            {
+                // quarto caminho
+            }
+
+        Neste exemplo, apenas o terceiro e quarto caminho são mutuamentes exclusivos. 
+        Pode ser que você possa satisfazer a primeira condição, a segunda condição e a satisfazer a terceira condição 
+        - e nesse caso você desceria o primeiro caminho, o segundo caminho, e então desceria ao terceiro caminho - ou
+        você pode satisfazer o primeiro e segundo caminho, mas não satisfazer o terceiro - e nesse caso você desceria
+        o primeiro caminho, o segundo caminho e depois o quarto caminho - a razão para isso é que "else" só se liga ao
+        "if" mais próximo. Portanto, mesmo que haja um "else" aqui, isso não cria necessáriamente uma cadeia mutuamente
+        exclusiva de tudo, apenas a condição com "expressão booleana 3", que é mutuamente exclusiva com o "else".
+
+    CONDITIONAL SWITCH:
+
+        Existe algo chamado instrução switch. É uma instrução condicional que permite especificar casos distintos, em
+        vez de depender de expressões booleanas para tomar decisões por você.
+
+        Exemplo:
+
+            int x = GetInt();
+            switch(x)
+            {
+                case 1:
+                    printf("One!\n");
+                    break;
+                case 2:
+                    printf("Two!\n");
+                    break;
+                case 3:
+                    printf("Three!\n");
+                    break;
+                default:
+                    printf("Sorry!\n");
+            }
+
+        Aqui estou mudando o que estou fazendo, dependendo do que o usuário digitou no prompt. Se ele digitou 1, eu
+        imprimo "One!" e então paro (break), se digitou 2, imprimo "Two!" e então paro, se digitou 3, imprimo "Three!"
+        e então paro, se for outro digito qualquer, imprimo "Sorry!".
+
+        Há outro exemplo de switch onde omito as quebras (break), mas de propósito.
+
+            int x = GetInt();
+            switch(x)
+            {
+                case 5:
+                    printf("Five, ");
+                case 4:
+                    printf("Four, ");
+                case 3:
+                    printf("Three, ");
+                case 2:
+                    printf("Two, ");
+                case 1:
+                    printf("One, ");
+                default:
+                    printf("Blast-Off!\n");
+            }
+
+        Nesse caso, vai acontecer de você falhar em cada case. Então neste caso organizei meus cases de tal forma
+        que se o usuário digitar 4, vou estar imprimindo "Four, Three, Two, One, Blast-Off!". Se ele digitasse 5, 
+        seria "Five, Four, Three, Two, One, Blast-Off!". Se digitasse 2, seria "Two, One, Blast-Off!".
+
+        Nesse caso, estou usando um switch de maneira inteligente, de modo que pretendo passar por todos os casos.
+        Mas geralmente você vai querer quebrar (break) entre todos eles, a menos que tenha uma situação semelhante
+        como esta.
+
+    CONDITIONAL "?":
+
+        int x = (expr) ? 5 : 6;     ->      int x;
+                                            if (expr)
+                                            {
+                                                x = 5;
+                                            }
+                                            else
+                                            {
+                                                x = 6;
+                                            }
+
+        O código da esquerda é semelhante ao da direita, so que de forma simplificada.
+        Isso é chamado de "question mark condicional" ou às vezes de "operador ternário".
+
+        Isso permite que você simule um "if-else" com ramificações condicionais realmente pequenas e simples.
+        Você normalmente não usaria se tivesse seis linhas de código entre cada conjunto. Mas se você esta
+        apenas tomando uma decisão rápida, se vai fazer uma coisa ou outra e é muito simples, este pode ser 
+        um exemplo de como fazer o operador ternário.
