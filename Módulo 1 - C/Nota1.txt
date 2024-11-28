@@ -321,8 +321,8 @@ MARIO PROBLEM:
     Agora com dois loops e uma variável constante para diminuirmos ainda mais a redundância do código 
     e escolhermos o tamanho que quisermos para a grid, apenas alterando o valor da variável n:
 
-        const int n = 3; -> declarar uma variável com const, indica que ela é importante e que não se altere acidentalmente.
-        for (int i = 0; i < n; i++) - este loop é para as Linhas
+        const int n = 3; // declarar uma variável com const, indica que ela é importante e que não se altere acidentalmente.
+        for (int i = 0; i < n; i++) // este loop é para as Linhas
         {
             for (int j = 0; j < n; j++) // este loop é para as Colunas
             {

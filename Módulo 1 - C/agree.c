@@ -3,9 +3,9 @@
 
 int main(void)
 {
-    char c = get_char("Do you agree? "); /* Recebe um unico caractere e aloca na variável c */
+    char c = get_char("Do you agree? "); // Recebe um unico caractere e aloca na variável c
 
-    if (c == 'y' || c == 'Y') /* || significa "ou", assim como && significa "e" */
+    if (c == 'y' || c == 'Y') // "||"" significa "ou", assim como "&&"" significa "e"
     {
         printf("Agreed.\n");
     }
