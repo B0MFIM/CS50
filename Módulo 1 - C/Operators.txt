@@ -1,0 +1,67 @@
+SHORTS - OPERATORS
+
+    PARA MANIPULAR E TRABALHAR COM VALORES E VARIÁVEIS EM C, TEMOS A NOSSA DISPOSIÇÃO UMA SÉRIE
+    DE OPERADORES QUE PODEMOS UTILIZAR. VAMOS COMEÇAR COM OS MAIS COMUNS:
+
+    OS OPERADORES ARITMÉTICOS
+
+        Em C nós podemos: 
+            Somar (+), Subtrair (-), Multiplicar (*) e Dividir (/) números, como esperado.
+        
+            Exemplos:
+                int x = y + 1;
+                x = x * 5;
+
+        Nós também temos operador de módulo (%).
+            O que o módulo faz é fornecer o resto de uma divisão.
+            Exemplo:
+                int m = 13 % 4; // m agora é 1
+
+        C também nos prove uma facilidade para aplicar um operador aritmético para uma única variável.
+            Exemplo:
+                x = x * 5; -> x *= 5;
+            Isso funciona para todos os 5 tipos básicos de operadores aritméticos.
+
+        C prove também uma versão ainda menor para incrementar e subtrair a variável por 1.
+            Exemplo:
+                x++;
+                x--;
+
+    AS EXPRESSÕES BOOLEANAS
+
+        Expressões booleanas são usadas em C para comparar valores.
+        Todas as expressões booleanas em C são avaliadas como um dos dois valores possíveis - True ou False.
+
+        Podemos usar os resultados de uma expressão booleana de várias maneiras na programação. Por exemplo,
+        podemos decidir, bem, se alguma condição for verdadeira, talvez eu desative esse ramo no meu código.
+        Ou talvez, enquanto a expressão for verdadeira, eu queira continuar fazendo isso indefinidamente. Em
+        ambos os casos, saiba que estamos usando uma expressão booleana, verdadeira ou falsa, para decidir
+        se devemos ou não seguir um determinado caminho do código.
+
+        Ás vezes, quando trabalhamos com expressões booleanas, usaremos variáveis do tipo bool. Você pode ter
+        declarado uma variável do tipo bool e usará em sua expressão booleana. Mas você nem sempre precisa 
+        fazer isso. Acontece que em C, todo valor diferente de 0 é o mesmo que dizer True. E 0 é False.
+
+        Existem dois tipos principais de expressões booleanas com as quais trabalharemos: Logical Operators 
+        e Relational Operators.
+
+    OS OPERADORES LÓGICOS
+
+        Logical AND (&&) - é True se, e apenas se, ambos os operadores forem Verdadeiros, se não é Falso.
+
+        Logical OR (||) - é True se, e apenas se, apenas um dos operadores for Verdadeiro (ou que ambos
+        sejam verdadeiros), se não é Falso.
+
+        Logical NOT (!) - ele inverte o valor do seu operando, se x for Verdadeiro, então e False,
+        se x for Falso, então é True.
+
+    OS OPERADORES RELACIONAIS
+
+        Less Than (<) - Menor que x
+        Less Than or Equal To (<=) -  Menor que ou Igual à x
+        Greater Than (>) - Maior que x
+        Greater Than or Equal To (>=) - Maior que ou Igual à x
+        Equality (==) - Igual à x
+        Inequality (!=) - Diferente de x
+
+        # cuidado, é comum errar o operador de atribuição "=" com o operador de comparação de igualdade "==".
