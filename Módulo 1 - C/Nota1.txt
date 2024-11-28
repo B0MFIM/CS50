@@ -8,23 +8,23 @@ PROGRAMANDO EM C, NA NUVEM DO CURSO:
 
 FIRST CODE:
 
-    #include <stdio.h>  -> Biblioteca Padrão
+    #include <stdio.h> // Biblioteca Padrão
 
-    int main(void)      -> Função principal do código, que por padrão retorna 0 ou 1
+    int main(void) // Função principal do código, que por padrão retorna 0 ou 1
     {
-        printf("Hello, World!\n");  -> Exibir Texto no Terminal a partir do argumento dentro dos "()"
+        printf("Hello, World!\n"); // Exibir Texto no Terminal a partir do argumento dentro dos "()"
     }
 
 
 SECOND CODE:
 
     #include <stdio.h>
-    #include <cs50.h>   -> Biblioteca da CS50
+    #include <cs50.h> // Biblioteca da CS50
 
     int main(void)
     {
-        string answer = get_string("What's your name? ");   -> "get_string("");" recebe uma string (texto) | "answer" é uma variável do tipo "string"
-        printf("Hello, %s\n", answer);                      -> "%s" recebe e adiciona uma string, do segundo parâmetro "answer", ao seu texto
+        string answer = get_string("What's your name? "); // "get_string("");" recebe uma string (texto) | "answer" é uma variável do tipo "string"
+        printf("Hello, %s\n", answer); // "%s" recebe e adiciona uma string, do segundo parâmetro "answer", ao seu texto
     }
 
 
@@ -32,8 +32,8 @@ DATA TYPES:
 
     bool    - valores de verdadeiro e falso
     char    - %c  - valor de um caractere básico
-    double  - %lf - valores numéricos quebrados maiores e mais preciso
-    float   - %f  - valores numéricos quebrados menores
+    double  - %lf - valores numéricos quebrados maiores (16 bits)
+    float   - %f  - valores numéricos quebrados menores (8 bits)
     int     - %i  - valores numéricos inteiros
     long    - %li - Valores numéricos inteiros longos
     string  - %s  - valores de vários caracteres
@@ -44,11 +44,11 @@ CONDITIONALS:
 
     simples:
 
-        if (x < y)  -> expressão booleana, um valor de verdadeiro ou falso
+        if (x < y) // expressão booleana, um valor de verdadeiro ou falso
         {
             printf("x is less than y\n");
         }
-        else        -> outro caminho de código, caso a expresão acima seja falsa
+        else // outro caminho de código, caso a expresão acima seja falsa
         {
             printf("x is not less than y\n");
         }
@@ -59,11 +59,11 @@ CONDITIONALS:
         {
             printf("x is less than y\n");
         }
-        else if (x > y)     -> outro caminho de código, para outro valor de verdadeiro ou falso
+        else if (x > y) // outro caminho de código, para outro valor de verdadeiro ou falso
         {
             printf("x is greater than y\n");
         }
-        else if (x == y)    -> outro caminho de código, para outro valor de verdadeiro ou falso | "==" uma valor igual a outro | "=" atribuir um valor a uma variável
+        else if (x == y) // outro caminho de código, para outro valor de verdadeiro ou falso | "==" uma valor igual a outro | "=" atribuir um valor a uma variável
         {
             printf("x is equal to y\n");
         }
@@ -78,7 +78,7 @@ CONDITIONALS:
         {
             printf("x is greater than y\n");
         }
-        else    -> não precisamos perder tempo, adicionando "(x == y)", se a única opção que temos seja que eles são iguais.
+        else // não precisamos perder tempo, adicionando "(x == y)", se a única opção que temos seja que eles são iguais.
         {
             printf("x is equal to y\n");
         }
@@ -86,7 +86,7 @@ CONDITIONALS:
 
 VARIABLES:
 
-    int counter = 0; -> é assim que digo para C para fornecer uma variável chamada counter do tipo "int" e inicialize-o para um valor "0" 
+    int counter = 0; // é assim que digo para C para fornecer uma variável chamada counter do tipo "int" e inicialize-o para um valor "0" 
 
     formas de adicionarmos mais valores para essa variável em C:
 
@@ -108,18 +108,18 @@ CODE COMPARE.C:
 
     int main(void)
     {
-        int x = get_int("What's x? ");  -> recebe um valor inteiro e aloca na variável x
-        int y = get_int("What's y? ");  -> recebe um valor inteiro e aloca na variável y
+        int x = get_int("What's x? "); // recebe um valor inteiro e aloca na variável x
+        int y = get_int("What's y? "); // recebe um valor inteiro e aloca na variável y
 
-        if (x < y)      -> expressão booleana que verifica se x é menor que y
+        if (x < y) // expressão booleana que verifica se x é menor que y
         {
             printf("x is less than y\n");
         }
-        else if (x > y) -> expressão booleana que verifica se x é maior que y
+        else if (x > y) // expressão booleana que verifica se x é maior que y
         {
             printf("x is greater than y\n");
         }
-        else            -> ultimo caminho de código, para caso as duas acimas sejam expressões falsas
+        else // ultimo caminho de código, para caso as duas acimas sejam expressões falsas
         {
             printf("x is equal to y\n");
         }
@@ -133,9 +133,9 @@ CODE AGREE.C:
 
     int main(void)
     {
-        char c = get_char("Do you agree? ");    -> recebe um unico caractere e aloca na variável c
+        char c = get_char("Do you agree? "); // recebe um unico caractere e aloca na variável c
 
-        if (c == 'y' || c == 'Y')               -> || significa "ou", assim como && significa "e"
+        if (c == 'y' || c == 'Y') // "||" significa "ou", assim como "&&" significa "e"
         {
             printf("Agreed.\n");
         }
@@ -151,10 +151,10 @@ LOOPS:
     Loop While:
 
         int i = 3;
-        while (i > 0)     -> um loop while com uma expressão booleana (traduzindo: Enquanto i for maior que zero, continue)
+        while (i > 0) // um loop while com uma expressão booleana (traduzindo: Enquanto i for maior que zero, continue)
         {
             printf("meow\n");
-            i--;          -> subtrai o valor de i em 1
+            i--; // subtrai o valor de i em 1
         }
 
     Ou, para facilitar nossa contagem, fazemos assim:
@@ -168,14 +168,14 @@ LOOPS:
 
     Loop While Infinito:
 
-        while (true)  -> a expressão vai ser sempre verdadeira, consequentemente, o loop será infinito
+        while (true) // a expressão vai ser sempre verdadeira, consequentemente, o loop será infinito
         {
             printf("meow\n");
         }
 
     Loop For:
 
-        for (int i = 0; i < 3; i++) -> o primeiro argumento é para inicializar uma variável, o segundo é uma expressão booleana e o terceiro é o update da variável ao fim do loop
+        for (int i = 0; i < 3; i++) // o primeiro argumento é para inicializar uma variável, o segundo é uma expressão booleana e o terceiro é o update da variável ao fim do loop
         {
             printf("meow\n");
         }
@@ -183,22 +183,22 @@ LOOPS:
 
 FUNCTIONS:
 
-    void meow(void) -> dessa forma criamos uma função chamada meow, igual criar um bloco no scratch.
+    void meow(void) // dessa forma criamos uma função chamada meow, igual criar um bloco no scratch.
     {
-        printf("meow\n"); -> e dentro da função se localiza a sua funcionalidade, o que ela faz.
+        printf("meow\n"); // e dentro da função se localiza a sua funcionalidade, o que ela faz.
     }
 
     int main(void)
     {
         for (int i = 0; i < 3; i++)
         {
-            meow()  -> aqui nos chamamos a função criada
+            meow() // aqui nos chamamos a função criada
         }
     }
 
     outro exemplo:
 
-        void meow(void); -> informa que a função existe ao compilador, não estiver aqui, va dar erro.
+        void meow(void); // informa que a função existe ao compilador, não estiver aqui, va dar erro.
 
         int main(void)
         {
@@ -208,9 +208,9 @@ FUNCTIONS:
             }
         }
 
-        void meow(void) -> dessa forma criamos uma função chamada meow, igual criar um bloco no scratch.
+        void meow(void) // dessa forma criamos uma função chamada meow, igual criar um bloco no scratch.
         {
-            printf("meow\n"); -> e dentro da função se localiza a sua funcionalidade, o que ela faz.
+            printf("meow\n"); // e dentro da função se localiza a sua funcionalidade, o que ela faz.
         }
 
     outro exemplo:
@@ -219,10 +219,10 @@ FUNCTIONS:
 
         int main(void)
         {
-            meow(5) -> chamamos a função e agora inserimos um valor no argumento
+            meow(5) // chamamos a função e agora inserimos um valor no argumento
         }
 
-        void meow(int n) -> criamos uma função chamada meow, com um argumento "n" do tipo int, para receber um valor quando chamada
+        void meow(int n) // criamos uma função chamada meow, com um argumento "n" do tipo int, para receber um valor quando chamada
         {
             for (int i = 0; i < n; i++)
             {
@@ -245,9 +245,9 @@ SCOPE:
             printf("%i\n", z);
         }
 
-        int add(void)   -> aqui adicionamos um tipo de valor para que a função sempre retorne um valor inteiro
+        int add(void) // aqui adicionamos um tipo de valor para que a função sempre retorne um valor inteiro
         {
-            return x + y;   -> retorna a soma desses dois valores
+            return x + y; // retorna a soma desses dois valores
         }
 
         # porque as variáveis foram declaradas na função "main", por isso a função "add" não as identifica.
@@ -262,13 +262,13 @@ SCOPE:
         {
             int x = get_int("x: ");
             int y = get_int("y: ");
-            int z = add(x, y); -> agora a função add() recebe dois valores.
+            int z = add(x, y); // agora a função add() recebe dois valores.
             printf("%i\n", z);
         }
 
-        int add(int a, int b)  -> agora adicionamos dois argumentos, com uma variável, para a função receber dois valores inteiros.
+        int add(int a, int b) // agora adicionamos dois argumentos, com uma variável, para a função receber dois valores inteiros.
         {
-            return a + b;      -> retorna a soma desses dois valores
+            return a + b; // retorna a soma desses dois valores
         }
 
         # Agora o problema do escopo é resolvido, com apenas dois argumentos na função add().
@@ -282,7 +282,7 @@ SCOPE:
         {
             int x = get_int("x: ");
             int y = get_int("y: ");
-            printf("%i\n", add(x, y)); -> podemos simplificar apenas transportando a função add() para dentro do printf()
+            printf("%i\n", add(x, y)); // podemos simplificar apenas transportando a função add() para dentro do printf()
         }
 
         int add(int a, int b)
@@ -324,7 +324,7 @@ MARIO PROBLEM:
         const int n = 3; -> declarar uma variável com const, indica que ela é importante e que não se altere acidentalmente.
         for (int i = 0; i < n; i++) - este loop é para as Linhas
         {
-            for (int j = 0; j < n; j++) -> este loop é para as Colunas
+            for (int j = 0; j < n; j++) // este loop é para as Colunas
             {
                 printf("#");
             }
@@ -352,9 +352,9 @@ MARIO PROBLEM:
 
     Agora com um melhor design e sem redundância, mas por que não funciona?
 
-        do -> isso é um "do while" loop, o que significa: quero repetir o que esta dentro do "do" se a expressão no "while" for verdadeira
+        do // isso é um "do while" loop, o que significa: quero repetir o que esta dentro do "do" se a expressão no "while" for verdadeira
         {
-            int n = get_int("Size: "); -> ao declararmos a variável dentro do "do", o "while" não identificará essa variável como existente
+            int n = get_int("Size: "); // ao declararmos a variável dentro do "do", o "while" não identificará essa variável como existente
         }
         while (n < 1);
 
@@ -436,7 +436,7 @@ FLOATING-POINT IMPRECISION:
         int y = get_int("y: ");
         float z = (float) x / (float) y;
 
-        printf("%.5f\n", z); -> %.1f (ou %.2f ... %.7f) é um tipo de formatação que informa quantas casas decimais queremos mostrar do resultado
+        printf("%.5f\n", z); // %.1f (ou %.2f ... %.7f) é um tipo de formatação que informa quantas casas decimais queremos mostrar do resultado
     }
 
     Mas um problema surge caso ultrapassemos a quantidade de 7 para o tipo float:
