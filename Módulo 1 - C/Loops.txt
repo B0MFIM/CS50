@@ -1,0 +1,69 @@
+LOOPS
+
+    LOOPS PERMITEM QUE NOSSO CÓDIGO SE REPITA VARIAS E VARIAS VEZES, SE NECESSÁRIO. SEM PRECISAR COPIAR E COLAR 
+    OU REPETI-LOS.
+
+    EXISTEM TRÊS TIPO PRINCIPAIS DE LOOPS
+
+    LOOP WHILE INFINITO:
+
+        while (true)
+        {
+            <code>
+        }
+
+        Nós chamamos isso de Loop Infinito. 
+        Todo código dentro desse loop, será executado repetidamente, de cima para baixo, até que seja interrompido.
+
+    LOOP WHILE:
+
+        while (boolean-expr)
+        {
+            <code>
+        }
+
+        De forma análoga, esse loop ira se repetir até que a expressão booleana deixe de ser verdadeira.
+
+    LOOP DO-WHILE:
+
+        DO
+        {
+            <code>
+        }
+        while (boolean-expr);
+
+        Semelhante ao anterior, ele irá repetir as linhas de código dentro do "do" e em seguida, verificará a 
+        expressão booleana. Caso seja True, o código irá se repetir novamente, até que a expr-bool seja falsa.
+        Portanto esse loop específico tem garantia de execução pelo menos uma vez. 
+
+    LOOP FOR:
+
+        for (int i = 0; i < 10; i++)                | for (start; bool-expr; increment)
+        {                                           | {
+            <code>                                  |     <code>
+        }                                           | }
+
+        Gerealmente, o caso de uso de um loop "for" é que você deseja repetir algo um número determinado de vezes.
+        No exemplo acima, tenho um bloco de repetição "for", que repetira o código 10 vezes. Contando de zero,
+        incrementamos cada passagem do loop. E continuamos fazendo isso até que "i" não seja menor que 10.
+
+        A primeira coisa que aconteceu foi que a variável do contador, que está à esquerda do primeiro ponto e vírgula,
+        entre parênteses, foi executada. Neste caso, estamos dizendo que "i é igual a 0".
+
+        A segunda coisa que fazemos é avaliar imediatamente a expressão booleana que está no centro, entre os dois
+        ponto e vírgula. Avaliamos se "i" é menor que "0", o que é verdade. Portanto, com essa expressão sendo
+        verdadeira, prosseguimos com a execução do corpo do loop, mas se fosse falso, o loop seria interrompido.
+
+        Então a terceira coisa acontece, após a execução do corpo do loop, a variável "i" é incrementada com +1. 
+        Ou seja, "i" que era igual a "0" agora passa a ser igual a "1". Todo esse processo se repete até que "i"
+        não seja menor que 10 e interrompa o loop.
+
+    ENTÃO QUAIS OS CASO DE USO DE UM LOOP?
+
+        WHILE - Use quando quiser que um loop se repita um número desconhecido de vezes, mas possivelmente não será
+        executada todas.
+
+        DO-WHILE - Use quando quiser um loop que se repita um número desconhecido de vezes, mas pelo meno uma vez.
+
+        FOR - Use quando quiser um loop que se repita um número discreto de vezes, embora talvez você não saiba o 
+        número de vezes no momento em que o programa é compilado.
