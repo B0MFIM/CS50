@@ -372,6 +372,96 @@ MARIO PROBLEM:
 
         # Dinâmico e sem redundâncias
 
+
 TRUNCATION:
 
+    retornamos ao calculator.c e se quisermos uma divisão:
+
+        int main(void)
+        {
+            int x = get_int("x: ");
+            int y = get_int("y: ");
+
+            printf("%i\n", x / y);
+        }
+
+        # mas esse código não funcionaria corretamente, pois ele iria imprimir apena o inteiro dessa equação
     
+    Podemos alterar a formatação %i do printf() para %f, assim exibir um resultado do tipo float:
+
+        printf("%f\n", x / y);
+
+        # mas também não funcionaria, pois o resultado dessa equação especifíca um tipo int e não um tipo float
+    
+    Logo podemos resolver da seguinte forma:
+
+        int main(void)
+        {
+            int x = get_int("x: ");
+            int y = get_int("y: ");
+            float z = x / y;
+
+            printf("%f\n", z);
+        }
+
+        # mas aqui teriamos outro problema, pois em C, se realizarmos uma divisão entre dois valores do tipo int, 
+          sempre resultará num resultado do tipo int, ignorando os valores do tipo float, descartando-o.
+
+        # chamamos esse tipo de problema de TRUNCATION (TRUNCAMENTO), o que significa que vai ser descartado
+
+    Logo chegamos na seguinte conclusão: Type Casting
+
+
+TYPE CASTING:
+
+    int main(void)
+    {
+        int x = get_int("x: ");
+        int y = get_int("y: ");
+        float z = (float) x / (float) y;
+
+        printf("%f\n", z);
+    }
+
+    # o que fizemos, foi converter, dentro da variável z, as variáveis x e y para o tipo float
+    # agora nosso programa roda corretamente, sem que o truncamento ocorra.
+    # chamamos isso de TYPE CASTING
+
+
+FLOATING-POINT IMPRECISION:
+
+    int main(void)
+    {
+        int x = get_int("x: ");
+        int y = get_int("y: ");
+        float z = (float) x / (float) y;
+
+        printf("%.5f\n", z); -> %.1f (ou %.2f ... %.7f) é um tipo de formatação que informa quantas casas decimais queremos mostrar do resultado
+    }
+
+    Mas um problema surge caso ultrapassemos a quantidade de 7 para o tipo float:
+
+        se calcularmos uma divisão de 1 / 3 e quando fossemos exibir com uma formatação de %.20f,
+        seria exibido:
+
+            0.33333334326744079590
+
+        o que não estaria correto, pois sabemos que o resultado seria de 0.3333333333333333333
+
+        # chamamos esse problema de FLOATING-POINT IMPRECISION.
+
+        pois para um tipo float, o computador só suporta 8 bits.
+
+    E se quisermos mostrar mais casas decimais, mudariamos o tipo float do código para tipo double:
+
+        int main(void)
+        {
+            int x = get_int("x: ");
+            int y = get_int("y: ");
+            double z = (double) x / (double) y;
+
+            printf("%.20f\n", z);
+        }
+
+        # teriamos mais 8 casas decimais adicionais para a precisão do valor, mas ao final teriamos o mesmo problema para as 4 ultimas casas,
+          pois o tipo double suporta apenas 16 bits.
