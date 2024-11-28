@@ -1,0 +1,81 @@
+COMMAND LINE
+
+    USANDO COMANDOS DE LINHA LINUX:
+
+        The CS50 IDE é uma máquina baseada em núvem que roda Ubuntu, que é um dos muitos sistemas operacionais Linux.
+        O Linux é o SO prefirido dos programadores.
+
+        Muitas distribuiçoes modernas do linux possuem interfaces gráficas de usuário, que também chamaos de GUI's,
+        para permitir uma navegação fácil baseada no mouse.
+
+        Ainda assim, como programador, e mesmo que o IDE contenha a capacidade de fazer algumas coisas gráficas do
+        usuário (clicar, arrastar etc...), ainda usaremos a janela do termina com bastante frequência. Podendo 
+        realizar muitas das mesmas tarefas que faria com um mouse com comandos de teclado.
+
+        Agora, esses comando podem ser usados em qualquer sistema operacional baseado em Unix, o que inclui Linux,
+        mas também inclui Mac OS. O Windows possui um Prompt de Comando, mas alguns dos comandos são um pouco
+        diferentes, então na verdade não funciona, porque windows não é um sistema baseado em Unix.
+
+    VAMOS AOS COMANDOS DE LINHA:
+
+        ls - é uma abreviação de "list", este comando faz uma leitura de todos os arquivos presentes no diretório atual.
+            
+            Exemplo: $ ls
+
+        cd <directory> - é uma abreviação de "change directory", este comando faz você mudar de diretório.
+            
+            Exemplo: $ cd Another_Directory
+
+            # apenas saiba que o diretório atual pode ser representado por um ponto "." - $ cd . - e se quisermos
+              retornar ao diretório anterior, um diretório acima do atual, digitamos - $ cd .. - apenas. Mas se
+              quisermos retornar ao diretório principal, precisamos apenas digitar - $ cd - sem mais nada.
+
+        mkdir <directory> - é uma abreviação de "make directory", este comando faz você criar um novo diretório
+        dentro do diretório atual.
+            
+            Exemplo: $ mkdir New_Directory
+
+        cp <source> <destination> - é uma abreviação de "copy", este comando faz você copias um arquivo.
+
+            Exemplo: $ cp Archive Archive_Copy
+
+            Se quisermos copiar um diretório inteiro para outro, modificamos um pouco esse comando para:
+
+                $ cp -r <source directory> <destination directory>
+
+        rm <file> - é uma abreviação de "remove", este comando deleta um arquivo, e confirma se você realmente deseja
+        realizar a ação.
+
+            Exemplo: $ rm Archive_Copy
+
+            Podemos pular a etapa de confirmação escrevendo:
+
+                $ rm -f <file>
+
+            E se for para deletar um diretório inteiro:
+
+                $ rm -r <directory>
+
+            Você pode combinar -r com -f:
+
+                $ rm -rf <directory>
+
+            Mas eu teria cuidado com este!
+
+        mv <source> <destination> - é uma abreviação de "move", move é basicamente equivalente a renomear. Ele move
+        um arquivo de um local para outro, da origem para o destino.
+
+            Exemplo: $ mv Archive New_Directory -> movendo o arquivo
+                     $ mv Archive Archive_2     -> renomeando o arquivo
+
+    OUTROS COMANDOS DE LINHA QUE EXISTEM SÃO:
+
+        chmod;
+        ln;
+        touch;
+        rmdir;
+        man;
+        diff;
+        sudo;
+        clear;
+        telnet.
