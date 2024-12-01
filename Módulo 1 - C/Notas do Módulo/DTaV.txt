@@ -90,7 +90,7 @@ SHORTS - DATA TYPES and VARIABLES
         Exemplos: 
             
             int número;
-            char 'letra';
+            char 'A';
 
         Se quisermos criar multiplas variáveis do mesmo tipo, podemos apenas especificar desta forma:
 
