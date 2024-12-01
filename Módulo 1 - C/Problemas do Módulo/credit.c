@@ -88,9 +88,8 @@ void validation_check(long number)
                 printf("AMEX\n");
             }
             else if (size == 16 &&
-                     (number / 100000000000000 == 51 || number / 100000000000000 == 52 ||
-                      number / 100000000000000 == 53 || number / 100000000000000 == 54 ||
-                      number / 100000000000000 == 55)) // Validate if it is the MasterCard card
+                     (number / 100000000000000 >= 51 ||
+                      number / 100000000000000 <= 55)) // Validate if it is the MasterCard card
             {
                 printf("MASTERCARD\n");
             }
