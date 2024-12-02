@@ -114,11 +114,11 @@ MEMORY
 
 ARRAYS
 
-    ARRAYS, OU MATRIZ, É UMA SEQUÊNCIA DE VALORES CONSECUTIVOS NA MEMÓRIA. PORTANTO, UM ARRAY É APENAS UM
+    ARRAYS, OU MATRIZES, É UMA SEQUÊNCIA DE VALORES CONSECUTIVOS NA MEMÓRIA. PORTANTO, UM ARRAY É APENAS UM
     PEDAÇO DE MEMÓRIO QUE ARMAZENA VALORES CONSECUTIVOS, DA ESQUERDA PARA A DIREITA, DE CIMA PARA BAIXO.
     SEM LACUNAS, SEM FRAGMENTAÇÃO, DO SEU CÓDIGO COMO NO EXEMPLO ACIMA.
 
-    ESSES ARRAYS EM C, PELO MENOS, FORNECERÃO UMA SINTAXE LIGEIRAMENTE NOVA:
+    ESSES ARRAYS EM C, FORNECERÃO UMA SINTAXE LIGEIRAMENTE NOVA:
 
         int scores[3];  // dê-me um array de tamanho 3
 
@@ -148,7 +148,90 @@ ARRAYS
     CONTARIAMOS '0, 1, 2, 3', PARA AS 4 POSIÇÕES, ASSIM COMO FIZEMOS COM SCORES[3] ACIMA, E SE TENTARMOS
     EXTRAPOLAR O MÁXIMO DE POSIÇÕES QUE DEFINIMOS, ALGUNS PROBLEMAS IRIAM SE GERADOS.
 
+    AINDA TEMOS UM PROBLEMA DE REDUNDÂNCIA, QUE PODEMOS RESOLVER DA SEGUINTE FORMA:
+
+        int main(void)
+        {
+            const int N = 3;
+            int scores[N];
+            int sum = 0;
+            for (int i = 0; i < N; i++)
+            {
+                scores[i] = get_int("Score: ");
+                sum += scores[i];
+            }
+
+            printf("Average: %f\n", sum / (float) N);
+        }
+
+    ASSIM REMOVEMOS TODAS AS REDUNDÂNCIAS ANTERIORES DO NOSSO CÓDIGO!
+
 
 STRINGS
 
+    UMA STRING É UMA MATRIZ (ARRAY) DE CARACTERES. E SABENDO DISSO, ASSIM COMO UM ARRAY, NÓS PODEMOS 
+    MANIPULÁ-LA. POR EXEMPLO:
+
+        string s = "HI!";
+        printf("%c%c%c\n", s[0], s[1], s[2]);
+
+    UMA STRING SEMPRE TEM UMA POSIÇÃO ADICIONAL AO FINAL, QUE NESSE CASO SERIA 's[3]', QUE REPRESENTA O VALOR '\0',
+    MAS POR QUE DISSO? PORQUE ISSO INFORMA AO COMPUTADOR QUE A STRING TERMINA POR ALI. E NESSE CASO, SE TENTARMOS
+    IMPRIMIR 's[3]', QUE EM UM ARRAY QUALQUER SERIA UM ERRO GRAVE, AQUI, APENAS NOS EXIBIRIA O VALOR '0', MAS É
+    CLARO, SE ULTRAPASSARMOS ELE, UM ERRO OCORRERÁ TAMBÉM. ESSE VALOR '0' AO FINAL TEM UM TERMO CONHECIDO, 
+    CHAMADO 'NUL', QUE É REPRESENTADO COMO '\0', COMO DISSE, INDICA O FIM DA STRING.
+
+    AGORA, VAMOS PARA OUTRO EXEMPLO:
+
+        string words[2];
+        words[0] = "HI!";
+        words[1] = "BYE!";
+        printf("%s %s", words[0], words[1]);
     
+    ACIMA, CRIAMOS UMA MATRIZ, DE 2 POSIÇÕES, ONDE CADA UMA ARMAZENDA UMA STRING, E SE FORMOS MAIS A FUNDO
+    PODEMOS MANIPULAR AINDA MAIS ESSA MATRIZ:
+
+        string words[2];
+        words[0] = "HI!";
+        words[1] = "BYE!";
+        printf("%c%c%c", words[0][0], words[0][1], words[0][2]);
+        printf("%c%c%c%c", words[1][0], words[1][1], words[1][2], words[1][3]);
+
+    CHAMAMOS ISSO DE MATRIZ DE MATRIZES (ARRAY DE ARRAYS), E É DESSA FORMA QUE O MANIPULAMOS.
+
+    STRING LENGTH:
+
+        int main(void)
+        {
+            string name = get_string("Name: ");
+
+            int length = 0;
+            while (name[length] != '\0')
+            {
+                length++;
+            }
+
+            printf("%i\n", length);
+        }
+
+    O CÓDIGO ACIMA VERIFICA PARA NÓS O TAMANHO DE UMA STRING QUE DIGITARMOS E NOS RETORNA SEU VALOR DO TAMANHO
+    NUM TIPO INTEIRO. 
+
+    MAS É CLARO QUE ALGUEM MUITO ANTES DE NÓS, JA ESCREVEU TODA UMA BIBLIOTECA QUE TRABALHA COM STRINGS, E QUE
+    TAMBEM POSSUI UMA FUNÇÃO QUE CALCULA PARA NÓS O TAMANHO DE UMA STRING. O NOME DESSA BIBLIOTECA É 'STRING.H'
+    E ESSA FUNÇÃO ESPECÍFICA SE CHAMA 'STRLEN'.
+
+    E PODEMOS RESUMIR O CÓDIGO ANTERIOR A ISSO:
+
+        #include <cs50.h>
+        #include <stdio.h>
+        #include <string.h>
+
+        int main(void)
+        {
+            string name = get_string("Name: ");
+            int length = strlen(name);
+            printf("%i\n", length);
+        }
+
+    TEMOS UMA FUNÇÃO PRONTINHA PARA USO.
