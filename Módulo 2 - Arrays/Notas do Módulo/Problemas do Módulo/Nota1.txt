@@ -63,3 +63,92 @@ COMPILING
 
 DEBUGGING
 
+    DEBUGGING, OU DEPURAÇÃO, É UMA FERRAMENTA QUE AJUDA O PROGRAMADOR ENCONTRAR ERROS LÓGICOS E PROGRAMÁTICOS 
+    EM SEU CÓDIGO COMPILADO. 
+
+    DEBUG50 É UM DEPURADOR DO CURSO CS50, QUE USAREMOS.
+    BASTA DIGITAR O SEGUINTE COMANDO DE LINHA:
+
+        'debug50 ./hello'
+
+    E O DEPURADOR VAI SER EXECUTADO JUNTO COM O SEU CÓDIGO. CLARO QUE PARA ISSO DEVE-SE DEFINIR UM PONTO DE
+    INTERRUPÇÃO EM SEU CÓDIGO, POR ONDE O DEPURADOR IRÁ "INTERROMPER" O SEU CÓDIGO PARA QUE VOCÊ VEJA CADA
+    DETALHE DE LINHA PROGRAMADA POR VOCÊ.
+
+
+MEMORY
+
+    bool    - 1 byte
+    int     - 4 bytes
+    long    - 8 bytes
+    float   - 4 bytes
+    double  - 8 bytes
+    char    - 1 byte
+    string  - ? bytes
+    ...
+
+    CADA TIPO DE DADO APRESENTADO SE UTILIZA DE UM, OU MAIS, ESPAÇO DE MEMÓRIA DO NOSSO COMPUTADOR. PODEMOS
+    REPRESENTAR ESSA MEMÓRIA COMO UMA GRADE DE 8X8, CADA QUADRADO REPRESENTARIA UM BYTE DE MEMÓRIA, OU SEJA,
+    UM VALOR DO TIPO LONG ESTARIA OCUPADO UMA LINHA INTEIRA DE 8 BYTES DE MEMÓRIA DA NOSSA GRADE. ENQUANTO,
+    UM TIPO CHAR ESTARIA USANDO APENAS 1 BYTE DESSA MEMÓRIA.
+
+    SCORES.C
+
+        int main(void)
+        {
+            int score1 = 72; // Essa e as outra duas variáveis estariam ocupando 4 bytes de memória.
+            int score2 = 73;    O que daria num total de 12 bytes de memória sendo utilizadas.
+            int score3 = 33;
+
+            printf("Averege %f\n", (score1 + score2 + score3) / 3.0); // Se tivermos um número de ponto flutuante, 
+                                                                         toda nossa conta será um valor do tipo float,
+                                                                         não necessáriamente tendo que converte-los
+                                                                         para float.
+        }
+
+    MAS E SE TIVERMOS MAIS VALORES 'SCORE' PARA SER SOMADOS? TERIAMOS QUE CRIAR OUTRAS VARIÁVEIS E ASSIM POR DIANTE.
+    POREM, ESTARIAMOS GERANDO UM PROBLEMA DE REDUNDÂNCIA, UMA FRAGMENTAÇÃO DESNECESSÁRIA DO NOSSO CÓDIGO. POR ISSO,
+    TEMOS UM TIPO DE SINTAXE QUE PODE ARMAZENAR QUANTAS "VARIÁVEIS/INFORMAÇÕES" FOREM NECESSÁRIAS, O QUE CHAMAMOS DE
+    ARRAYS.
+
+
+ARRAYS
+
+    ARRAYS, OU MATRIZ, É UMA SEQUÊNCIA DE VALORES CONSECUTIVOS NA MEMÓRIA. PORTANTO, UM ARRAY É APENAS UM
+    PEDAÇO DE MEMÓRIO QUE ARMAZENA VALORES CONSECUTIVOS, DA ESQUERDA PARA A DIREITA, DE CIMA PARA BAIXO.
+    SEM LACUNAS, SEM FRAGMENTAÇÃO, DO SEU CÓDIGO COMO NO EXEMPLO ACIMA.
+
+    ESSES ARRAYS EM C, PELO MENOS, FORNECERÃO UMA SINTAXE LIGEIRAMENTE NOVA:
+
+        int scores[3];  // dê-me um array de tamanho 3
+
+    AQUI ESTAMOS DEFININDO UMA VARIÁVEL, COMO OUTRAS, COM UM DIFERENCIAL DE QUE QUEREMOS TRÊS NÚMEROS INTEIROS 
+    GUARDADOS NESSA VARIÁVEL, REPRESENTADO PELO '[3]' NA SINTAXE ACIMA. O QUE ESTOU FAZENDO É DIZENDO AO 
+    COMPILADOR QUE ME DÊ ESPAÇO SUFICIENTE PARA NÃO UM, NÃO DOIS, MAS TRÊS INTEIROS NO TOTAL. 
+
+    AGORA ATRIBUIR VALORES A ESSAS VARIÁVEIS É QUASE O MESMO, MAS A SINTAXE É SEMELHANTE A ESTA:
+
+        scores[0] = 72;     // entre neste array na posição '0' e atribua o valor '72'.
+        scores[1] = 73;     // entre neste array na posição '1' e atribua o valor '73'.
+        scores[2] = 33;     // entre neste array na posição '2' e atribua o valor '33'.
+
+    AAGORA VOLTEMOS AO NOSSO CÓDIGO:
+
+        int main(void)
+        {
+            int scores[3]; // definindo um array
+            scores[0] = 72; 
+            scores[1] = 73;    
+            scores[2] = 33;
+
+            printf("Averege %f\n", (scores[0] + scores[1] + scores[2]) / 3.0);
+        }
+
+    PERCEBA QUE TODO ARRAY, SEMPRE COMEÇA 'CONTANDO' A PARTIR DE ZERO, OU SEJA, SE TENHO UM ARRAY DE TAMANHO 4,
+    CONTARIAMOS '0, 1, 2, 3', PARA AS 4 POSIÇÕES, ASSIM COMO FIZEMOS COM SCORES[3] ACIMA, E SE TENTARMOS
+    EXTRAPOLAR O MÁXIMO DE POSIÇÕES QUE DEFINIMOS, ALGUNS PROBLEMAS IRIAM SE GERADOS.
+
+
+STRINGS
+
+    
