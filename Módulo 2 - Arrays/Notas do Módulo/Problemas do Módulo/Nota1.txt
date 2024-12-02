@@ -235,3 +235,133 @@ STRINGS
         }
 
     TEMOS UMA FUNÇÃO PRONTINHA PARA USO.
+
+    TEMOS TAMBEM OUTRA BIBLIOTECA CHAMADA 'CTYPE.H', QUE TRABALHA COM ALTERAÇÕES DE CARACTERES. COMO POR EXEMPLO,
+    ALTERAR MINÚSCULAS PARA MAIÚSCULAS E VICE VERSA. EXEMPLO:
+
+        #include <cs50.h>
+        #include <ctype.h>
+        #include <stdio.h>
+        #include <string.h>
+
+        int main(void)
+        {
+            string s = get_string("Before: ");
+            printf("After:  ");
+            for (int i = 0, n = strlen(s); i < n; i++)
+            {
+                printf("%c", toupper(s[i])); // função que altera minúsculas para maiúsculas
+            }
+            printf("\n");
+        }
+
+
+COMMAND-LINE ARGUMENTS IN 'MAIN'
+
+    EXEMPLO GREET.C:
+
+        int main(int argc, string argv[])
+        {
+            printf("Hello, %s\n", argv[1]);
+        }
+
+    QUANDO FORMOS EXECUTAR O PROGRAMA './GREET' ELE EXIBIRÁ APENAS 'Hello, (null)', MAS SE NO COMMAND-LINE './'
+    ESCREVERMOS './GREET PEDRO' ELE EXIBIRÁ 'Hello, Pedro'. POIS ADICIONAMOS UM "ARGUMENTO" NO 'PEDRO' NO 
+    COMMAND-LINE, QUE A FUNÇÃO 'MAIN' IRÁ RECEBER POIS DECLARAMOS ARGUMENTOS/PARÂMETOS NELA.
+
+    E SE 'argv[]' DENTRO DO PRINTF FOR A POSIÇÃO '0', ELE EXIBIRIA, AO USARMOS './GREET PEDRO', 'Hello, ./greet'.
+    POIS ELES ESTÁ PEGANDO O PRIMEIRO ARGUMENTO AGORA E NÃO O SEGUNDO COMO FAZ O CÓDIGO ACIMA.
+
+            // int argc, é a quantidade de argumentos na linha de comando do terminal
+            // string argv[] é um array que armazena os argumentos usados na linha de comando do terminal
+
+    AGORA COM O PROGRAMA SEGUINTE, SEMPRE QUE NÃO DIGITARMOS 2 ARGUMENTO OU MAIS DE 2, AO INVEZ DE SE IMPRIMIR
+    NA TELA (null), ELE EXIBIRA O QUE NÓS QUEREMOS, VEJA:
+
+        int main(int argc, string argv[])
+        {
+            if (argc == 2)
+            {
+                printf("Hello, %s\n", argv[1]);
+            }
+            else
+            {
+                printf("Hello, World\n");
+            }
+        }
+
+    O QUE ESTAMOS FAZENDO É IGNORANDO QUALQUER LINHA DE COMANDO ./ QUE POSSUA MENO, OU MAIS, QUE 2 ARGUMENTOS.
+
+    PODEMOS TAMBEM OTIMIZAR ESSE CÓDIGO USANDO UM LOOP:
+
+        int main(int argc, string argv[])
+        {
+            for (int i = 0; i < argc; i++)
+            {
+                printf("%s\n", argv[i]);
+            }
+        }
+
+    O QUE ESTAMOS FAZENDO AGORA É PEGANDO TODO E QUALQUER ARGUMENTO DA LINHA DE COMANDO DO TERMINAL E EXIBINDO
+    NA TELA SEPARADAMENTE.
+
+
+EXIT STATUS
+
+    SECRETAMENTE, TODO PROGRAMA TEM O QUE CHAMAMOS DE 'STATUS DE SAÍDA'. É COMO UM VALOR DE RETORNO ESPECIAL DO
+    PRÓPRIO PROGRAMA QUE POR PADRÃO É '0'. ZERO GERALMENTE SIGNIFICA QUE ESTA TUDO BEM COM O PROGRAMA, SE ELE RETORNA
+    QUALQUER OUTRO VALOR INTEIRO POSITIVO OU NEGATIVO, É PORQUE HÁ ALGUM PROBLEMA NA EXECUÇÃO DO CÓDIGO.
+
+    VEJAMOS UM EXEMPLO: 
+
+        int main(int argc, string argv[])
+        {
+            if (argc != 2)
+            {
+                printf("Missing command-line argument\n");
+                return 1;
+            }
+            printf("Hello, %s\n", argv[1]);
+            return 0;
+        }
+
+    O QUE ESTAMOS FAZENDO AQUI É SIMPLES, SE NA LINHA DE COMANDO A QUANTIDADE DE ARGUMENTOS FOR DIFERENTE DE 2
+    A FUNÇÃO MAIN RETORNARÁ '1' E EXIBIRÁ UM "ERRO", SE NÃO ELE VAI RETORNAR '0' E SEGUIR COM O PROGRAMA.
+
+    ISSO É ALGO MUITO COMUM, E EM MUITOS LUGARES PODE SE VER ISSO, COMO O EXEMPLO 'ERROR 404' QUE VEMOS EM ALGUNS
+    SITES, QUE SIGNIFICA 'PÁGINA NÃO ENCONTRADO'.
+
+    ISSO TAMBEM PODE SER UTIL PARA COISAS QUE NÃO SEJAM APENAS 'COMMAND-LINE ARGUMENTS'.
+
+
+CRYPTOGRAPHY
+
+    CRYPTOGRAPHY É A ARTE E CIÊNCIA DE CRIPTOGRAFAR. 
+
+    ENCRYPTION - SIGNIFICA EMBARALHAR AS INFORMAÇÕES PARA QUE SOMENTE VOCÊ E O DESTINATÁRIO POSSAM RECEBE-LA.
+
+              KEY \
+        PLAINTEXT  ->  CIPHER  -> CIPHERTEXT
+
+            // PLAINTEXT é qualquer mensagem escrita que você deseja enviar e escrever.
+            // CIPHER é um algoritmo para criptografar ou embaralhar informações de forma reversível.
+            // CIPHERTEXT é o que você deseja converte-lo antes de entrega-lo a um grupo de estranhos.
+
+            // KEY é um grande número como se fosse a chave do seu texto cifrado.
+
+        EXEMPLOS:
+
+            HI!  ->  CIPHER  -> IJ!
+              1 /
+
+            I LOVE YOU  ->  CIPHER  -> V YBIR LBH
+                    13 /
+
+            // o que estamos usando acima se chama cifra de cesar, uma cifra matemática, atualmente fraca.
+
+    DECRYPTION - SIGNIFICA DESEMBARALHAR AS INFORMAÇÕES.
+    
+        EXEMPLOS:
+
+            UIJT XBT DT50  ->  CIPHER  ->  THIS WAS CS50
+                       -1 /
