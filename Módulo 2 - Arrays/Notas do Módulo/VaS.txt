@@ -60,4 +60,80 @@ VARIABLES AND SCOPE
         O VALOR DE 'GLOBAL' POR 3, O QUE DEFINE SEU VALOR PARA '1.5 ... ALGUMA COISA' E ENTÃO MAIN IMPRIME O VALOR
         DE 'GLOBAL'.
 
-    
+        É SEMPRE BOM TER CUIDADO AO TRABALHAR COM VARIÁVEIS GLOBAIS, EMBORA SEJAM MUITO FLEXÍVEIS NA CAPACIDADE DE
+        TRANSMITIR INFORMAÇÕES PARA QUE TODAS AS FUNÇÕES POSSAM USÁ-LA, ISSO TAMBÉM PODE TER ALGUMAS CONSEQUÊNCIAS
+        PERIGOSAS SE UMA FUNÇÃO ALTERAR O VALOR DE UMA VARIÁVEL ANTES QUE VOCÊ ESPERA QUE ELA SEJA ALTERADA.
+
+    MAS POR QUE ESSA DISTINÇÃO IMPORTA?
+
+        NA MAIOR PARTE, VARIÁVEIS LOCAIS EM C SÃO O QUE CHAMAMOS DE 'PASSED BY VALUE' QUANDO FAZEMOS UMA CHAMADA DE
+        FUNÇÃO. QUANDO UMA VARIÁVEL É PASSED BY VALUE, O RECEPTOR (CALLEE - FUNÇÃO QUE RECEBE UMA VARIÁVEL), NA 
+        VERDADE NÃO RECEBE ESSA VARIÁVEL EM SI. ELA RECEBE SUA PRÓPRIA CÓPIA PARA TRABALHAR. ESTA É UMA DISTINÇÃO
+        MUITO IMPORTANTE.
+
+        ACABOS DE VER QUE, COM VARIÁVEIS GLOBAIS, SE MANIPULARMOS ELAS EM ALGUMA FUNÇÃO, O EFEITO NESSA FUNÇÃO SE
+        ESTENDE A TODAS AS OUTRAS. O QUE NÃO OCORRE COM VARIÁVEIS LOCAIS, POIS CADA FUNÇÃO QUE RECEBE UMA VARIÁVEL
+        DE ENTRADA, RECEBE CÓPIAS DESSA VARIÁVEL, NÃO AS VARIÁVEIS EM SI. ISSO SIGNIFICA QUE A VARIÁVEL NO CALLER
+        (CHAMADOR), A FUNÇÃO QUE ESTA FAZENDO UMA CHAMADA, PERMANECE INALTERADA, A MENOS QUE VOCÊ A SUBSTITUA.
+
+        POR EXEMPLO:
+
+            int main(void)
+            {
+                int foo = 4;
+                triple(foo);
+            }
+
+            int triple(int x)
+            {
+                return x *= 3;
+            }
+
+            NESTE CÓDIGO, PERCEBA QUE 'FOO' NÃO FOI ALTERADO EM NADA.
+
+        DIFERENTEMENTE DESTE CÓDIGO:
+
+            int main(void)
+            {
+                int foo = 4;
+                foo = triple(foo);
+            }
+
+            int triple(int x)
+            {
+                return x *= 3;
+            }
+
+            UMA DIFERENÇÃ BEM SUTIL, MAS AGORA, TEMOS O EFEITO QUE DESEJAMOS, 'FOO' TEVE SEU VALOR ALTERADO. ISSO
+            OCORRE POIS ESTAMOS SUBSTITUINDO 'FOO' DENTRO 'MAIN' DESTA VEZ.
+
+    ESCOPO DE VARIÁVEL
+
+        GERALMENTE, ESCOPO DE VARIÁVEL, NÃO É UM GRANDE PROBLEMA SE VOCÊ NOMEAR TODAS AS VARIÁVEIS COM COISAS
+        DIFERENTES. MAS PODE FICAR MEIO DESAGRADÁVEL SE O MESMO NOME DE VARIÁVEL APARECER EM MULTIPLAS FUNÇÕES,
+        O QUE ACONTECERÁ COM FREQUÊNCIA.
+
+        VEJAMOS UM EXEMPLO:
+
+            int increment(int x);
+
+            int main(void)
+            {
+                int x = 1;
+                int y;
+                y = increment(x);
+                printf("x is %i, y is %i\n", x, y);
+            }
+
+            int increment(int x)
+            {
+                x++;
+                return x;
+            }
+            
+            SERÁ IMPRIMIDO AO FINAL: X IS 1, Y IS 2. 
+
+            O PROBLEMA DESSE CÓDIGO, É QUE EM AMBAS AS FUNÇÕES TEMOS UMA VARIÁVEL DE MESMO NOME, 'X', E O CERNE DESTA
+            QUESTÃO É DESCOBRIR QUAL 'X' É ALTERADO, QUE NESSE CASO, É APENAS 'X' DA FUNÇÃO 'INCREMENT'. POR ISSO, 'Y'
+            RECEBE O RETORNO DA FUNÇÃO 'INCREMENT' COMO SEU VALOR E DEPOIS SERÁ IMPRESSO QUE 'X IS 1, Y IS 2'. POIS 'X'
+            DA FUNÇÃO 'MAIN' PERMANECE INALTERADO.
