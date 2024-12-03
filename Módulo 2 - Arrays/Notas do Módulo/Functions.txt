@@ -1,0 +1,215 @@
+FUNCTIONS
+
+    UMA FUNÇÃO É, NADA MAIS NADA MENOS QUE, UMA CAIXA PRETA QUE POSSUI UM CONJUNTO DE ZERO OU MAIS ENTRADAS EM UMA ÚNICA SAÍDA.
+
+    EXEMPLO:
+
+        a     b     c
+
+        |     |     | 
+
+        func(a, b, c)   ->   z
+
+        // Isso pode ser uma função, que recebe 3 entradas (a, b, c) e dentro dessa função ela processa essas entradas
+           e retorna uma saída 'z'
+
+    AGORA UM POUCO SEm ABSTRAÇÃO TEMOS:
+
+        3    6    7
+
+        |    |    | 
+
+        add(a, b, c)   ->   16
+
+        // Agora temos uma função 'add', onde dentro dela há o processo de soma dos 3 valores de entrada que ela recebe
+           o que retorna, no exemplo acima, '16'.
+
+    SIMILAR NÓS TEMOS: 
+
+        4        5
+
+        |        | 
+
+        mult(a, b)   ->   20
+
+        // Agora temos uma função 'mult', que processa duas entradas provavelmente multiplicando os valores recebidos,
+           o que retorna, no exemplo acima, '20'.
+
+    POR QUE SÃO CHAMAMOS DE CAIXA PRETA?
+
+        // Se nós não estamos construindo as funções nós mesmos, não precisamos saber como elas realmente são 
+           implementadas nos bastidores, e por isso nós a chamamos as vezes assim.
+
+    POR QUE USAR FUNÇÕES?
+
+        1. Organização
+
+            // Funções nos permitem organizar coisas e dividir um problema muito complicado em subpartes muito mais 
+               gerenciáveis.
+
+        2. Simplificação
+
+            // Funções também nos ajudam a simplificar o processo de codificação, deixando nossos componentes com 
+               melhor design e implementação. Sendo muito mais fácil depurar uma função de 10 linhas do que uma função 
+               de 100 linhas.
+
+        3. Reutilização
+
+            // Ao escrevermos funções, podemos reutilizá-las em varias diferentes partes, e em outros programas, se 
+               necessário. Como nós ja escrevemos ela, tudo que precisamos fazer é dizer ao programa onde encontrar 
+               essa função.
+
+FUNCTIONS DECLARATIONS
+
+    QUANDO VOCÊ DECLARA UMA FUNÇÃO, OQUE VOCÊ ESTÁ FAZENDO BASICAMENTE É DIZER AO COMPILADOR "HEI, ESTOU CRIANDO UMA 
+    FUNÇÃO, E ELA FARÁ ISSO". A RAZÃO PARA ISSO É PORQUE OS COMPILADORES PODEM FAZER ALGUMAS COISAS ESTRANHAS SE VIREM 
+    UM CONJUNTO DE SÍMBOLOS COM OS QUAIS NÃO ESTÃO FAMILIARIZADOS.
+
+    DECLARAÇÕES DE FUNÇÃO, SE VOCÊ ESTIVER ORGANIZANDO SEU CÓDIGO DE UMA FORMA QUE UMAS OUTRAS POSSAM ENTENDER E USAR,
+    VOCÊ GERALMENTE DESEJA COLOCAR TODAS AS SUAS DECLARAÇÕES NO TOPO DO SEU CÓDIGO, LOGO ANTES DE COMEÇAR A ESCREVER 
+    O 'main'. E CONVENIENTEMENTE, HÁ UM FORMATO MUITO PADRÃO QUE TODA DECLARAÇÃO DE FUNÇÃO SEGUE.
+
+    TODOS ELES SE PARECEM COM ISSO:
+
+        return-type name(argument-list);
+
+            return-type -> é qual o tipo de variável a função vai gerar e retornar.
+
+            name -> é como você vai chamar sua função.
+
+            argument-list -> é a lista separada por vírgulas de todas as entradas da sua função, cada uma delas com
+                             um tipo e um nome.
+
+    VAMOS PARA UM EXEMPLO:
+
+        int add_two_ints(int a, int b);
+
+            // Aqui temos uma função, nomeada "add_two_ints" com duas entradas do tipo int 'a' e 'b', que somaria esses
+               dois números e retornaria um valor inteiro.
+
+FUNCTIONS DEFINITIONS
+
+    AGORA VAMOS DE FATO ESCREVER E DEFINIR UMA FUNÇÃO, E PARA DEFINIR UMA FUNÇÃO FAZEMOS O SEGUINTE:
+
+        return-type name(argument-list)
+        {
+            // Features
+        }
+
+            // Não muito diferente da declaração, a definição tem a mesma linha de declaração, mas sem ';' e com
+               duas chaves '{}' nas linhas abaixo onde dentro ficará a funcionalidade da função.
+
+    VAMOS PEGAR O EXEMPLO ANTERIOR 'add_two_types':
+
+        int add_two_ints(int a, int b); // Aqui temos a declaração da função, acima do 'main'
+
+        ...
+
+        int add_two_ints(int a, int b) // Aqui temo a definição da função, abaixo do 'main'
+        {
+            int sum = a + b;
+            return sum; // output da função
+        }
+    
+    E SE QUISERMOS UMA FUNÇÃO QUE IRÁ MULTIPLICAR DOIS NÚMEROS REAIS:
+ float mult_two_reals(float x, float y); // Aqui temos a declaração da função, acima do 'main'
+
+        ...
+
+        float mult_two_reals(float x, float y) // Aqui temo a definição da função, abaixo do 'main'
+        {
+            return x * y; // output da função
+        }
+
+FUNCTION CALLS
+
+    PARA CHAMAR UMA FUNÇÃO É BEM SIMPLES, TUDO QUE PRECISA SER FEITO É PASSAR OS ARGUMENTOS APROPRIADOS, ARGUMENTOS
+    DO TIPO DE DADOS QUE ELE ESPERA, E ENTÃO ATRIBUIR O VALOR DE RETORNO DESSA FUNÇÃO PARA ALGO DO TIPO CORRETO.
+
+    VAMOS PARA UM EXEMPLO, COM O QUE JA FIZEMOS ANTES. COMO CHAMARIAMOS, DENTRO DO MAIN (OU OUTRA FUNÇÃO),
+    A FUNÇÃO 'mult_two_reals':
+
+        int add_two_ints(int a, int b); // Declaração da Função
+
+        int main(void)
+        {
+            float x = 3.0;
+            float y = 2.0;
+            float mult_float = mult_two_reals(x, y) // Chamada da função
+        }
+
+        float mult_two_reals(float x, float y) // Definição da Função
+        {
+            return x * y;
+        }
+
+FUNCTION MISCELLANY
+
+    AS VEZES, AS FUNÇÕES NÃO ACEITAM ENTRADAS. SE ESSE FOR O CASO, DECLAREMOS UMA FUNÇÃO COMO TENDO UMA LISTA DE
+    ARGUMENTOS NULA. UM EXEMPLO QUE USAMOS MUITAS VEZES QUE POSSUI ARGUMENTOS NULOS É 'main', E '(void)' SIGNIFICA
+    ARGUMENTO NULO, VAZIO.
+
+    AS VEZES, TAMBÉM, UMA FUNÇÃO NÃO TEM RETORNO ALGUM, NENHUM OUTPUT. E NESSE CASO, DECLARAMOS E DEFINIMOS A FUNÇÃO
+    COMO TENDO UM TIPO DE RETORNO 'void'.
+
+    VEJA UNS EXEMPLOS DISSO: 
+
+        void function(void);   |    void function(int x);   |   int function(void);
+                               |                            |   
+        ...                    |    ...                     |   ...
+                               |                            |   
+        void function(void)    |    void function(int x)    |   int function(void)
+        {                      |    {                       |   {
+            ...                |        ...                 |       ...
+        }                      |    }                       |   }
+
+PRACTICE PROBLEM
+
+    AGORA VAMOS IMPLEMENTAR UM PROGRAMA QUE TENHA UMA FUNÇÃO QUE FAZ A VALIDAÇÃO DE UM TRIANGULO, OU SEJA, 
+    SE ELE FOR UM TRIANGULO POSSÍVEL OU IMPOSSÍVEL DE SER FEITO, NESSE CASO ESSA FUNÇÃO NOS RETORNARIA UM
+    TIPO BOOL (TRUE OR FALSE). 
+
+    EXERCÍCIO FEITO: 
+
+        #include <cs50.h>
+        #include <stdio.h>
+
+        #define SIDES 3
+
+        bool valid_triangle(float a, float b, float c);
+
+        int main(void)
+        {
+            float triangle[SIDES];
+            for (int i = 0; i < SIDES; i++)
+            {
+                triangle[i] = get_float("Size %i: ", i + 1);
+            }
+
+            bool valid = valid_triangle(triangle[0], triangle[1], triangle[2]);
+
+            if (valid == true)
+            {
+                printf("True Triangle\n");
+            }
+            else
+            {
+                printf("False Triangle\n");
+            }
+        }
+
+        bool valid_triangle(float a, float b, float c)
+        {
+            if ((a + b <= c) || (a + c <= b) || (b + c <= a))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+    UM PROGRAMA QUE RECEBE 3 VALORES 'SIDES' DO USUÁRIO E DECLARA NOS PARÂMENTRO DA FUNÇÃO 'VALID_TRIANGLE' QUE
+    VERIFICA SE ESTE TRIÂNGULO HIPOTÉTICO É POSSÍVEL OU NÃO, NOS RETORNANDO UM VALOR DE VERDADEIRO OU FALSO, QUE
+    DENTRO DO 'MAIN' É GUARDADA NA VARIÁVEL 'VALID', E DEPOIS IMPRIME NA TELA 'TRUE TRIANGLE' OU 'FALSE TRIANGLE'.
