@@ -1,0 +1,63 @@
+VARIABLES AND SCOPE
+
+    A MEDIDA QUE SE COMEÇA A TRABALHAR COM FUNÇÕES OUTRA COISA SE TORNARÁ MUITO IMPORTANTE DE ENTENDER QUE É O 
+    CONCEITO DE ESCOPO DA VARIÁVEL. PORTANTO, ESCOPO É UMA CARACTERÍSTICA DE UMA VARIÁVEL QUE DEFINE A PARTIR
+    DE QUAIS FUNÇÕES ESSA VARIÁVEL PODE SER ACESSADA.
+
+    EXISTEM DOIS ESCOPOS PRINCIPAIS EM C:
+
+        VARIÁVEIS LOCAIS
+
+            Variáveis locais só podem ser acessadas dentro das funções nas quais foram criadas. Elas não podem
+            ser acessadas por outras funções existentes no seu programa, apenas na função em que ela foi criada.
+
+        
+        VARIÁVEIS GLOBAIS
+
+            As variáveis globais, por outro lado, podem ser acessadas por qualquer função do programa. E a razão 
+            para isso é porque elas não foram criadas dentro de funções. Significa que cada função sabe onde está
+            e pode acessa-la e manipulá-la.
+
+    ATÉ AGORA NO CURSO NÓS TRABALHAMOS APENAS COM VARIÁVEIS LOCAIS, ABAIXO UM EXEMPLO DE UMA FUNÇÃO 'MAIN' MUITO
+     SIMPLES E DE UMA FUNÇÃO ADICIONAL MUITO SIMPLES: 
+
+        int main(void)
+        {
+            int result = triple(5);
+        }
+
+        int triple(int x)
+        {
+            return x * 3;
+        }
+    
+        NESSE CASO, X, É UMA VARIÁVEL LOCAL PARA A FUNÇÃO 'TRIPLE', 'MAIN' NÃO PODE SE REFERIR A 'X' DE FORMA ALGUMA.
+        NÃO SABE O QUE É, ASSIM COMO OUTRAS FUNÇÕES.
+
+        DA MESMA FORMA, RESULT, É UMA VARIÁVEL LOCAL APENAS PARA A FUNÇÃO 'MAIN', APENAS 'MAIN' SABE QUAL O RESULTADO
+        DA VARIÁVEL. 'TRIPLE', E OUTRAS FUNÇÕES, NÃO PODEM USA-LO.
+
+    AGORA, COMO MENCIONADO, VARIÁVEIS GLOBAIS EXISTEM. SE VOCÊ DECLARAR ESSA VARIÁVEL FORA DE QUALQUER FUNÇÃO, TODAS
+     AS FUNÇÕES DO PROGRAMA PODEM FAZER REFERÊNCIA A ELA. ABAIXO UM EXEMPLO:
+
+        float global = 0.5050;
+
+        int main(void)
+        {
+            triple();
+            printf("%f\n", global);
+        }
+
+        void triple(void)
+        {
+            global *= 3;
+        }
+
+        NESSE CASO, DECLAREI UMA VARIÁVEL GLOBAL CHAMADA 'GLOBAL' DO TIPO FLOAT E ATRIBUO A ELE O VALOR '0.5050'.
+        VOCÊ PODE REPARAR QUE EM 'MAIN' E EM 'TRIPLE' POSSO ME REFERIR A 'GLOBAL'.
+
+        E DE FATO, SE EU PERCORRER O PROGRAMA CONFORME INDICADO, MAIN PRIMEIRO CHAMA TRIPLE, TRIPLE MULTIPLICARÁ
+        O VALOR DE 'GLOBAL' POR 3, O QUE DEFINE SEU VALOR PARA '1.5 ... ALGUMA COISA' E ENTÃO MAIN IMPRIME O VALOR
+        DE 'GLOBAL'.
+
+    
