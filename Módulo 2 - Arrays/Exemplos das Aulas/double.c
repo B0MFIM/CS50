@@ -4,13 +4,13 @@
 int main(void)
 {
     // variável constante
-    const int L = 6;
+    const int SIZE = get_int("Size: ");
 
     // array 'sequence' com 'L' posições
-    int sequence[L];
+    int sequence[SIZE];
 
     // loop para acessar as outras posições do array
-    for (int i = 0; i < L; i++)
+    for (int i = 0; i < SIZE; i++)
     {
         if (i == 0)
         {
