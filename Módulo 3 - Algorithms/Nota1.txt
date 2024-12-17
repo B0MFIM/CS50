@@ -71,3 +71,68 @@ RUNNING TIME // BIG O NOTATION // Ω NOTATION // Θ NOTATION
 
     'Θ NOTATION', REPRESENTA QUE O LIMITE INFERIOR E SUPERIOR DO ALGORITMO SÃO IGUAIS, OU SEJA, NO MELHOR E NO PIOR
     DOS CASOS O ALGORITMO LEVA O MESMO NÚMERO DE PASSOS.
+
+
+SEARCH.C 
+
+    int main(void)
+    {
+        int numbers[] = {20, 500, 10, 5, 100, 1, 50};
+        int n = get_int("Number: ");
+        for (int i = 0; i < 7; i++)
+        {
+            if (numbers[i] == n)
+            {
+                printf("Found\n");
+                return 0;
+            }
+        }
+        printf("Not found\n");
+        return 1;
+    }
+
+    NO PROGRAMA ACIMA, NÓS USAMOS UM ALGORITMO DE BUSCA DE FORMA LINEAR PARA ENCONTRAR UM DENTERMINADO NÚMERO, DIGITADO
+    PELO USUÁRIO, QUE ESTEJA, OU NÃO DENTRO DO ARRAY.
+
+    E SE APLICARMOS ISSO PARA UM ARRAY DE STRINGS:
+
+    int main(void)
+    {
+        string strings[] = {"banana", "abacaxi", "melancia", "manga", "cebola", "cenoura", "uva"};
+        string s = get_string("Number: ");
+        for (int i = 0; i < 7; i++)
+        {
+            if (strings[i] == s)
+            {
+                printf("Found\n");
+                return 0;
+            }
+        }
+        printf("Not found\n");
+        return 1;
+    }
+
+    MAS PERCEBA QUE HÁ UM BUG NO RESULTADO DO PROGRAMA POIS ELE SEMPRE RESPONDERÁ "NOT FOUND", POR QUE? PORQUE NÃO SE
+    PODE COMPARAR STRINGS IGUAL COMPARAMOS NÚMEROS, NESSE CASO TERIAMOS QUE USAR UMA FUNÇÃO DA BIBLIOTECA STRING.H QUE
+    FAZ ESSA COMPARAÇÃO PARA NÓS:
+
+    int main(void)
+    {
+        string strings[] = {"banana", "abacaxi", "melancia", "manga", "cebola", "cenoura", "uva"};
+        string s = get_string("Number: ");
+        for (int i = 0; i < 7; i++)
+        {
+            if (strcmp(strings[i], s) == 0) // A função retorna 0, para caso a comparação seja válida.
+            {
+                printf("Found\n");
+                return 0;
+            }
+        }
+        printf("Not found\n");
+        return 1;
+    }
+
+
+PHONEBOOK.C
+
+    
