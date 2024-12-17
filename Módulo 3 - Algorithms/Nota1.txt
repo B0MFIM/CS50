@@ -1,0 +1,73 @@
+LINEAR SEARCH
+
+    SEMPRE QUE HÁ A PESQUISA DE DADOS DE UMA MATRIZ DA ESQUERDA PARA A DIREITA, OU DA DIREITA PARA A ESQUERDA,
+    NÓS CHAMAMOS ISSO DE PESQUISA LINEAR, POR QUE ESTAMOS ANDANDO EM UMA LINHA NÃO IMPORTA QUAL DIREÇÃO ESTEJA
+    INDO. 
+    
+    VIMOS UM EXMPLO DISSO NO MÓDULO 0, QUANDO FALAMOS DE MANEIRAS DE ENCONTRAR UM NÚMERO NUMA LISTA TELEFÔNICA.
+
+
+BINARY SEARCH
+
+    SEMPRE QUE HÁ A PESQUISA DE DADOS DE UMA MATRIZ, INDO DA METADE PARA OUTRA METADE E ASSIM POR DIANTE, NÓS
+    CHAMAMOS ISSO DE PESQUISA BINÁRIA.
+
+    VIMOS UM EXMPLO DISSO NO MÓDULO 0, QUANDO FALAMOS DE MANEIRAS DE ENCONTRAR UM NÚMERO NUMA LISTA TELEFÔNICA.
+
+
+RUNNING TIME // BIG O NOTATION // Ω NOTATION // Θ NOTATION
+
+    MUITAS VEZES, OS ALGORITMOS QUE ESCREVEMOS OU USAMOS PODEM SER DESCRITOS COMO SENDO DA ORDEM DE UM DOS SEGUINTES
+    RUNNUNG TIME:
+
+        O(n²) -> Significa que o algoritmo leva um tempo de execução quadrático, 'n' coisas fazendo 'n' coisas. 
+
+        O(n log n) -> // n log n
+
+        O(n) -> Significa que o algoritmo leva um tempo de execução linear, um passo a passo para cada número de coisas. 
+
+        O(log n) -> // Logarítmico
+
+        O(1) -> Significa que o algoritmo leva um tempo de execução constante, não importando o número de coisas do código.
+
+        * 'n' é o que representa o número de coisas que esteja fazendo no código.
+        
+        * As fórmulas matemáticas dentro dos parênteses descrevem, em função do tamanho dessa entrada, o quão rápido
+        ou lento o algoritmo será.
+
+    'BIG O NOTATION', REPRESENTA O LIMITE SUPERIOR DO ALGORITMO, QUE SIGNIFICA QUANTOS PASSOS, NO PIOR DOS CASOS, UM 
+    ALGORITMO PODE DAR. MAS NEM SEMPRE QUEREMOS FALAR SOBRE COISAS EM TERMOS DE LIMITE SUPERIOR.
+
+    ENTÃO, AS VEZES É ÚTIL SABER, NO MELHOR DOS CASOS, QUANTOS PASSOS UM ALGORITMO PODE EXECUTAR, PARA ISSO USAMOS
+    A NOTAÇÃO Ω (OMEGA), QUE REPRESENTA O LIMITE INFERIOR DO ALGORITMO, É EXATAMENTE A MESMA IDEIA DO BIG O, MAS 
+    USAMOS UM SÍMBOLO DIFERENTE PARA UMA IDEIA DIFERENTE.
+
+        Ω(n²) -> Quadrático
+
+        Ω(n log n) -> N log N
+
+        Ω(n) ->  Linear
+
+        Ω(log n) -> Logarítmico
+
+        Ω(1) -> Constante
+
+    'Ω NOTATION', REPRESENTA O LIMITE INFERIOR DO ALGORITMO, QUE SIGNIFICA QUANTOS PASSOS, NO MELHOR DOS CASOS, UM 
+    ALGORITMO PODE DAR.
+
+    PARA CASOS DE QUE O 'BIG O NOTATION' E 'Ω NOTATION' SEJAM IGUAIS PARA O ALGORITMO, NÓS USAMOS OUTRO TIPO DE
+    NOTAÇÃO, O 'Θ NOTATION', QUE REPRESENTA ESSA IGUALDADE, QUE NEM SEMPRE É O CASO, MAS PODE SER, ENTÃO VOCÊ PODE
+    DIZER QUE O ALGORITMO ESTÁ EM THETA.
+
+        Θ(n²) -> Quadrático
+
+        Θ(n log n) -> N log N
+
+        Θ(n) ->  Linear
+
+        Θ(log n) -> Logarítmico
+
+        Θ(1) -> Constante
+
+    'Θ NOTATION', REPRESENTA QUE O LIMITE INFERIOR E SUPERIOR DO ALGORITMO SÃO IGUAIS, OU SEJA, NO MELHOR E NO PIOR
+    DOS CASOS O ALGORITMO LEVA O MESMO NÚMERO DE PASSOS.
