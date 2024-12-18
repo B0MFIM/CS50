@@ -362,3 +362,70 @@ BUBBLE SORT
 
 RECURSION
 
+    NA PROGRAMAÇÃO E NA MATEMÁTICA EXISTE ESSA IDEIA DE RECURSION (RECURSÃO). QUE É UMA DESCRIÇÃO DE UMA FUNÇÃO QUE
+    CHAMA A SI MESMA, UMA FUNÇÃO QUE CHAMA A SI MESMA É RECURSIVA. 
+
+    E PARA ESTE CASO, NÓS JA O VIMOS ANTES, VAMOS A DOIS EXEMPLOS DE PSEUDO-CODE.
+
+    PRIMEIRO EXEMPLO:
+
+        If no doors left
+            Return false
+        If number behind middle door
+            Return true
+        Else if number < middle door
+            Search left half            // isso é mais ou menos como o programa está chamando a si mesmo
+        Else if number > middle door
+            Search right half           // isso é mais ou menos como o programa está chamando a si mesmo
+
+    SEGUNDO EXEMPLO:
+
+        Pick up phone book
+        Open to middle of phone book
+        Look at page
+        If person is on page
+            Call person
+        Else if person is earlier in book
+            Search left half of book        // isso é mais ou menos como o programa está chamando a si mesmo
+        Else if person is later in book
+            Search right half of book       // isso é mais ou menos como o programa está chamando a si mesmo
+        Else
+            Quit
+    
+    AGORA PARA ENTENDERMOS MELHOR VAMOS PARA UM EXEMPLO DE CÓDIGO NA PRÁTICA:
+
+        void draw(int n);
+
+        int main(void)
+        {
+            int height = get_int("Height: ");
+            draw(height);
+        }
+
+        void draw(int n)
+        {
+            // Se não há mais nada para exibir, encerre.
+            if (n <= 0)
+            {
+                return;
+            }
+
+            // Exibe uma pirâmide de tamanho n - 1
+            draw(n - 1);    // A função está chamando a si mesma
+
+            // Exibe mais uma linha
+            for (int i = 0; i < n; i++)
+            {
+                printf("#");
+            }
+            printf("\n");
+        }
+
+    PRIMEIRO, RECURSION É UM RECURSO MUITO BOM PARA O DESING E DIMINUIÇÃO DE LINHAS DE CÓDIGO DO SEU ALGORITMO. E 
+    SEGUNDO, ISSO NOS PERMITIRÁ RESOLVER PROBLEMAS DE UMA MANEIRA FUNDAMENTALMENTE DIFERENTE, USANDO A MEMÓRIA DO
+    COMPUTADOR DE UMA MANEIRA MAIS INTERESSANTE.
+
+
+MERGE SORT
+
+    
