@@ -96,41 +96,41 @@ SEARCH.C
 
     E SE APLICARMOS ISSO PARA UM ARRAY DE STRINGS:
 
-    int main(void)
-    {
-        string strings[] = {"banana", "abacaxi", "melancia", "manga", "cebola", "cenoura", "uva"};
-        string s = get_string("Number: ");
-        for (int i = 0; i < 7; i++)
+        int main(void)
         {
-            if (strings[i] == s)
+            string strings[] = {"banana", "abacaxi", "melancia", "manga", "cebola", "cenoura", "uva"};
+            string s = get_string("Number: ");
+            for (int i = 0; i < 7; i++)
             {
-                printf("Found\n");
-                return 0;
+                if (strings[i] == s)
+                {
+                    printf("Found\n");
+                    return 0;
+                }
             }
+            printf("Not found\n");
+            return 1;
         }
-        printf("Not found\n");
-        return 1;
-    }
 
     MAS PERCEBA QUE HÁ UM BUG NO RESULTADO DO PROGRAMA POIS ELE SEMPRE RESPONDERÁ "NOT FOUND", POR QUE? PORQUE NÃO SE
     PODE COMPARAR STRINGS IGUAL COMPARAMOS NÚMEROS, NESSE CASO TERIAMOS QUE USAR UMA FUNÇÃO DA BIBLIOTECA STRING.H QUE
     FAZ ESSA COMPARAÇÃO PARA NÓS:
 
-    int main(void)
-    {
-        string strings[] = {"banana", "abacaxi", "melancia", "manga", "cebola", "cenoura", "uva"};
-        string s = get_string("Number: ");
-        for (int i = 0; i < 7; i++)
+        int main(void)
         {
-            if (strcmp(strings[i], s) == 0) // A função retorna 0, para caso a comparação seja válida.
+            string strings[] = {"banana", "abacaxi", "melancia", "manga", "cebola", "cenoura", "uva"};
+            string s = get_string("Number: ");
+            for (int i = 0; i < 7; i++)
             {
-                printf("Found\n");
-                return 0;
+                if (strcmp(strings[i], s) == 0) // A função retorna 0, para caso a comparação seja válida.
+                {
+                    printf("Found\n");
+                    return 0;
+                }
             }
+            printf("Not found\n");
+            return 1;
         }
-        printf("Not found\n");
-        return 1;
-    }
 
 
 DATA STRUCTURES
@@ -211,4 +211,154 @@ DATA STRUCTURES
 
 SELECTION SORT
 
+    SE BASEIA EM PASSAR POR VALOR E VALOR ATÉ O FIM DA MATRIZ E PEGAR O MENOR VALOR E TROCÁ-LO COM O VALOR DA PRIMEIRA 
+    POSIÇÃO (OU NA POSIÇÃO ACIMA DO MENOR NÚMERO ANTERIOR A ELE), E ASSIM POR DIANTE, ATÉ QUE OS NÚMEROS ESTEJAM 
+    ORDENADOS. EXEMPLO:
+
+        7 2 5 4 1 6 0 3
+        |           |  
+        0 2 5 4 1 6 7 3
+          |     |
+        0 1 5 4 2 6 7 3
+            |   | 
+        0 1 2 4 5 6 7 3
+              |       |
+        0 1 2 3 5 6 7 4
+                |     |
+        0 1 2 3 4 6 7 5
+                  |   |
+        0 1 2 3 4 5 7 6
+                    | |
+        0 1 2 3 4 5 6 7
+
+    VEJAMOS O PSEUDO-CODE PARA ESSE ALGORITMO:
+
+        For i from 0 to n-1
+            Find smallest number between numbers[i] and numbers[n-1]
+            Swap smallest number with numbers[i]
+
+    MAS ESSE TIPO DE SELEÇÃO PODE SER CONSIDERAVELMENTE LENTA, AINDA MAIS SE FOREM MUITOS VALORES, POIS ELE PRECISA
+    PASSAR POR CADA VALOR ATÉ O FIM DO ARRAY, GRAVAR O MENOR VALOR, TROCAR O MENOR VALOR COM SUA POSIÇÃO ADEQUANDO, 
+    E REPETIR ISSO NOVAMENTE ATÉ QUE TUDO FIQUE ORDENADO. É SUFICIENTE E ÚTIL PARA ALGUMAS COISAS, MAS NÃO PARA OUTRAS.
+
+    TRADUZINDO A EFICIÊNCIA DESSE ALGORITMO PARA 'BIG O NOTATION', NÓS TEMOS:
+
+        (n-1) + (n-2) + (n-3) + ... + 1
+
+            n(n-1)/2
+
+                (n²-n)/2
+
+                    n²/2 - n/2
+
+                        O(n²)
+
+    OU SEJA, PARA TODO SELECTION SORT, SEU BIG O NOTATION SERÁ O(n²), E SE COMPARARMOS COM Ω NOTATION, VEREMOS QUE 
+    SERÃO SEMELHANTES, Ω(n²). SE SEUS LIMITES SUPERIOR E INFERIOR SÃO SEMELHANTE, LOGO ESTE ALGORITMO É Θ(n²). NÃO
+    IMPORTA OQUE, ESSE ALGORITMO GASTARÁ N PASSOS/COMPARAÇÕES AO QUADRADO PARA CONCLUIR SUA EXECUÇÃO.
+
+
+BUBBLE SORT
+
+    SE BASEIA EM PEGAR UM VALOR X DE POSIÇÃO N, COMPARAR COM O PRÓXIMO VALOR Y DE POSIÇÃO N+1, TROCAR DE LUGAR X COM Y 
+    SE X FOR MAIOR QUE Y, IR PARA POSIÇÃO N+1 E COMPARAR NOVAMENTE, AGORA COM A POSIÇÃO N+2, E ASSIM POR DIANTE, ATÉ
+    QUE TODOS OS VALORES ESTEJAM ORDENADOS. EXEMPLO:
+
+        7 2 5 4 1 6 0 3
+         X 
+        2 7 5 4 1 6 0 3
+           X
+        2 5 7 4 1 6 0 3
+             X
+        2 5 4 7 1 6 0 3
+               X
+        2 5 4 1 7 6 0 3
+                 X 
+        2 5 4 1 6 7 0 3
+                   X
+        2 5 4 1 6 0 7 3
+                     X
+        2 5 4 1 6 0 3 7
+        | | 
+        2 5 4 1 6 0 3 7
+           X
+        2 4 5 1 6 0 3 7
+             X
+        2 4 1 5 6 0 3 7
+              | |
+        2 4 1 5 6 0 3 7
+                 X
+        2 4 1 5 0 6 3 7
+                   X 
+        2 4 1 5 0 3 6 7
+        | | 
+        2 4 1 5 0 3 6 7
+           X 
+        2 1 4 5 0 3 6 7
+            | | 
+        2 1 4 5 0 3 6 7
+               X
+        2 1 4 0 5 3 6 7
+                 X
+        2 1 4 0 3 5 6 7
+         X
+        1 2 4 0 3 5 6 7
+          | |
+        1 2 4 0 3 5 6 7
+             X
+        1 2 0 4 3 5 6 7
+               X
+        1 2 0 3 4 5 6 7
+        | |
+        1 2 0 3 4 5 6 7
+           X 
+        1 0 2 3 4 5 6 7
+            | |
+        1 0 2 3 4 5 6 7
+         X 
+        0 1 2 3 4 5 6 7
+          | |
+        0 1 2 3 4 5 6 7
+
+    VEJAMOS O PSEUDO-CODE PARA ESSE ALGORITMO:
+
+        Repeat n-1 times
+            For i from 0 to n-2
+                If numbers[i] and numbers[i+1] out of order
+                    Swap them
     
+        * 'n-2' significa que não queremos saber o que há além da posição 7 deste array, pois não há o porquê comparar
+          o valor da ultima posição deste array com o que há adiante e queremos que nosso código fique dentro dos 
+          limites do nosso array para evitar maiores problemas. Por isso, neste caso, usamos n-2 e não n-1.
+    
+    TRADUZINDO A EFICIÊNCIA DESSE ALGORITMO PARA 'BIG O NOTATION', NÓS TEMOS:
+
+        (n - 1) x (n - 1)
+
+            n² - 1n - 1n + 1
+
+                n² - 2n + 1
+
+                    O(n²)
+
+    EM TERMOS DE TEMPO DE EXECUÇÃO, ASSINTOTICAMENTE, BUBBLE SORT É O "MESMO" QUE SELECTION SORT, NOS TERMOS DO 
+    SEU LIMITE SUPERIOR (BIG O NOTATION). 
+
+    AGORA NO BUBBLE SORT, PODEMOS ADICIONAR MAIS DUAS LINHAS DE CÓDIGO, PARA ENCERRAR O PROGRAMA CASO NÃO TENHA TROCA 
+    ALGUMA. VEJA: 
+
+        Repeat n-1 times
+            For i from 0 to n-2
+                If numbers[i] and numbers[i+1] out of order
+                    Swap them
+            If no swaps
+                Quit
+
+    QUE AGORA, EM TERMOS DE TEMPO DE EXECUÇÃO, NO MELHOR DOS CASOS (LIMITE INFERIOR Ω), SERÁ DE: Ω(n).
+
+    OU SEJA, NO MELHOR DOS CASOS (Ω NOTATION), BUBBLE SORT É MELHOR QUE SELECTION SORT, MAS NO PIOR DOS CASOS (BIG O),
+    AMBOS SÃO PÉSSIMOS E LENTOS.
+
+
+RECURSION
+
