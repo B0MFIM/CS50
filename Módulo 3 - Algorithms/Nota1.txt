@@ -133,6 +133,82 @@ SEARCH.C
     }
 
 
-PHONEBOOK.C
+DATA STRUCTURES
+
+    O CÓDIGO ABAIXO FUNCIONA PERFEITAMENTE, MAS TEMOS UM CERTO PROBLEMA A SER TRATADO, QUE É A FORMA QUE NOSSOS DADOS
+    SÃO ARMAZENADOS, ESSA FORMA NÃO É ADEQUADA PARA O QUE QUEREMOS FAZER, NO CASO, UMA LISTA TELEFÔNICA.
+
+    int main(void)
+    {
+        string names[] = {"Eve", "Alexandre", "José"};
+        string numbers[] = {"+55 00 00000-0000", "+55 11 11111-1111", "+55 22 22222-2222"};
+
+        string name = get_string("Name: ");
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (strcmp(names[i], name) == 0)
+            {
+                printf("Found %s\n", numbers[i]);
+                return 0;
+            }
+        }
+        printf("Not found\n");
+        return 1;
+    }
+
+    ARRAYS PARA ESSE TIPO DE ALGORITMO SÃO SIMPLISTAS DEMAIS, O QUE SIGNIFICA ARMAZENAR COISAS UMA APÓS A OUTRA, DE
+    FORMA CONTÍGUA, NA MEMÓRIA. PARA ESSE CASO, NÃO É UMA ESTRUTURA DE DADOS MUITO ADEQUADA. 
+
+    PARA ISSO TEMOS UMA OUTRA NOVA SINTAXE QUE PODERIAMOS USAR, CHAMADA 'STRUCT', PARA QUE POSSAMOS CRIAR NOSSA PRÓPRIA
+    ESTRUTURA DE DADOS, QUE REALMENTE POSSUI UMA ESTRUTURA, QUE POSSAM SER DUAS OU MAIS COISAS, SEJA STRING, INTEIROS, 
+    E OUTROS TIPOS DE DADOS. VEJAMOS ESSA ESTRUTURA:
+
+        typedef struct // Significa "definir tipo - inventar tipo de dados"
+        {
+            // Aqui dentro você pode definir todo tipo de dado que você quer associar a essa estrutura.
+            string name;
+            string number;
+        }
+        person; // Aqui você define o nome dessa estrutura
+
+    COM ISSO EM MENTE, PODEMOS REESCREVER O CÓDIGO ANTERIOR NO SEGUINTE:
+
+        typedef struct // Definindo uma estrutura de dados
+        {
+            string name;    // definindo um dos tipos de dados da estrutura
+            string number;
+        }
+        person; // Definindo o nome da estrutura de dados
+
+        int main(void)
+        {
+            person people[3]; // Definindo um array do tipo de dado 'person' (da estrutura que criamos) de 3 posições
+
+            people[0].name = "Eve";                     // Definindo dado name da posição 0
+            people[0].number = "+55 00 00000-0000";     // Definindo dado number da posição 0
+
+            people[1].name = "Alexandre";               // Definindo dado name da posição 1
+            people[1].number = "+55 11 11111-1111";     // Definindo dado number da posição 1
+
+            people[2].name = "José";                    // Definindo dado name da posição 2
+            people[2].number = "+55 22 22222-2222";     // Definindo dado number da posição 2
+
+            string name = get_string("Name: ");         // Recebe um nome do usuário
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (strcmp(people[i].name, name) == 0)  // Comparando dados name da estrutura person com a variável name
+                {
+                    printf("Found %s\n", people[i].number); // Exibe o número caso encontre o nome dentro da estrutura
+                    return 0;
+                }
+            }
+            printf("Not found\n");
+            return 1;
+        }
+
+
+SELECTION SORT
 
     
