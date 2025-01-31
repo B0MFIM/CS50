@@ -3,5 +3,5 @@
     "gitdoc.ai.enabled": true,
     "gitdoc.ai.useEmojis": true,
     "gitdoc.enabled": true,
-    "gitdoc.ai.customInstructions": "$(date +'%d-%m-%Y %H:%M:%S') - $(date +'%A')"
+    "gitdoc.ai.customInstructions": "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') - $(Get-Date -Format 'dddd')"
 }
