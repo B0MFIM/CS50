@@ -1,0 +1,57 @@
+MERGE SORT
+
+    É UM TIPO DE ALGORITMO PARA CLASSIFICAR N NÚMEROS, E SERÁ FUNDAMENTALMENTE MELHOR QUE O SELECTION SORT E 
+    O BUBBLE SORT.
+
+    ENTÃO UM PSEUDO-CODE PARA MERGE SORT SERIA:
+
+        If only one number
+            Quit
+        Else
+            Sort left half of numbers
+            Sort right half of numbers
+            Merge sorted halves
+
+    PERCEBA QUE ELE TAMBÉM É UM PROGRAMA RECURSIVO. 
+
+    vAMOS A UM EXEMPLO ILUSTRATIVO, REPRESENTANDO APENAS A MESCLAGEM (MERGE):
+
+        1 3 4 6    0 2 5 7
+        |__________|______________ 0
+        1 3 4 6      2 5 7
+        |____________|____________ 0 1
+          3 4 6      2 5 7
+          |__________|____________ 0 1 2
+          3 4 6        5 7
+          |____________|__________ 0 1 2 3
+            4 6        5 7
+            |__________|__________ 0 1 2 3 4
+              6        5 7
+              |________|__________ 0 1 2 3 4 5
+              6          7
+              |__________|________ 0 1 2 3 4 5 6
+                         7
+                         |________ 0 1 2 3 4 5 6 7
+
+    ENTÃO ISSO É O QUE QUEREMOS DIZER COM MESCLAR (MERGE) DUAS LISTAS. SE ELAS JA ESTIVEREM CLASSIFICADAS (SORTED),
+    VOCÊ SIMPLESMENTE OS JUNTA, ESCOLHENDO DE UM OU OUTRO O PRÓXIMO NÚMERO QUE VOCÊ REALMENTE DESEJA.
+
+    VAMOS A MAIS UM EXEMPLO ILUSTRATIVO, REPRESENTANDO NOSSO PSEUDO-CODE DE MERGE SORT:
+
+                         6 3 4 1 5 2 7 0
+                        /               \
+                  6 3 4 1                5 2 7 0
+                  /     \                /     \
+               6 3       4 1          5 2       7 0
+               / \       / \          / \       / \
+              6   3     4   1        5   2     7   0
+               \ /       \ /          \ /       \ /
+               3 6       1 4          2 5       0 7
+                  \     /               \       /
+                  1 3 4 6                0 2 5 7
+                        \               /
+                         0 1 2 3 4 5 6 7
+
+    AGORA SE CONSIDERARMOS A EFICIÊNCIA DO TEMPO DE EXECUÇÃO DESTE TIPO DE CLASSIFICAÇÃO, SEU LIMITE SUPERIOR (BIG O),
+    SERÁ: O(n log n). JÁ SEU LIMITE INFERIOR (Ω), SERÁ: Ω(n log n). OU SEJA, MERGE SORT TEM UM TEMPO DE EXECUÇÃO DE: 
+    Θ(n log n).
