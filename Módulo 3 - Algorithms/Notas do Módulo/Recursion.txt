@@ -1,0 +1,107 @@
+RECURSION
+
+    A MANEIRA QUE RECURSION FUNCIONA É A SEGUINTE: UMA FUNÇÃO RECURSIVA É DEFINIDA COMO UMA FUNÇÃO QUE CHAMA A SI 
+    MESMA COMO PARTE DE SUA EXECUÇÃO. ESSES PROCEDIMENTOS RECURSIVOS SERÃO TÃO ELEGANTES PORQUE RESOLVERÃO UM 
+    PROBLEMA SEM TER TODAS OUTRAS FUNÇÕES OU LONGOS LOOPS. VOCÊ VERA QUE ESSES PROCEDIMENTOS RECURSIVOS PARECERÃO
+    MUITO CURTOS, E ELES FARÃO SEU CÓDIGO PARECER MAIS ELEGANTE.
+
+    FACTORIAL FUNCTION
+
+        EXISTE ALGO CHAMADO FUNÇÃO FATORIAL, QUE GERALMENTE É DENOTADA COMO UM PONTO DE EXCLAMAÇÃO (n!), QUE É
+        DEFINIDA SOBRE TODOS OS NÚMEROS INTEIROS POSITIVOS.
+
+        E A MANEIRA COMO UM FATORIAL N É CALCULADO É MULTIPLICANDO TODOS OS NÚMEROS MENORES OU IGUAIS A N JUNTOS.
+
+        ENTÃO, 5 FATORIAL É 5 VEZES 4 VEZES 3 VEZES 2 VEZES 1.
+
+        COMO PROGRAMADORES, NÃO USAMOS N PONTO DE EXCLAMAÇÃO. ENTÃO DEFINIREMOS A FUNÇÃO FATORIAL COMO fact(n). E
+        USAREMOS O FATORIAL PARA CRIAR UMA SOLUÇÃO RECURSIVA PARA UM PROBLEMA.
+
+            fact(1) = 1                     |   fact(1) = 1
+            fact(2) = 2 * 1                 |   fact(2) = 2 * fact(1)
+            fact(3) = 3 * 2 * 1             |   fact(3) = 3 * fact(2)
+            fact(4) = 4 * 3 * 2 * 1         |   fact(4) = 4 * fact(3)
+            fact(5) = 5 * 4 * 3 * 2 * 1     |   fact(5) = 5 * fact(4)
+            ...                             |   fact(n) = n * fact(n-1)
+
+    QUANDO VOCÊ DEFINE UMA FUNÇÃO RECURSIVAMENTE, HÁ DUAS COISAS QUE PRECISAM FAZER PARTE DELA. VOCÊ PRECISA TER 
+    ALGO CHAMADO base case, QUE, QUANDO ACIONADO, INTERROMPERÁ O PROCESSO RECURSIVO. A SEGUNDA PARTE É O recursive
+    case, É AQUI ONDE A RECURSÃO REALMENTE OCORRERÁ, É AQUI QUE A FUNÇÃO SERÁ CHAMADA. ELA NÃO SE CHAMARÁ DA EXATA
+    MESMA FORMA QUE ERA CHAMADO, SERÁ UMA PEQUENA VARIAÇÃO QUE TORNARÁ O PROBLEMA QUE ESTÁ TENTANDO RESOLVER UM
+    POUCO MENOR.
+
+    ENTÃO, SE ESTAMOS DEFININDO NOSSA FUNÇÃO FATORIAL, AQUI ESTÁ UM ESQUELETO DE COMO PODEMOS FAZER ISSO:
+
+        int fact(n)
+        {
+            // base case
+            if (n == 1)
+            {
+                return 1;
+            }
+
+            // recursive case
+            else
+            {
+                return n * fact(n - 1);
+            }
+        }
+
+        OU
+
+        int fact(n)
+        {
+            if (n == 1)
+                return 1;
+            else
+                return n * fact(n - 1);
+        }
+
+    SÓ ISSO JÁ É A SOLUÇÃO PARA CALCULAR O FATORIAL DE UM NÚMERO. APENAS 4 LINHAS DE CÓDIGO.
+
+    EM GERAL, MAS NEM SEMPRE, UMA FUNÇÃO RECURSIVA PODE SUBSTITUIR UM LOOP EM UMA FUNÇÃO NÃO RECURSIVA.
+
+        int fact(n)                         |   int fact2(n)
+        {                                   |   {
+            if (n == 1)                     |       int product = 1;
+                return 1;                   |       while(n > 0)
+            else                            |       {
+                return n * fact(n - 1);     |           product *= n;
+        }                                   |           n--;
+                                            |       }
+                                            |       return product;
+                                            |   }
+
+        AMBAS AS FUNÇÕES FAZEM A EXATA MESMA COISA, MAS NÃO DA MESMA MANEIRA.
+
+    É POSSÍVEL, TER MAIS DE UM base case OU MAIS DE UM recursive case, DEPENDENDO DO QUE SUA FUNÇÃO ESTÁ TENTANDO
+    FAZER. UM EXEMPLO DE ALGO COM MÚLTIPLAS base case PODE SER: A SEQUÊNCIA NUMÉRICA DE FIBONACCI.
+
+    A SEQUÊNCIA DE FIBONACCI É DEFINIDA ASSIM:
+
+        O PRIMEIRO ELEMENTO É 0
+
+        O SEGUNDO ELEMENTO É 1
+
+        E CADA OUTRO ELEMENTO, n, É DEFINIDO COMO A SOMA DE (n-1) E (n-2)
+
+        * ENTÃO O TERCEIRO ELEMENTO SERIA 0 MAIS 1 QUE É 1. E O QUARTO ELEMENTO SERIA O SEGUNDO ELEMENTO, 1, MAIS
+          TERCEIRO ELEMENTO, 1, E ISSO SERIA 2. E ASSIM POR DIANTE.
+
+    NESSE CASO, TEMOS DOIS base case. SE N FOR IGUAL A 1, RETORNA 0. SE N FOR IGAUL A 2, RETORNA 1. CASO CONTRÁRIO,
+    RETORNA fibonacci(n-1) + fibonacci(n-2).
+
+    E QUANTO A MÚLTIPLOS recursive cases? 
+
+    EXISTE ALGO CHAMADO CONJECTURA DE COLLATZ.
+
+        A CONJECTURA DE COLLATZ SE APLICA A QUALQUER INTEIRO POSITIVO E ESPECULA-SE QUE É SEMPRE POSSÍVEL VOLTAR AO
+        1 SE SEGUIR ESSES PASSOS: 
+
+            SE N É 1, PARE.
+            CASO CONTRÁRIO, SE N É PAR, REPITA O PROCESSO EM N/2.
+            CASO CONTRÁRIO, SE N É IMPAR, REPITA O PROCESSO EM 3N+1.
+        
+        AQUI TEMOS DOIS CASOS RECURSIVOS, SE N FOR PAR OU IMPAR, FAZEMOS DOIS CASOS RECURSIVOS DIFERENTE.
+
+        
