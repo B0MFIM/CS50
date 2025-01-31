@@ -9,8 +9,8 @@ MERGE SORT
         If only one number
             Quit
         Else
-            Sort left half of numbers
-            Sort right half of numbers
+            Sort left half of numbers (assuming n > 1)
+            Sort right half of numbers (assuming n > 1)
             Merge sorted halves
 
     PERCEBA QUE ELE TAMBÉM É UM PROGRAMA RECURSIVO. 
