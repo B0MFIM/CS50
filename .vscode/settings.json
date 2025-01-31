@@ -1,4 +1,5 @@
 {
+    "gitdoc.commitOnClose": true,
     "gitdoc.ai.enabled": true,
     "gitdoc.ai.useEmojis": true
 }
