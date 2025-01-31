@@ -1,4 +1,5 @@
 {
     "gitdoc.ai.enabled": true,
-    "gitdoc.ai.useEmojis": true
+    "gitdoc.ai.useEmojis": true,
+    "gitdoc.commitMessageFormat": "FF"
 }
