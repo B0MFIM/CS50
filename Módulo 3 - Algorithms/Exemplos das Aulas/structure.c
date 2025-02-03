@@ -21,6 +21,7 @@ int main(void)
         candidates[i].votes = get_int("Votes: ");
     }
 
+    // Calcula o candidato com mais votos
     int highest_vote = 0;
     for (int i = 0; i < num; i++)
     {
@@ -30,6 +31,7 @@ int main(void)
         }
     }
 
+    // Imprime o nome do candidato com mais votos
     for (int i = 0; i < num; i++)
     {
         if (candidates[i].votes == highest_vote)
