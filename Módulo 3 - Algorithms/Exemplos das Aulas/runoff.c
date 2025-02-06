@@ -1,5 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <limits.h>
+#include <string.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -176,7 +178,7 @@ bool print_winner(void)
     // Verificar se algum candidato tem mais da metade dos votos
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes >= total_votes / 2)
+        if (candidates[i].votes > total_votes / 2)
         {
             printf("%s\n", candidates[i].name);
             return true;
