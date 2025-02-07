@@ -194,20 +194,20 @@ void add_pairs(void)
     ao array pairs. Sort_pairs não recebe argumentos. */
 void sort_pairs(void)
 {
-    /* O
-    */
+    // O que se vai fazer nessa função é classificar os pares em ordem decrescente pela força da vitória.
 }
 
-// Bloqueie os pares no gráfico candidato em ordem, sem criar ciclos.
+/* Lock Pairs Function:
+    Bloqueie os pares no gráfico de candidatos em ordem, sem criar ciclos. A função será chamada após os pares serem classificados. 
+    Lock_pairs não recebe argumentos. */
 void lock_pairs(void)
 {
-    // TODO
-    return;
+    // O que se vai fazer nessa função é bloquear os pares no gráfico de candidatos em ordem, sem criar ciclos.
 }
 
-// Imprima o vencedor da eleição.
+/* Print Winner Function:
+    Imprima o vencedor da eleição. A função será chamada após todos os pares serem bloqueados. Print_winner não recebe argumentos. */
 void print_winner(void)
 {
-    // TODO
-    return;
+    // O que se vai fazer nessa função é imprimir o vencedor da eleição. Com base no gráfico resultante, quem é a 'fonte do gráfico'.
 }
