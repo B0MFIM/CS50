@@ -31,6 +31,13 @@
     A matriz de preferências é uma matriz bidimensional, de inteiros, interpretados da seguinte forma: 
     Preferências[i][j] é o número de eleitores que preferem i em vez de j. */
 int preferences[MAX][MAX];
+/*  Exemplo Gráfico:
+                        Alice   Bob   Charlie
+            Alice   -     0      3       3
+            Bob     -     1      0       1
+            Charlie -     1      3       0
+*/
+
 
 // bloqueado[i][j] significa que i está bloqueado em j
 bool locked[MAX][MAX];
