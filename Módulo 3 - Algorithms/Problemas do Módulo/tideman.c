@@ -150,7 +150,11 @@ int main(int argc, string argv[])
     return 0;
 }
 
-// Verifique se o nome é válido, se for, atualize a classificação do eleitor.
+/* Vote Function:
+    Verifique se o nome é válido, se for, atualize a classificação do eleitor.
+    A função será chamada toda vez um eleitor indicar sua preferência. Vote recebe três argumentos: rank, name e ranks. 
+    Rank é a classificação do eleitor, Name é o nome do candidato que o eleitor classificou e Ranks é a matriz de classificação
+    do eleitor. A função retorna true se o nome for válido e false se o nome for inválido. */
 bool vote(int rank, string name, int ranks[])
 {
     // TODO 
