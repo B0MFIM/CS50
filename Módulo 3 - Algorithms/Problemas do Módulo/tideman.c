@@ -186,9 +186,7 @@ void record_preferences(int ranks[])
     total de pares. A função será chamada após registrar todas as preferências dos eleitores. Add_pairs não recebe argumentos. */
 void add_pairs(void)
 {
-    /* O que se vai fazer nessa função é adicionar pares de candidatos, onde um é preferido ao outro, no array pairs.
-    */
-    return;
+    // O que se vai fazer nessa função é adicionar pares de candidatos, onde um é preferido ao outro, no array pairs.
 }
 
 // Classifique os pares em ordem decrescente pela força da vitória.
