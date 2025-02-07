@@ -80,7 +80,7 @@ void print_winner(void);
 
 int main(int argc, string argv[])
 {
-    // Verifique se há argumentos de linha de comando, se não houver, imprima a mensagem de uso.
+    // Verifique se há argumentos de linha de comando.
     if (argc < 2)
     {
         printf("Usage: tideman [candidate ...]\n");
