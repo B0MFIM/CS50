@@ -189,11 +189,13 @@ void add_pairs(void)
     // O que se vai fazer nessa função é adicionar pares de candidatos, onde um é preferido ao outro, no array pairs.
 }
 
-// Classifique os pares em ordem decrescente pela força da vitória.
+/* Sort Pairs Function:
+    Classifique os pares em ordem decrescente pela força da vitória. A função será chamada após todos os pares serem adicionados 
+    ao array pairs. Sort_pairs não recebe argumentos. */
 void sort_pairs(void)
 {
-    // TODO
-    return;
+    /* O
+    */
 }
 
 // Bloqueie os pares no gráfico candidato em ordem, sem criar ciclos.
