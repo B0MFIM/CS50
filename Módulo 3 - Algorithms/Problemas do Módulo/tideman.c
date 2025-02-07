@@ -157,12 +157,14 @@ int main(int argc, string argv[])
     do eleitor. A função retorna true se o nome for válido e false se o nome for inválido. */
 bool vote(int rank, string name, int ranks[])
 {
-    /* Então o que se vai fazer nessa função é procurar o nome do candidato na matriz de candidatos, se o nome for encontrado,
-       atualize ranks e retorne true. Se o nome não for encontrado, retorne false. ranks[i] é a classificação do eleitor i, onde
-       ranks[i][0] é a primeira preferência, ranks[i][1] é a segunda preferência, e assim por diante. */
+    /* O que se vai fazer nessa função é procurar o nome do candidato na matriz de candidatos, se o nome for encontrado,
+       atualize a matriz ranks e retorne true. Se o nome não for encontrado, retorne false. */
 }
 
-// Atualiza as preferências de acordo com a classificação do eleitor.
+/* Record Preferences Function:
+    Atualize a matriz de preferências com base na classificação do eleitor.
+    A função será chamada toda vez que um eleitor indicar suas preferências. Record_preferences recebe um argumento: ranks.
+    Ranks é a matriz de classificação do eleitor. */
 void record_preferences(int ranks[])
 {
     // TODO
