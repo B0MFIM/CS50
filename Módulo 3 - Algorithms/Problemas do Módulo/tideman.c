@@ -25,7 +25,7 @@
         apontando para si. 
 */
 
-// Variável Global, que armazena o valor 
+// Variável Global, que armazena o valor 9, que é o número máximo de candidatos
 #define MAX 9
 
 /* Array Preferences:
