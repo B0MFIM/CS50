@@ -25,7 +25,7 @@
         apontando para si. 
 */
 
-// Variável Global, que armazena o valor 9, que é o número máximo de candidatos
+// Variável Global, que armazena o valor 9, que é o número máximo de candidatos.
 #define MAX 9
 
 /* Array Preferences:
@@ -57,7 +57,7 @@ typedef struct
     int loser;
 } pair;
 
-// Um Array Candidates do tipo string, que armazena todos os nomes dos candidatos
+// Um Array Candidates do tipo string, que armazena todos os nomes dos candidatos.
 string candidates[MAX];
 
 /* Array Pairs:
@@ -66,11 +66,11 @@ string candidates[MAX];
     em adicionar esse par para a matriz pairs */
 pair pairs[MAX * (MAX - 1) / 2];
 
-// Variáveis Globais, que armazenam o número de pares e o número de candidatos
+// Variáveis Globais, que armazenam o número de pares e o número de candidatos.
 int pair_count;
 int candidate_count;
 
-// Protótipos de Funções
+// Protótipos de Funções.
 bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
 void add_pairs(void);
@@ -80,20 +80,24 @@ void print_winner(void);
 
 int main(int argc, string argv[])
 {
-    // Verifique se há argumentos de linha de comando.
+    // Verifica se há mais de 2 argumentos de linha de comando.
     if (argc < 2)
     {
         printf("Usage: tideman [candidate ...]\n");
         return 1;
     }
 
-    // Preencher a matriz de candidatos com os nomes dos candidatos, que são argumentos de linha de comando.
+    // Preenche a variável com a quantidade de candidatos inseridos na linha de comando.
     candidate_count = argc - 1;
+
+    // Verifica se o número de candidatos não excede o máximo.
     if (candidate_count > MAX)
     {
         printf("Maximum number of candidates is %i\n", MAX);
         return 2;
     }
+
+    // Preenche a matriz de candidatos com os nomes dos candidatos da linha de comando.
     for (int i = 0; i < candidate_count; i++)
     {
         candidates[i] = argv[i + 1];
