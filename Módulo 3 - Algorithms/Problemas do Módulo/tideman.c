@@ -25,7 +25,7 @@
         apontando para si. 
 */
 
-// Definição de uma constante MAX, que será o número máximo de candidatos
+// Variável Global, que armazena o valor 
 #define MAX 9
 
 /* Array Preferences:
