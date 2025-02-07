@@ -38,11 +38,13 @@ int preferences[MAX][MAX];
             Charlie -     1      3       0
 */
 
-
 // bloqueado[i][j] significa que i está bloqueado em j
 bool locked[MAX][MAX];
 
-// Cada par tem um vencedor e um perdedor
+/* Struct Pair: 
+    Esse Struct tem dois campos - vencedor e perdedor - cada um dos quais é um inteiro que representa
+    o índice do candidato na matriz desse candidato, quem é o vencedor ou o perdedor, para esse par
+    específico, respectivamente. Esses pairs  */
 typedef struct
 {
     int winner;
