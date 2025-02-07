@@ -147,7 +147,7 @@ int main(int argc, string argv[])
     sort_pairs();
     // Bloqueie os pares no gráfico candidato em ordem, sem criar ciclos.
     lock_pairs();
-    // Imprima o vencedor da eleição.
+    // Imprime o vencedor da eleição.
     print_winner();
     return 0;
 }
