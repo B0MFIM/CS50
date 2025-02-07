@@ -169,8 +169,8 @@ void record_preferences(int ranks[])
 {
     /* 
     O que se vai fazer nessa função é atualizar a matriz de preferências com base na classificação do eleitor. 
-    Se o eleitor classificar o candidato i em primeiro lugar e o candidato j em segundo lugar, isso significa que
-    o eleitor prefere i em vez de j.
+    Se o eleitor classificar o candidato x em primeiro lugar e o candidato y em segundo lugar, isso significa que
+    o eleitor prefere x em vez de y.
 
     Vamos dar olhada de um eleitor em particula como exemplo: ranks[0] = 3, ranks[1] = 0, ranks[2] = 4, ranks[3] = 1, ranks[4] = 2.
     Isso significa que o eleitor prefere o candidato 3 em vez do candidato 0, o candidato 0 em vez do candidato 4, o candidato 4 em 
