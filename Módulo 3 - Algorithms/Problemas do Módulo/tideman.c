@@ -55,9 +55,9 @@ typedef struct
 string candidates[MAX];
 
 /* Array Pairs:
-    A matriz pairs é uma matriz de pares de candidatos, onde todos os pares cada par de candidatos é um par de
-    candidatos que competiram entre si, e a força da vitória de um candidato sobre o outro é
-    armazenada nesse par. */
+    É uma matriz de pares de candidatos, do tipo pair (struct), onde será um array de todos os pares em que um 
+    candidado é prefirido em relação ao outro. Se houver um parde candidatos empatados, não vamos nos preocupar 
+    em adicionar esse par para a matriz pairs */
 pair pairs[MAX * (MAX - 1) / 2];
 
 int pair_count;
