@@ -196,7 +196,10 @@ void record_preferences(int ranks[])
     Logo, vamos atualizar a matriz de preferências com base nessa matriz de classificação, que é ranks.
     */
 
-
+    for (int i = 0; i < candidate_count; i++)
+    {
+        
+    }
 }
 
 /* Add Pairs Function:
