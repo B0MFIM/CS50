@@ -44,7 +44,7 @@ bool locked[MAX][MAX];
 /* Struct Pair: 
     Esse Struct tem dois campos - vencedor e perdedor - cada um dos quais é um inteiro que representa
     o índice do candidato na matriz desse candidato, quem é o vencedor ou o perdedor, para esse par
-    específico, respectivamente. Esses pairs  */
+    específico, respectivamente. Esses pares serão adicionados para a matriz pairs. */
 typedef struct
 {
     int winner;
@@ -53,6 +53,11 @@ typedef struct
 
 // Um Array Candidates do tipo string, que armazena todos os nomes dos candidatos
 string candidates[MAX];
+
+/* Array Pairs:
+    A matriz de pares é uma matriz de pares de candidatos, onde cada par de candidatos é um par de
+    candidatos que competiram entre si, e a força da vitória de um candidato sobre o outro é
+    armazenada nesse par. */
 pair pairs[MAX * (MAX - 1) / 2];
 
 int pair_count;
