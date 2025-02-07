@@ -29,15 +29,10 @@
 #define MAX 9
 
 /* Array Preferences:
-    A matriz de preferências é uma matriz bidimensional, de inteiros, interpretados da seguinte forma: 
-    Preferências[i][j] é o número de eleitores que preferem i em vez de j. */
+   A matriz de preferências é uma matriz bidimensional, de inteiros, interpretados da seguinte forma: 
+   Preferências[i][j] é o número de eleitores que preferem i em vez de j. 
+   'i' e 'j' representam os índices dos candidatos da matriz de candidatos. */
 int preferences[MAX][MAX];
-/*  Exemplo Gráfico:
-                        Alice   Bob   Charlie
-            Alice   -     0      3       3
-            Bob     -     1      0       1
-            Charlie -     1      3       0
-*/
 
 /* Array Locked:
     A matriz de Locked é uma matriz bidimensional, booleana. Se locked[i][j] for true, isso significa
@@ -196,7 +191,7 @@ void record_preferences(int ranks[])
         // Loop que iterará sobre todos os candidatos restantes
         for (int j = i + 1; j < candidate_count; j++)
         {
-            // o que essa incrementação faz? ela incrementa a quantidade de eleitores que preferem o candidato i em vez do candidato j.
+            // Atualize a matriz de preferências com base na classificação do eleitor.
             preferences[ranks[i]][ranks[j]]++;
         }
     }
