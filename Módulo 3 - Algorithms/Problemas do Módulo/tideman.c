@@ -38,7 +38,9 @@ int preferences[MAX][MAX];
             Charlie -     1      3       0
 */
 
-// bloqueado[i][j] significa que i está bloqueado em j
+/* Array Locked:
+    A matriz de Locked é uma matriz bidimensional, booleana, onde locked[i][j] é verdadeiro se i está bloqueado
+    em j, ou seja, se i é preferido em relação a j. */
 bool locked[MAX][MAX];
 
 /* Struct Pair: 
