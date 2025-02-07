@@ -161,16 +161,19 @@ bool vote(int rank, string name, int ranks[])
     /* O que se vai fazer nessa função é procurar o nome do candidato na matriz de candidatos, se o nome for encontrado,
        atualize a matriz ranks e retorne true. Se o nome não for encontrado, retorne false. */
 
-    // Loop que percorre a matriz de candidatos, verificando se o nome do candidato é válido.
+    // Loop que iterará sobre todos os candidatos
     for (int i = 0; i < candidate_count; i++)
     {
+        // Verifique se o nome do candidato corresponde ao nome fornecido
         if (strcmp(name, candidates[i]) == 0)
         {
+            // Se sim, registre a preferência do eleitor e retorna true
             ranks[rank] = i;
             return true;
         }
     }
 
+    // Se o nome do candidato não for encontrado, retorne false
     return false;
 }
 
