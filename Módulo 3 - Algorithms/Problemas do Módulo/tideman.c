@@ -1,6 +1,29 @@
 #include <cs50.h>
 #include <stdio.h>
 
+/* TIDEMAN VOTE
+
+    Tally (Contagem):
+        Os eleitores indicam suas preferências, analiseremos cada par de candidatos
+        e determinaremos quem seria o vencedor da eleição para aquele par específico.
+
+    Sort (Classificação):
+        Vamos classificar os pares dos candidatos em ordem decrescente de força de vitória,
+        onde a margem de vitoria mais forte ou mais ampla vem primeiro. E chegamos a menor
+        margem de vitória ao final.
+
+    Locked (Bloqueio):
+        O próximo passo é bloquear esses pares um de cada vez, começando com o par mais forte,
+        vamos bloquear esse par, ou seja, adicione uma aresta a esse gráfico, desde que essa
+        aresta não crie um ciclo, se isso criaria um ciclo, nós pularíamos essa aresta e
+        passariamos para o próximo par.
+
+    Winner (Vencedor):
+        Depois de termos o gráfico resultante, podemos determinar o vencedor da eleição
+        apenas verificando quem é a 'fonte do gráfico', em outras palavras, quem não tem setas
+        apontando para si. 
+*/
+
 // Número máximo de candidatos
 #define MAX 9
 
