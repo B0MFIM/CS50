@@ -191,6 +191,8 @@ void record_preferences(int ranks[])
     Então, para essa matriz de classificação específica, conseguimos determinar quais candidatos são preferidos em relação a outros.
     Logo, vamos atualizar a matriz de preferências com base nessa matriz de classificação, que é ranks.
     */
+
+    
 }
 
 /* Add Pairs Function:
