@@ -79,14 +79,14 @@ void print_winner(void);
 
 int main(int argc, string argv[])
 {
-    // Verifique se há uso inválido
+    // Verifique se há argumentos de linha de comando, se não houver, imprima a mensagem de uso.
     if (argc < 2)
     {
         printf("Usage: tideman [candidate ...]\n");
         return 1;
     }
 
-    // Preencher matriz de candidatos
+    // Preencher a matriz de candidatos com os nomes dos candidatos, que são argumentos de linha de comando.
     candidate_count = argc - 1;
     if (candidate_count > MAX)
     {
@@ -98,7 +98,7 @@ int main(int argc, string argv[])
         candidates[i] = argv[i + 1];
     }
 
-    // Gráfico claro de pares bloqueados
+    // Gráfico de preferências e bloqueio de pares, inicialmente, todos os valores de locked serão falsos.
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -107,20 +107,25 @@ int main(int argc, string argv[])
         }
     }
 
+    // Inicializa o número de pares como zero.
     pair_count = 0;
+
+    // Número de eleitores, de acordo com a entrada do usuário.
     int voter_count = get_int("Number of voters: ");
 
-    // Consulta de votos
+    // Consulta de votos para cada eleitor
     for (int i = 0; i < voter_count; i++)
     {
-        // ranks[i] é a preferência i do eleitor
+        /* ranks[i] é a classificação do eleitor i, onde ranks[i][0] é a primeira preferência, 
+           ranks[i][1] é a segunda preferência, e assim por diante. */
         int ranks[candidate_count];
 
-        // Consulta para cada classificação
+        // Consulta para cada classificação do eleitor, onde o eleitor classifica cada candidato.
         for (int j = 0; j < candidate_count; j++)
         {
             string name = get_string("Rank %i: ", j + 1);
 
+            // Verifique se o nome é válido, se não for, imprima a mensagem de erro.
             if (!vote(j, name, ranks))
             {
                 printf("Invalid vote.\n");
@@ -128,14 +133,19 @@ int main(int argc, string argv[])
             }
         }
 
+        // Registre as preferências do eleitor, com base na classificação do eleitor.
         record_preferences(ranks);
 
         printf("\n");
     }
 
+    // Adicione pares de candidatos onde um é preferido ao outro.
     add_pairs();
+    // Classifique os pares em ordem decrescente pela força da vitória.
     sort_pairs();
+    // Bloqueie os pares no gráfico candidato em ordem, sem criar ciclos.
     lock_pairs();
+    // Imprima o vencedor da eleição.
     print_winner();
     return 0;
 }
