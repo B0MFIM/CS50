@@ -150,42 +150,42 @@ int main(int argc, string argv[])
     return 0;
 }
 
-// Atualizar classificações com nova votação
+// Verifique se o nome é válido, se for, atualize a classificação do eleitor.
 bool vote(int rank, string name, int ranks[])
 {
-    // TODO
+    // TODO 
     return false;
 }
 
-// Atualizar preferências de acordo com a classificação de um eleitor
+// Atualiza as preferências de acordo com a classificação do eleitor.
 void record_preferences(int ranks[])
 {
     // TODO
     return;
 }
 
-// Registre pares de candidatos onde um é preferido ao outro
+// Registre pares de candidatos onde um é preferido ao outro.
 void add_pairs(void)
 {
     // TODO
     return;
 }
 
-// Classifique os pares em ordem decrescente pela força da vitória
+// Classifique os pares em ordem decrescente pela força da vitória.
 void sort_pairs(void)
 {
     // TODO
     return;
 }
 
-// Bloqueie os pares no gráfico candidato em ordem, sem criar ciclos
+// Bloqueie os pares no gráfico candidato em ordem, sem criar ciclos.
 void lock_pairs(void)
 {
     // TODO
     return;
 }
 
-// Imprima o vencedor da eleição
+// Imprima o vencedor da eleição.
 void print_winner(void)
 {
     // TODO
