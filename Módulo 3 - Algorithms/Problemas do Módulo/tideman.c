@@ -122,12 +122,14 @@ int main(int argc, string argv[])
     // Consulta de votos para cada eleitor
     for (int i = 0; i < voter_count; i++)
     {
-        // O array ranks representa a classificação do eleitor. Onde seus indices representam o rank e o valor representa o candidato.
+        // O array ranks representa a classificação do eleitor. 
+        // Onde seus indices representam o rank e o valor representa o candidato.
         int ranks[candidate_count];
 
-        // Consulta para cada classificação do eleitor, onde o eleitor classifica cada candidato.
+        // Consulta para cada classificação (rank) do eleitor, onde o eleitor classifica certo candidato.
         for (int j = 0; j < candidate_count; j++)
         {
+            // Pede ao usuário para inserir o nome do candidato no rank atual.
             string name = get_string("Rank %i: ", j + 1);
 
             // Verifique se o nome é válido, se não for, imprima a mensagem de erro.
@@ -138,7 +140,7 @@ int main(int argc, string argv[])
             }
         }
 
-        // Registre as preferências do eleitor, com base na classificação do eleitor.
+        // Registra as preferências do eleitor, com base em sua classificação.
         record_preferences(ranks);
 
         printf("\n");
