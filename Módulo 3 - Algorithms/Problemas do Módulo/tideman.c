@@ -180,7 +180,9 @@ void record_preferences(int ranks[])
     */
 }
 
-// Registre pares de candidatos onde um é preferido ao outro.
+/* Add Pairs Function:
+    Adicione pares de candidatos onde um é preferido ao outro.
+    A função será chamada após registrar todas as preferências dos eleitores. Add_pairs não recebe argumentos. */
 void add_pairs(void)
 {
     // TODO
