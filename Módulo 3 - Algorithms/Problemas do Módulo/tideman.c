@@ -167,7 +167,10 @@ bool vote(int rank, string name, int ranks[])
     Ranks é a matriz de classificação do eleitor. */
 void record_preferences(int ranks[])
 {
-    // TODO
+    /* O que se vai fazer nessa função é atualizar a matriz de preferências com base na classificação do eleitor. 
+       Se o eleitor classificar o candidato i em primeiro lugar e o candidato j em segundo lugar, isso significa que
+       o eleitor prefere i em vez de j.
+    */
     return;
 }
 
