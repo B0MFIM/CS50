@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
 /* TIDEMAN VOTE
 
@@ -159,6 +160,17 @@ bool vote(int rank, string name, int ranks[])
 {
     /* O que se vai fazer nessa função é procurar o nome do candidato na matriz de candidatos, se o nome for encontrado,
        atualize a matriz ranks e retorne true. Se o nome não for encontrado, retorne false. */
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(name, candidates[i]) == 0)
+        {
+
+            return true;
+        }
+    }
+
+    return false;
 }
 
 /* Record Preferences Function:
