@@ -158,7 +158,8 @@ int main(int argc, string argv[])
 bool vote(int rank, string name, int ranks[])
 {
     /* Então o que se vai fazer nessa função é procurar o nome do candidato na matriz de candidatos, se o nome for encontrado,
-       atualize a classificação do eleitor, se o nome não for encontrado, retorne falso. */
+       atualize ranks e retorne true. Se o nome não for encontrado, retorne false. ranks[i] é a classificação do eleitor i, onde
+       ranks[i][0] é a primeira preferência, ranks[i][1] é a segunda preferência, e assim por diante. */
 }
 
 // Atualiza as preferências de acordo com a classificação do eleitor.
