@@ -122,8 +122,7 @@ int main(int argc, string argv[])
     // Consulta de votos para cada eleitor
     for (int i = 0; i < voter_count; i++)
     {
-        /* ranks[i] é a classificação do eleitor i, onde ranks[i][0] é a primeira preferência, 
-           ranks[i][1] é a segunda preferência, e assim por diante. */
+        // O array ranks representa a classificação do eleitor. Onde seus indices representam o rank e o valor representa o candidato.
         int ranks[candidate_count];
 
         // Consulta para cada classificação do eleitor, onde o eleitor classifica cada candidato.
