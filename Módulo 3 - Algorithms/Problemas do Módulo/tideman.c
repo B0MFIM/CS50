@@ -24,7 +24,7 @@
         apontando para si. 
 */
 
-// Número máximo de candidatos, numa variável constante chamada 'MAX'.
+// Definição de uma constante MAX, que será o número máximo de candidatos
 #define MAX 9
 
 /* Array Preferences:
@@ -65,6 +65,7 @@ string candidates[MAX];
     em adicionar esse par para a matriz pairs */
 pair pairs[MAX * (MAX - 1) / 2];
 
+// Variáveis Globais, que armazenam o número de pares e o número de candidatos
 int pair_count;
 int candidate_count;
 
