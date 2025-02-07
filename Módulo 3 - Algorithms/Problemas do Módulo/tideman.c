@@ -41,8 +41,9 @@ int preferences[MAX][MAX];
 /* Array Locked:
     A matriz de Locked é uma matriz bidimensional, booleana. Se locked[i][j] for true, isso significa
     que bloqueamos a aresta ou a seta apontando do candidato i para o candidato j. A princípio, todos
-    os valores de locked serão falsos. porque ainda não bloqueamos nenhuma aresta, não temos setas 
-    apontando para nenhum lugar no início do nosso código. */
+    os valores de locked serão falsos, porque ainda não bloqueamos nenhuma aresta, não temos setas 
+    apontando para nenhum lugar no início do nosso código. Toda vez que se quiser adcionar uma seta ou
+    uma aresta apontando de um candidato para outro, se deve alterar o valor de locked[i][j] para true. */
 bool locked[MAX][MAX];
 
 /* Struct Pair: 
