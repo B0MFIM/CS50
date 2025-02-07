@@ -177,6 +177,7 @@ void record_preferences(int ranks[])
     vez do candidato 1 e o candidato 1 em vez do candidato 2.
 
     Então, para essa matriz de classificação específica, conseguimos determinar quais candidatos são preferidos em relação a outros.
+    Logo, vamos atualizar a matriz de preferências com base nessa matriz de classificação, que é ranks.
     */
 }
 
