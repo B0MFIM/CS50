@@ -24,10 +24,12 @@
         apontando para si. 
 */
 
-// Número máximo de candidatos
+// Número máximo de candidatos, numa variável constante chamada 'MAX'.
 #define MAX 9
 
-// preferências[i][j] é o número de eleitores que preferem i em vez de j
+/* Array Preferences:
+    A matriz de preferências é uma matriz bidimensional, de inteiros, interpretados da seguinte forma: 
+    Preferências[i][j] é o número de eleitores que preferem i em vez de j. */
 int preferences[MAX][MAX];
 
 // bloqueado[i][j] significa que i está bloqueado em j
@@ -40,7 +42,7 @@ typedef struct
     int loser;
 } pair;
 
-// Matriz de Candidatos
+// Um Array Candidates do tipo string, que armazena todos os nomes dos candidatos
 string candidates[MAX];
 pair pairs[MAX * (MAX - 1) / 2];
 
