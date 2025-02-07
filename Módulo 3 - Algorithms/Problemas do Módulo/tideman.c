@@ -184,26 +184,16 @@ bool vote(int rank, string name, int ranks[])
 }
 
 /* Record Preferences Function:
-    Atualize a matriz de preferências com base na classificação do eleitor.
-    A função será chamada toda vez que um eleitor indicar suas preferências. Record_preferences recebe um argumento: ranks.
-    Ranks é a matriz de classificação do eleitor. */
+   Atualiza a matriz de preferências com base em toda a classificação do eleitor.
+   A função é chamada toda vez que o eleitor terminar suas classificações.
+   Record_preferences recebe um argumento: ranks.
+   Ranks é a matriz de classificação do eleitor. */
 void record_preferences(int ranks[])
 {
-    /* 
-    O que se vai fazer nessa função é atualizar a matriz de preferências com base na classificação do eleitor. 
-    Se o eleitor classificar o candidato x em primeiro lugar e o candidato y em segundo lugar, isso significa que
-    o eleitor prefere x em vez de y.
-
-    Vamos dar olhada de um eleitor em particula como exemplo: ranks[0] = 3, ranks[1] = 0, ranks[2] = 4, ranks[3] = 1, ranks[4] = 2.
-    Isso significa que o eleitor prefere o candidato 3 em vez do candidato 0, o candidato 0 em vez do candidato 4, o candidato 4 em 
-    vez do candidato 1 e o candidato 1 em vez do candidato 2.
-
-    Então, para essa matriz de classificação específica, conseguimos determinar quais candidatos são preferidos em relação a outros.
-    Logo, vamos atualizar a matriz de preferências com base nessa matriz de classificação, que é ranks.
-    */
-
+    // Loop que iterará sobre todos os candidatos
     for (int i = 0; i < candidate_count; i++)
     {
+        // Loop que iterará sobre todos os candidatos restantes
         for (int j = i + 1; j < candidate_count; j++)
         {
             // o que essa incrementação faz? ela incrementa a quantidade de eleitores que preferem o candidato i em vez do candidato j.
