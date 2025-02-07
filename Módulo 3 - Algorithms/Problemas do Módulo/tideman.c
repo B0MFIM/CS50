@@ -200,6 +200,7 @@ void record_preferences(int ranks[])
     {
         for (int j = i + 1; j < candidate_count; j++)
         {
+            // o que essa incrementação faz? ela incrementa a quantidade de eleitores que preferem o candidato i em vez do candidato j.
             preferences[ranks[i]][ranks[j]]++;
         }
     }
