@@ -157,8 +157,8 @@ int main(int argc, string argv[])
     do eleitor. A função retorna true se o nome for válido e false se o nome for inválido. */
 bool vote(int rank, string name, int ranks[])
 {
-    // TODO 
-    return false;
+    /* Então o que se vai fazer nessa função é procurar o nome do candidato na matriz de candidatos, se o nome for encontrado,
+       atualize a classificação do eleitor, se o nome não for encontrado, retorne falso. */
 }
 
 // Atualiza as preferências de acordo com a classificação do eleitor.
