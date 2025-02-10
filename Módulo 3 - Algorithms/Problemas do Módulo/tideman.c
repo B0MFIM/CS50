@@ -230,11 +230,12 @@ void add_pairs(void)
 }
 
 /* Sort Pairs Function:
-    Classifique os pares em ordem decrescente pela força da vitória. A função será chamada após todos os pares serem adicionados 
-    ao array pairs. Sort_pairs não recebe argumentos. */
+    Classifique os pares em ordem decrescente pela força da vitória. 
+    A função será chamada após todos os pares serem adicionados ao array pairs. 
+    Sort_pairs não recebe argumentos. */
 void sort_pairs(void)
 {
-    // O que se vai fazer nessa função é classificar os pares em ordem decrescente pela força da vitória.
+    // Loop que iterará sobre todos os pares.
 }
 
 /* Lock Pairs Function:
