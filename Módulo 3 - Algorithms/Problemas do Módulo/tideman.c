@@ -264,9 +264,12 @@ void sort_pairs(void)
    A função será chamada após os pares serem classificados na ordem decrescente. */
 void lock_pairs(void)
 {
-    // O que se vai fazer nessa função é bloquear os pares no gráfico de candidatos em ordem, sem criar ciclos.
-
     // Loop que iterará sobre todos os pares.
+    for (int i = 0; i < pair_count; i++)
+    {
+        // Bloqueia o par. 
+        locked[pairs[i].winner][pairs[i].loser] = true;
+    }
 }
 
 /* Print Winner Function:
