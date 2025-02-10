@@ -267,7 +267,7 @@ void lock_pairs(void)
     // Loop que iterará sobre todos os pares.
     for (int i = 0; i < pair_count; i++)
     {
-        // Bloqueia o par. 
+        // Bloqueie o par.
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
 }
