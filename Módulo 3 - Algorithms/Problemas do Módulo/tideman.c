@@ -204,9 +204,10 @@ void add_pairs(void)
 {
     // O que se vai fazer nessa função é adicionar pares de candidatos, onde um é preferido ao outro, no array pairs.
 
+    // Loop que iterará sobre todos os candidatos.
     for (int i = 0; i < candidate_count; i++)
     {
-        
+        //
     }
 }
 
