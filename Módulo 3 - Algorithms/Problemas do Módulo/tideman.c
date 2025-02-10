@@ -73,6 +73,8 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+
+// Protótipo de Função Auxiliar a função lock_pairs.
 bool cycle(int winner, int loser);
 
 int main(int argc, string argv[])
