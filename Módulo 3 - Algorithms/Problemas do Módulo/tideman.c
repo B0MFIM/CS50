@@ -198,12 +198,12 @@ void record_preferences(int ranks[])
 }
 
 /* Add Pairs Function:
-    Adicione pares de candidatos, onde um é preferido ao outro, no array pairs. E atualiza a variável pair_count, para o número
-    total de pares. A função será chamada após registrar todas as preferências dos eleitores. Add_pairs não recebe argumentos. */
+   A função adiciona pares de candidatos onde um é preferido ao outro, no array pairs. 
+   E atualiza a variável pair_count, para o número total de pares atual.
+   A função será chamada após registrar todas as preferências dos eleitores.
+   Add_pairs não recebe argumentos. */
 void add_pairs(void)
 {
-    // O que se vai fazer nessa função é adicionar pares de candidatos, onde um é preferido ao outro, no array pairs.
-
     // Loop que iterará sobre todos os candidatos.
     for (int i = 0; i < candidate_count; i++)
     {
