@@ -236,6 +236,16 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // Loop que iterará sobre todos os pares.
+    for (int i = 0; i < pair_count; i++)
+    {
+        // Loop que iterará sobre todos os pares restantes.
+        for (int j = i + 1; j < pair_count; j++)
+        {
+            // Calcule a diferença de força de vitória entre os pares i e j.
+
+            // Se a força de vitória do par j for maior que a força de vitória do par i, troque os pares.
+        }
+    }
 }
 
 /* Lock Pairs Function:
