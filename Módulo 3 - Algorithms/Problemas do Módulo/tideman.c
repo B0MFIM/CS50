@@ -207,7 +207,25 @@ void add_pairs(void)
     // Loop que iterará sobre todos os candidatos.
     for (int i = 0; i < candidate_count; i++)
     {
-        //
+        // Loop que iterará sobre todos os candidatos restantes.
+        for (int j = i + 1; j < candidate_count; j++)
+        {
+            // Se o candidato i for preferido ao candidato j, adicione o par ao array pairs.
+            if (preferences[i][j] > preferences[j][i])
+            {
+                pairs[pair_count].winner = i;
+                pairs[pair_count].loser = j;
+                pair_count++;
+            }
+
+            // Se o candidato j for preferido ao candidato i, adicione o par ao array pairs.
+            if (preferences[j][i] > preferences[i][j])
+            {
+                pairs[pair_count].winner = j;
+                pairs[pair_count].loser = i;
+                pair_count++;
+            }
+        }
     }
 }
 
