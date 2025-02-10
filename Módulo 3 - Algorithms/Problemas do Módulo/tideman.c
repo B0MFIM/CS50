@@ -58,7 +58,7 @@ string candidates[MAX];
 
 /* Array Pairs:
    É uma matriz de pares de candidatos, do tipo pair (struct), onde será um array de todos os pares em que um 
-   candidado é prefirido em relação ao outro. Se houver um parde candidatos empatados, não vamos nos preocupar 
+   candidado é prefirido em relação ao outro. Se houver um par de candidatos empatados, não vamos nos preocupar 
    em adicionar esse par para a matriz pairs */
 pair pairs[MAX * (MAX - 1) / 2];
 
@@ -230,9 +230,9 @@ void add_pairs(void)
 }
 
 /* Sort Pairs Function:
-    Classifique os pares em ordem decrescente pela força da vitória. 
-    A função será chamada após todos os pares serem adicionados ao array pairs. 
-    Sort_pairs não recebe argumentos. */
+   Classifique os pares em ordem decrescente pela força da vitória. 
+   A função será chamada após todos os pares serem adicionados ao array pairs. 
+   Sort_pairs não recebe argumentos. */
 void sort_pairs(void)
 {
     // Loop que iterará sobre todos os pares.
@@ -260,11 +260,13 @@ void sort_pairs(void)
 }
 
 /* Lock Pairs Function:
-    Bloqueie os pares no gráfico de candidatos em ordem, sem criar ciclos. A função será chamada após os pares serem classificados. 
-    Lock_pairs não recebe argumentos. */
+   Bloqueie os pares no gráfico de candidatos em ordem, sem criar ciclos.
+   A função será chamada após os pares serem classificados na ordem decrescente. */
 void lock_pairs(void)
 {
     // O que se vai fazer nessa função é bloquear os pares no gráfico de candidatos em ordem, sem criar ciclos.
+
+    // Loop que iterará sobre todos os pares.
 }
 
 /* Print Winner Function:
