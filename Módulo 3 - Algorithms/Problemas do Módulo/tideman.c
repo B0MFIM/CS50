@@ -43,10 +43,10 @@ int preferences[MAX][MAX];
 bool locked[MAX][MAX];
 
 /* Struct Pair: 
-    Esse Struct tem dois campos - vencedor e perdedor - cada um dos quais é um inteiro que representa o índice do
-    candidato na matriz de candidatos. O campo winner é o índice do candidato que venceu e o campo loser é o índice do
-    candidato que perdeu no par específico. Se um par de candidatos estiver empatado, não vamos nos preocupar em adicionar
-    esse par para a matriz pairs. Se um par de candidatos não estiver empatado, vamos adicionar esse par para a matriz pairs. */
+   Esse Struct tem dois campos - vencedor e perdedor - cada um dos quais é um inteiro que representa o índice do
+   candidato na matriz de candidatos. O campo winner é o índice do candidato que venceu e o campo loser é o índice do
+   candidato que perdeu no par específico. Se um par de candidatos estiver empatado, não vamos nos preocupar em adicionar
+   esse par para a matriz pairs. Se um par de candidatos não estiver empatado, vamos adicionar esse par para a matriz pairs. */
 typedef struct
 {
     int winner;
@@ -57,9 +57,9 @@ typedef struct
 string candidates[MAX];
 
 /* Array Pairs:
-    É uma matriz de pares de candidatos, do tipo pair (struct), onde será um array de todos os pares em que um 
-    candidado é prefirido em relação ao outro. Se houver um parde candidatos empatados, não vamos nos preocupar 
-    em adicionar esse par para a matriz pairs */
+   É uma matriz de pares de candidatos, do tipo pair (struct), onde será um array de todos os pares em que um 
+   candidado é prefirido em relação ao outro. Se houver um parde candidatos empatados, não vamos nos preocupar 
+   em adicionar esse par para a matriz pairs */
 pair pairs[MAX * (MAX - 1) / 2];
 
 // Variáveis Globais, que armazenam o número de pares e o número de candidatos.
