@@ -265,8 +265,11 @@ void sort_pairs(void)
                 strongest_index = j;
             }
         }
+
+        // Se o par mais forte não for o par atual, troque os pares.
         if (strongest_index != i)
         {
+            // troque os pares.
             pair buffer = pairs[i];
             pairs[i] = pairs[strongest_index];
             pairs[strongest_index] = buffer;
