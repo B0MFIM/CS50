@@ -73,6 +73,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+bool cycle(int winner, int loser);
 
 int main(int argc, string argv[])
 {
@@ -285,11 +286,14 @@ void sort_pairs(void)
    A função será chamada após os pares serem classificados na ordem decrescente. */
 void lock_pairs(void)
 {
-    // Loop que iterará sobre todos os pares.
+    // Loop que iterará sobre todos os pares
     for (int i = 0; i < pair_count; i++)
     {
-        // Bloqueie o par.
-        locked[pairs[i].winner][pairs[i].loser] = true;
+        // Se adicionar o par criaria um ciclo, pule o par.
+        if (cycle(pairs[i].winner, pairs[i].loser) == false)
+        {
+            locked[pairs[i].winner][pairs[i].loser] = true;
+        }
     }
     return;
 }
@@ -322,4 +326,35 @@ void print_winner(void)
         }
     }
     return;
+}
+
+/* Cycle Function:
+   Verifique se adicionar o par criaria um ciclo.
+   A função é chamada toda vez que um par é bloqueado.
+   Cycle recebe dois argumentos: winner e loser.
+   Winner é o índice do candidato que venceu.
+   Loser é o índice do candidato que perdeu.
+   A função retorna true se adicionar o par criaria um ciclo e false se não criaria um ciclo. */
+bool cycle(int winner, int loser)
+{
+    // Se o perdedor for o vencedor, adicionar o par criaria um ciclo.
+    if (loser == winner)
+    {
+        return true;
+    }
+
+    // Loop que iterará sobre todos os candidatos.
+    for (int i = 0; i < candidate_count; i++)
+    {
+        // Se o perdedor tiver uma seta apontando para o candidato i.
+        if (locked[loser][i] == true)
+        {
+            // Se adicionar o par criaria um ciclo, retorne true.
+            if (cycle(winner, i) == true)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
 }
