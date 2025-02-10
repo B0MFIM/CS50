@@ -275,5 +275,27 @@ void lock_pairs(void)
    A função será chamada após todos os pares serem bloqueados. */
 void print_winner(void)
 {
-    // O que se vai fazer nessa função é imprimir o vencedor da eleição. Com base no gráfico resultante, quem é a 'fonte do gráfico'.
+    // Loop que iterará sobre todos os candidatos.
+    for (int i = 0; i < candidate_count; i++)
+    {
+        // Variável que armazena a quantidade de setas que apontam para o candidato.
+        int count = 0;
+
+        // Loop que iterará sobre todos os candidatos.
+        for (int j = 0; j < candidate_count; j++)
+        {
+            // Se o candidato j tiver uma seta apontando para o candidato i, incremente a contagem.
+            if (locked[j][i])
+            {
+                count++;
+            }
+        }
+
+        // Se o candidato i não tiver nenhuma seta apontando para ele, imprima o nome do candidato.
+        if (count == 0)
+        {
+            printf("%s\n", candidates[i]);
+            return;
+        }
+    }
 }
