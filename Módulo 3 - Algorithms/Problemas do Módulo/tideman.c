@@ -238,28 +238,41 @@ void add_pairs(void)
    A função será chamada após todos os pares serem adicionados ao array pairs. */
 void sort_pairs(void)
 {
-    // Loop que iterará sobre todos os pares.
-    for (int i = 0; i < pair_count; i++)
+    // Itera sobre todos os pares
+    for (int i = 0; i < pair_count - 1; i++)
     {
-        // Loop que iterará sobre todos os pares restantes.
+        // Calcule a diferença de força de vitória entre os pares i e j.
+        int strongest = preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner];
+
+        // Variável que armazena a força de vitória atual.
+        int current_strongest;
+
+        // Variável que armazena o índice do par mais forte.
+        int strongest_index = i;
+
+        // Itera sobre todos os pares restantes
         for (int j = i + 1; j < pair_count; j++)
         {
-            // Calcule a diferença de força de vitória entre os pares i e j.
-            int margem_i = preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner];
-            int margem_j = preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner];
+            // Calcule a diferença de força de vitória entre os pares j e i.
+            current_strongest = preferences[pairs[j].winner][pairs[j].loser] -
+                                preferences[pairs[j].loser][pairs[j].winner];
 
-            // Se a força de vitória do par j for maior que a força de vitória do par i, troque os pares.
-            if (margem_j > margem_i)
+            // Se a força de vitória atual for maior que a força de vitória mais forte, atualize a força de vitória mais forte.
+            if (strongest < current_strongest)
             {
-                // Variavel temporária para armazenar o par.
-                pair temp = pairs[i];
-
-                // Troca os pares.
-                pairs[i] = pairs[j];
-                pairs[j] = temp;
+                // Atualize a força de vitória mais forte e o índice do par mais forte.
+                strongest = current_strongest;
+                strongest_index = j;
             }
         }
+        if (strongest_index != i)
+        {
+            pair buffer = pairs[i];
+            pairs[i] = pairs[strongest_index];
+            pairs[strongest_index] = buffer;
+        }
     }
+    return;
 }
 
 /* Lock Pairs Function:
