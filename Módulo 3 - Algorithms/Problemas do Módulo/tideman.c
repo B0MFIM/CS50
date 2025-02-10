@@ -216,14 +216,14 @@ void add_pairs(void)
             strength = preferences[i][j] - preferences[j][i];
 
             // Se o candidato i for preferido ao candidato j, adicione o par ao array pairs.
-            if (preferences[i][j] > preferences[j][i])
+            if (strength > 0)
             {
                 pairs[pair_count].winner = i;
                 pairs[pair_count].loser = j;
                 pair_count++;
             }
             // Se o candidato j for preferido ao candidato i, adicione o par ao array pairs.
-            else if (preferences[j][i] > preferences[i][j])
+            else if (strength < 0)
             {
                 pairs[pair_count].winner = j;
                 pairs[pair_count].loser = i;
