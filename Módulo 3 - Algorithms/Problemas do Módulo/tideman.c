@@ -35,11 +35,11 @@
 int preferences[MAX][MAX];
 
 /* Array Locked:
-    A matriz de Locked é uma matriz bidimensional, booleana. Se locked[i][j] for true, isso significa
-    que bloqueamos a aresta ou a seta apontando do candidato i para o candidato j. A princípio, todos
-    os valores de locked serão falsos, porque ainda não bloqueamos nenhuma aresta, não temos setas 
-    apontando para nenhum lugar no início do nosso código. Toda vez que se quiser adcionar uma seta ou
-    uma aresta apontando de um candidato para outro, se deve alterar o valor de locked[i][j] para true. */
+   A matriz de Locked é uma matriz bidimensional, booleana. Se locked[i][j] for true, isso significa
+   que bloqueamos a aresta ou a seta apontando do candidato i para o candidato j. A princípio, todos
+   os valores de locked serão falsos, porque ainda não bloqueamos nenhuma aresta, não temos setas 
+   apontando para nenhum lugar no início do nosso código. Toda vez que se quiser adcionar uma seta ou
+   uma aresta apontando de um candidato para outro, se deve alterar o valor de locked[i][j] para true. */
 bool locked[MAX][MAX];
 
 /* Struct Pair: 
@@ -200,8 +200,7 @@ void record_preferences(int ranks[])
 /* Add Pairs Function:
    A função adiciona pares de candidatos onde um é preferido ao outro, no array pairs. 
    E atualiza a variável pair_count, para o número total de pares atual.
-   A função será chamada após registrar todas as preferências dos eleitores.
-   Add_pairs não recebe argumentos. */
+   A função será chamada após registrar todas as preferências dos eleitores. */
 void add_pairs(void)
 {
     // Loop que iterará sobre todos os candidatos.
@@ -231,8 +230,7 @@ void add_pairs(void)
 
 /* Sort Pairs Function:
    Classifique os pares em ordem decrescente pela força da vitória. 
-   A função será chamada após todos os pares serem adicionados ao array pairs. 
-   Sort_pairs não recebe argumentos. */
+   A função será chamada após todos os pares serem adicionados ao array pairs. */
 void sort_pairs(void)
 {
     // Loop que iterará sobre todos os pares.
@@ -273,7 +271,8 @@ void lock_pairs(void)
 }
 
 /* Print Winner Function:
-    Imprima o vencedor da eleição. A função será chamada após todos os pares serem bloqueados. Print_winner não recebe argumentos. */
+   Imprima o vencedor da eleição. 
+   A função será chamada após todos os pares serem bloqueados. */
 void print_winner(void)
 {
     // O que se vai fazer nessa função é imprimir o vencedor da eleição. Com base no gráfico resultante, quem é a 'fonte do gráfico'.
