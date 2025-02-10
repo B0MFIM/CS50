@@ -203,12 +203,18 @@ void record_preferences(int ranks[])
    A função será chamada após registrar todas as preferências dos eleitores. */
 void add_pairs(void)
 {
+    // Variável que armazena a força da vitória.
+    int strength;
+
     // Loop que iterará sobre todos os candidatos.
     for (int i = 0; i < candidate_count; i++)
     {
         // Loop que iterará sobre todos os candidatos restantes.
         for (int j = i + 1; j < candidate_count; j++)
         {
+            // Calcule a força da vitória entre os candidatos i e j.
+            strength = preferences[i][j] - preferences[j][i];
+
             // Se o candidato i for preferido ao candidato j, adicione o par ao array pairs.
             if (preferences[i][j] > preferences[j][i])
             {
