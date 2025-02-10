@@ -242,8 +242,14 @@ void sort_pairs(void)
         for (int j = i + 1; j < pair_count; j++)
         {
             // Calcule a diferença de força de vitória entre os pares i e j.
+            int margem_i = preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner];
+            int margem_j = preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner];
 
             // Se a força de vitória do par j for maior que a força de vitória do par i, troque os pares.
+            if (margem_j > margem_i)
+            {
+                
+            }
         }
     }
 }
