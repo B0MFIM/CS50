@@ -248,7 +248,12 @@ void sort_pairs(void)
             // Se a força de vitória do par j for maior que a força de vitória do par i, troque os pares.
             if (margem_j > margem_i)
             {
-                
+                // Variavel temporária para armazenar o par.
+                pair temp = pairs[i];
+
+                // Troca os pares.
+                pairs[i] = pairs[j];
+                pairs[j] = temp;
             }
         }
     }
