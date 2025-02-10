@@ -216,9 +216,8 @@ void add_pairs(void)
                 pairs[pair_count].loser = j;
                 pair_count++;
             }
-
             // Se o candidato j for preferido ao candidato i, adicione o par ao array pairs.
-            if (preferences[j][i] > preferences[i][j])
+            else if (preferences[j][i] > preferences[i][j])
             {
                 pairs[pair_count].winner = j;
                 pairs[pair_count].loser = i;
