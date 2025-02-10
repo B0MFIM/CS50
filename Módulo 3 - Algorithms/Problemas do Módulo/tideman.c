@@ -195,6 +195,7 @@ void record_preferences(int ranks[])
             preferences[ranks[i]][ranks[j]]++;
         }
     }
+    return;
 }
 
 /* Add Pairs Function:
@@ -206,10 +207,10 @@ void add_pairs(void)
     // Variável que armazena a força da vitória.
     int strength;
 
-    // Loop que iterará sobre todos os candidatos.
-    for (int i = 0; i < candidate_count; i++)
+    // Itera sobre todos os candidatos.
+    for (int i = 0; i < candidate_count - 1; i++)
     {
-        // Loop que iterará sobre todos os candidatos restantes.
+        // Itera sobre todos os candidatos restantes
         for (int j = i + 1; j < candidate_count; j++)
         {
             // Calcule a força da vitória entre os candidatos i e j.
@@ -231,6 +232,7 @@ void add_pairs(void)
             }
         }
     }
+    return;
 }
 
 /* Sort Pairs Function:
@@ -289,6 +291,7 @@ void lock_pairs(void)
         // Bloqueie o par.
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
+    return;
 }
 
 /* Print Winner Function:
@@ -316,7 +319,7 @@ void print_winner(void)
         if (count == 0)
         {
             printf("%s\n", candidates[i]);
-            return;
         }
     }
+    return;
 }
