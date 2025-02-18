@@ -171,9 +171,11 @@ MEMORY
             char s[] = "CS50";
             printf("%c\n", *(s + 1)); // Imprime 'S'
             printf("%c\n", s[1]);     // Imprime 'S'
+            printf("%s\n", s + 1);    // Imprime "S50"
 
         AQUI, `s` É UM ARRAY DE CARACTERES QUE CONTÉM A STRING "CS50". AO USAR `*(s + 1)`, ESTAMOS ACESSANDO O 
-        SEGUNDO CARACTERE DA STRING (ÍNDICE 1), QUE É 'S'. ISSO É EQUIVALENTE A USAR `s[1]`.
+        SEGUNDO CARACTERE DA STRING (ÍNDICE 1), QUE É 'S'. ISSO É EQUIVALENTE A USAR `s[1]`. AO USAR `s + 1`, 
+        ESTAMOS APONTANDO PARA A STRING A PARTIR DO SEGUNDO CARACTERE, RESULTANDO EM "S50".
 
         OUTRO EXEMPLO:
 
