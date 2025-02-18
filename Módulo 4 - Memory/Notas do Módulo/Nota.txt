@@ -156,3 +156,45 @@ MEMORY
         O `typedef` É UMA FERRAMENTA PODEROSA EM C QUE PODE AJUDAR A SIMPLIFICAR E CLARIFICAR O CÓDIGO, ESPECIALMENTE 
         QUANDO SE TRATA DE TIPOS COMPLEXOS. AO USAR `typedef`, VOCÊ PODE CRIAR NOMES MAIS SIGNIFICATIVOS E REDUZIR 
         A COMPLEXIDADE VISUAL DO SEU CÓDIGO.
+
+    POINTER ARITHMETIC
+
+        EM C, A ARITMÉTICA DE PONTEIROS PERMITE QUE VOCÊ REALIZE OPERAÇÕES MATEMÁTICAS COM PONTEIROS, COMO ADIÇÃO E 
+        SUBTRAÇÃO. ISSO É PARTICULARMENTE ÚTIL AO TRABALHAR COM ARRAYS E STRINGS.
+
+        EXEMPLO:
+
+            char s[] = "CS50";
+            printf("%c\n", *(s + 1)); // Imprime 'S'
+            printf("%c\n", s[1]);     // Imprime 'S'
+
+        AQUI, `s` É UM ARRAY DE CARACTERES QUE CONTÉM A STRING "CS50". AO USAR `*(s + 1)`, ESTAMOS ACESSANDO O 
+        SEGUNDO CARACTERE DA STRING (ÍNDICE 1), QUE É 'S'. ISSO É EQUIVALENTE A USAR `s[1]`.
+
+        OUTRO EXEMPLO:
+
+            int arr[] = {10, 20, 30, 40};
+            int *ptr = arr;
+            printf("%d\n", *(ptr + 2)); // Imprime 30
+            printf("%d\n", arr[2]);     // Imprime 30
+
+        AQUI, `arr` É UM ARRAY DE INTEIROS. AO USAR `*(ptr + 2)`, ESTAMOS ACESSANDO O TERCEIRO ELEMENTO DO ARRAY 
+        (ÍNDICE 2), QUE É 30. ISSO É EQUIVALENTE A USAR `arr[2]`.
+
+        A ARITMÉTICA DE PONTEIROS TAMBÉM PODE SER USADA PARA ITERAR SOBRE ARRAYS E STRINGS.
+
+        EXEMPLO:
+
+            char s[] = "CS50";
+            char *ptr = s;
+            while (*ptr != '\0') {
+                printf("%c\n", *ptr);
+                ptr++;
+            }
+
+        AQUI, `ptr` É UM PONTEIRO QUE INICIALMENTE APONTA PARA O PRIMEIRO CARACTERE DA STRING `s`. O LOOP `while` 
+        IMPRIME CADA CARACTERE DA STRING ATÉ ENCONTRAR O CARACTERE NULO (`\0`), INCREMENTANDO `ptr` A CADA ITERAÇÃO.
+
+        A ARITMÉTICA DE PONTEIROS É UMA FERRAMENTA PODEROSA EM C QUE PERMITE MANIPULAR DIRETAMENTE OS ENDEREÇOS DE 
+        MEMÓRIA E TRABALHAR EFICIENTEMENTE COM ARRAYS E STRINGS. NO ENTANTO, É IMPORTANTE USAR ESSA FERRAMENTA COM 
+        CUIDADO PARA EVITAR ERROS DE ACESSO À MEMÓRIA.
