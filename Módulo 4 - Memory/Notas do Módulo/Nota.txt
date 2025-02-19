@@ -277,4 +277,85 @@ MEMORY
         A COMPARAÇÃO DE STRINGS É UMA OPERAÇÃO COMUM EM C QUE REQUER O USO DE FUNÇÕES ESPECÍFICAS PARA GARANTIR 
         QUE O CONTEÚDO DAS STRINGS SEJA COMPARADO CORRETAMENTE.
 
-    
+    COPY DE STRINGS
+
+        EM C, COPIAR UMA STRING PARA OUTRA VARIÁVEL PODE SER FEITO ATRAVÉS DA ATRIBUIÇÃO DE PONTEIROS. NO ENTANTO, 
+        ISSO FAZ COM QUE AS DUAS VARIÁVEIS APONTEM PARA O MESMO ENDEREÇO DE MEMÓRIA, O QUE SIGNIFICA QUE QUALQUER 
+        MODIFICAÇÃO EM UMA DAS VARIÁVEIS AFETARÁ A OUTRA.
+
+        EXEMPLO:
+
+            char *str1 = "CS50";
+            char *str2 = str1;
+
+            str2[0] = 'c';
+
+            printf("%s\n", str1); // Imprime "cS50"
+            printf("%s\n", str2); // Imprime "cS50"
+
+        AQUI, `str1` E `str2` APONTAM PARA O MESMO ENDEREÇO DE MEMÓRIA. AO MODIFICAR `str2`, `str1` TAMBÉM É 
+        MODIFICADA, POIS AMBAS APONTAM PARA A MESMA STRING.
+
+        PARA EVITAR ESSE PROBLEMA, PODEMOS USAR A FUNÇÃO `strcpy` DA BIBLIOTECA PADRÃO `string.h` PARA COPIAR O 
+        CONTEÚDO DE UMA STRING PARA OUTRA VARIÁVEL.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+            #include <string.h>
+
+            int main() {
+                char str1[] = "CS50";
+                char str2[5];
+
+                strcpy(str2, str1);
+
+                str2[0] = 'c';
+
+                printf("%s\n", str1); // Imprime "CS50"
+                printf("%s\n", str2); // Imprime "cS50"
+
+                return 0;
+            }
+
+        AQUI, `strcpy` COPIA O CONTEÚDO DE `str1` PARA `str2`, RESULTANDO EM DUAS STRINGS INDEPENDENTES. MODIFICAR 
+        `str2` NÃO AFETARÁ `str1`.
+
+    USANDO `malloc` PARA ALOCAÇÃO DINÂMICA DE MEMÓRIA
+
+        EM C, PODEMOS USAR A FUNÇÃO `malloc` DA BIBLIOTECA PADRÃO `stdlib.h` PARA ALOCAR DINAMICAMENTE MEMÓRIA PARA 
+        STRINGS. ISSO PODE SER ÚTIL PARA EVITAR O PROBLEMA DE PONTEIROS APONTANDO PARA O MESMO ENDEREÇO DE MEMÓRIA.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+            #include <stdlib.h>
+            #include <string.h>
+
+            int main() {
+                char *str1 = "CS50";
+                char *str2 = malloc(strlen(str1) + 1);
+
+                if (str2 == NULL) {
+                    printf("Erro ao alocar memória.\n");
+                    return 1;
+                }
+
+                strcpy(str2, str1);
+
+                str2[0] = 'c';
+
+                printf("%s\n", str1); // Imprime "CS50"
+                printf("%s\n", str2); // Imprime "cS50"
+
+                free(str2);
+
+                return 0;
+            }
+
+        AQUI, `malloc` ALOCA MEMÓRIA SUFICIENTE PARA ARMAZENAR A STRING `str1`, INCLUINDO O CARACTERE NULO (`\0`). 
+        `strcpy` É USADO PARA COPIAR O CONTEÚDO DE `str1` PARA `str2`, RESULTANDO EM DUAS STRINGS INDEPENDENTES. 
+        MODIFICAR `str2` NÃO AFETARÁ `str1`. APÓS USAR `str2`, A MEMÓRIA ALOCADA É LIBERADA COM `free`.
+
+        USAR `malloc` PARA ALOCAÇÃO DINÂMICA DE MEMÓRIA É UMA FORMA EFICIENTE DE EVITAR PROBLEMAS DE PONTEIROS 
+        APONTANDO PARA O MESMO ENDEREÇO DE MEMÓRIA E GARANTIR QUE AS STRINGS SEJAM INDEPENDENTES.
