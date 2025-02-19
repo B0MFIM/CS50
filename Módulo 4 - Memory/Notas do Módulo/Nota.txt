@@ -204,3 +204,79 @@ MEMORY
         A ARITMÉTICA DE PONTEIROS É UMA FERRAMENTA PODEROSA EM C QUE PERMITE MANIPULAR DIRETAMENTE OS ENDEREÇOS DE 
         MEMÓRIA E TRABALHAR EFICIENTEMENTE COM ARRAYS E STRINGS. NO ENTANTO, É IMPORTANTE USAR ESSA FERRAMENTA COM 
         CUIDADO PARA EVITAR ERROS DE ACESSO À MEMÓRIA.
+
+
+    STRING COMPARISON
+
+        EM C, A COMPARAÇÃO DE STRINGS NÃO PODE SER FEITA USANDO OS OPERADORES DE IGUALDADE (`==`) OU DESIGUALDADE (`!=`) 
+        COMO EM OUTRAS LINGUAGENS DE PROGRAMAÇÃO. ISSO OCORRE PORQUE ESSES OPERADORES COMPARARÃO OS ENDEREÇOS DE MEMÓRIA 
+        DAS STRINGS, NÃO OS SEUS CONTEÚDOS. PARA COMPARAR O CONTEÚDO DE DUAS STRINGS, DEVEMOS USAR A FUNÇÃO `strcmp` 
+        DA BIBLIOTECA PADRÃO `string.h`.
+
+        A FUNÇÃO `strcmp`:
+
+            int strcmp(const char *str1, const char *str2);
+
+        A FUNÇÃO `strcmp` COMPARA DUAS STRINGS, `str1` E `str2`, E RETORNA UM VALOR INTEIRO BASEADO NA COMPARAÇÃO:
+
+            - UM VALOR NEGATIVO SE `str1` FOR MENOR QUE `str2`.
+            - ZERO SE `str1` FOR IGUAL A `str2`.
+            - UM VALOR POSITIVO SE `str1` FOR MAIOR QUE `str2`.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+            #include <string.h>
+
+            int main() {
+                char str1[] = "CS50";
+                char str2[] = "cs50";
+
+                int result = strcmp(str1, str2);
+
+                if (result == 0) {
+                    printf("As strings são iguais.\n");
+                } else if (result < 0) {
+                    printf("str1 é menor que str2.\n");
+                } else {
+                    printf("str1 é maior que str2.\n");
+                }
+
+                return 0;
+            }
+
+        NESTE EXEMPLO, `strcmp` COMPARA AS STRINGS `str1` E `str2`. COMO A COMPARAÇÃO É SENSÍVEL A MAIÚSCULAS E 
+        MINÚSCULAS, O RESULTADO INDICARÁ QUE `str1` É MENOR QUE `str2`.
+
+        PARA COMPARAÇÕES INSENSÍVEIS A MAIÚSCULAS E MINÚSCULAS, PODEMOS USAR A FUNÇÃO `strcasecmp` (OU `_stricmp` 
+        NO WINDOWS):
+
+            int strcasecmp(const char *str1, const char *str2);
+
+        EXEMPLO:
+
+            #include <stdio.h>
+            #include <string.h>
+
+            int main() {
+                char str1[] = "CS50";
+                char str2[] = "cs50";
+
+                int result = strcasecmp(str1, str2);
+
+                if (result == 0) {
+                    printf("As strings são iguais.\n");
+                } else if (result < 0) {
+                    printf("str1 é menor que str2.\n");
+                } else {
+                    printf("str1 é maior que str2.\n");
+                }
+
+                return 0;
+            }
+
+        NESTE EXEMPLO, `strcasecmp` COMPARA AS STRINGS `str1` E `str2` SEM DIFERENCIAR MAIÚSCULAS E MINÚSCULAS, 
+        RESULTANDO EM UMA COMPARAÇÃO QUE INDICA QUE AS STRINGS SÃO IGUAIS.
+
+        A COMPARAÇÃO DE STRINGS É UMA OPERAÇÃO COMUM EM C QUE REQUER O USO DE FUNÇÕES ESPECÍFICAS PARA GARANTIR 
+        QUE O CONTEÚDO DAS STRINGS SEJA COMPARADO CORRETAMENTE.
