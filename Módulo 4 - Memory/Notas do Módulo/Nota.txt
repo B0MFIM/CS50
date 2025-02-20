@@ -742,3 +742,67 @@ MEMORY
         BUFFER OVERFLOW É UMA VULNERABILIDADE DE SEGURANÇA COMUM QUE PODE SER EXPLORADA POR ATACANTES PARA EXECUTAR 
         CÓDIGO MALICIOSO. É IMPORTANTE SEMPRE VALIDAR O TAMANHO DOS DADOS E USAR FUNÇÕES SEGURAS PARA EVITAR ESSE TIPO 
         DE VULNERABILIDADE.
+
+    
+    SCANF
+
+        A FUNÇÃO `scanf` EM C É USADA PARA LER ENTRADAS DO USUÁRIO A PARTIR DO TECLADO. ELA ESTÁ DEFINIDA NA BIBLIOTECA 
+        PADRÃO `stdio.h` E PERMITE LER DIFERENTES TIPOS DE DADOS, COMO INTEIROS, FLOATS, STRINGS, ENTRE OUTROS.
+
+        SINTAXE:
+
+            int scanf(const char *format, ...);
+
+        O PRIMEIRO ARGUMENTO DE `scanf` É UMA STRING DE FORMATO QUE ESPECIFICA OS TIPOS DE DADOS A SEREM LIDOS. OS 
+        ARGUMENTOS SEGUINTES SÃO PONTEIROS PARA AS VARIÁVEIS ONDE OS VALORES LIDOS SERÃO ARMAZENADOS.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+
+            int main() {
+                int idade;
+                printf("Digite sua idade: ");
+                scanf("%d", &idade);
+                printf("Sua idade é: %d\n", idade);
+                return 0;
+            }
+
+        NESTE EXEMPLO, `scanf` LÊ UM INTEIRO DIGITADO PELO USUÁRIO E O ARMAZENA NA VARIÁVEL `idade`. O ESPECIFICADOR 
+        DE FORMATO `%d` INDICA QUE UM INTEIRO SERÁ LIDO.
+
+        ESPECIFICADORES DE FORMATO COMUNS:
+
+            - `%d`: LÊ UM INTEIRO.
+            - `%f`: LÊ UM FLOAT.
+            - `%c`: LÊ UM ÚNICO CARACTERE.
+            - `%s`: LÊ UMA STRING (PARA STRINGS, NÃO É NECESSÁRIO USAR O OPERADOR `&`).
+
+        EXEMPLO COM MÚLTIPLAS ENTRADAS:
+
+            #include <stdio.h>
+
+            int main() {
+                int idade;
+                float altura;
+                char nome[50];
+
+                printf("Digite seu nome, idade e altura: ");
+                scanf("%s %d %f", nome, &idade, &altura);
+
+                printf("Nome: %s\n", nome);
+                printf("Idade: %d\n", idade);
+                printf("Altura: %.2f\n", altura);
+
+                return 0;
+            }
+
+        NESTE EXEMPLO, `scanf` LÊ UMA STRING, UM INTEIRO E UM FLOAT DIGITADOS PELO USUÁRIO E OS ARMAZENA NAS VARIÁVEIS 
+        `nome`, `idade` E `altura`, RESPECTIVAMENTE.
+
+        CUIDADOS AO USAR `scanf`:
+
+        - CERTIFIQUE-SE DE USAR O ESPECIFICADOR DE FORMATO CORRETO PARA O TIPO DE DADO QUE VOCÊ DESEJA LER.
+        - PARA STRINGS, GARANTA QUE O BUFFER SEJA GRANDE O SUFICIENTE PARA ARMAZENAR A ENTRADA.
+        - `scanf` NÃO VERIFICA LIMITES DE BUFFER, O QUE PODE LEVAR A VULNERABILIDADES DE SEGURANÇA. CONSIDERE USAR 
+          `fgets` PARA LER STRINGS DE FORMA MAIS SEGURA.
