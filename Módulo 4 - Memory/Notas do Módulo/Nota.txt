@@ -497,3 +497,63 @@ MEMORY
         EVITAR GARBAGE VALUES É IMPORTANTE PARA GARANTIR QUE SEU PROGRAMA SE COMPORTE DE FORMA PREVISÍVEL E CORRETA.
 
     
+    SWAPPING
+
+        EM C, SWAPPING (TROCA) DE VALORES ENTRE DUAS VARIÁVEIS PODE SER FEITO DE DIFERENTES MANEIRAS, DEPENDENDO SE VOCÊ 
+        ESTÁ USANDO PASSAGEM POR VALOR OU PASSAGEM POR REFERÊNCIA.
+
+        PASSAGEM POR VALOR:
+
+        QUANDO VOCÊ PASSA ARGUMENTOS POR VALOR PARA UMA FUNÇÃO, UMA CÓPIA DOS VALORES É FEITA E PASSADA PARA A FUNÇÃO. 
+        ISSO SIGNIFICA QUE QUALQUER MODIFICAÇÃO FEITA NOS ARGUMENTOS DENTRO DA FUNÇÃO NÃO AFETARÁ AS VARIÁVEIS ORIGINAIS.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+
+            void swap(int a, int b) {
+                int temp = a;
+                a = b;
+                b = temp;
+            }
+
+            int main() {
+                int x = 10;
+                int y = 20;
+                swap(x, y);
+                printf("x = %d, y = %d\n", x, y); // Imprime "x = 10, y = 20"
+                return 0;
+            }
+
+        NESTE EXEMPLO, A FUNÇÃO `swap` NÃO CONSEGUE TROCAR OS VALORES DE `x` E `y` PORQUE ELA ESTÁ TRABALHANDO COM CÓPIAS 
+        DOS VALORES ORIGINAIS.
+
+        PASSAGEM POR REFERÊNCIA:
+
+        PARA TROCAR OS VALORES DE DUAS VARIÁVEIS, VOCÊ PRECISA PASSAR OS ENDEREÇOS DE MEMÓRIA DAS VARIÁVEIS PARA A FUNÇÃO. 
+        ISSO PERMITE QUE A FUNÇÃO MODIFIQUE DIRETAMENTE OS VALORES ORIGINAIS.
+
+        EXEMPLO CORRETO:
+
+            #include <stdio.h>
+
+            void swap(int *a, int *b) {
+                int temp = *a;
+                *a = *b;
+                *b = temp;
+            }
+
+            int main() {
+                int x = 10;
+                int y = 20;
+                swap(&x, &y);
+                printf("x = %d, y = %d\n", x, y); // Imprime "x = 20, y = 10"
+                return 0;
+            }
+
+        NESTE EXEMPLO, A FUNÇÃO `swap` RECEBE OS ENDEREÇOS DE MEMÓRIA DE `x` E `y` E TROCA OS VALORES DIRETAMENTE, 
+        RESULTANDO EM UMA TROCA BEM-SUCEDIDA.
+
+        A PASSAGEM POR REFERÊNCIA É UMA FERRAMENTA PODEROSA EM C QUE PERMITE QUE VOCÊ MODIFIQUE DIRETAMENTE OS VALORES 
+        DAS VARIÁVEIS ORIGINAIS, ENQUANTO A PASSAGEM POR VALOR É ÚTIL QUANDO VOCÊ DESEJA TRABALHAR COM CÓPIAS DOS VALORES 
+        E EVITAR MODIFICAÇÕES NOS VALORES ORIGINAIS.
