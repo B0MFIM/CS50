@@ -698,3 +698,47 @@ MEMORY
             }
 
         NESTE EXEMPLO, A FUNÇÃO `func` TEM UMA CONDIÇÃO DE PARADA ADEQUADA, EVITANDO UM STACK OVERFLOW.
+
+    
+    BUFFER OVERFLOW
+
+        UM BUFFER OVERFLOW OCORRE QUANDO UM PROGRAMA TENTA ESCREVER MAIS DADOS EM UM BUFFER DO QUE ELE PODE SUPORTAR. 
+        ISSO PODE RESULTAR EM COMPORTAMENTO INDEFINIDO, INCLUINDO CORRUPÇÃO DE DADOS, FALHAS DE SEGURANÇA E CRASHES 
+        DO PROGRAMA.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+            #include <string.h>
+
+            int main() {
+                char buffer[10];
+                strcpy(buffer, "Esta string é muito longa para o buffer!"); // Buffer overflow
+                printf("%s\n", buffer);
+                return 0;
+            }
+
+        NESTE EXEMPLO, A STRING COPIADA PARA `buffer` EXCEDE O TAMANHO DO BUFFER ALOCADO, RESULTANDO EM UM BUFFER OVERFLOW.
+
+        PARA EVITAR BUFFER OVERFLOW, SEMPRE VERIFIQUE SE O TAMANHO DO BUFFER É SUFICIENTE PARA OS DADOS QUE VOCÊ PRETENDE 
+        ARMAZENAR E USE FUNÇÕES QUE LIMITAM O TAMANHO DA CÓPIA, COMO `strncpy`.
+
+        EXEMPLO CORRIGIDO:
+
+            #include <stdio.h>
+            #include <string.h>
+
+            int main() {
+                char buffer[10];
+                strncpy(buffer, "Esta string é muito longa para o buffer!", sizeof(buffer) - 1);
+                buffer[sizeof(buffer) - 1] = '\0'; // Garantir que a string esteja terminada em nulo
+                printf("%s\n", buffer);
+                return 0;
+            }
+
+        NESTE EXEMPLO, `strncpy` É USADO PARA COPIAR A STRING COM SEGURANÇA, LIMITANDO O TAMANHO DA CÓPIA E EVITANDO 
+        BUFFER OVERFLOW.
+
+        BUFFER OVERFLOW É UMA VULNERABILIDADE DE SEGURANÇA COMUM QUE PODE SER EXPLORADA POR ATACANTES PARA EXECUTAR 
+        CÓDIGO MALICIOSO. É IMPORTANTE SEMPRE VALIDAR O TAMANHO DOS DADOS E USAR FUNÇÕES SEGURAS PARA EVITAR ESSE TIPO 
+        DE VULNERABILIDADE.
