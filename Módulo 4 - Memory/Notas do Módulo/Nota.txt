@@ -848,3 +848,129 @@ MEMORY
 
         NESTE EXEMPLO, `fgets` LÊ ATÉ 9 CARACTERES (DEIXANDO ESPAÇO PARA O CARACTERE NULO) E GARANTE QUE NÃO OCORRA 
         BUFFER OVERFLOW. A FUNÇÃO `strcspn` É USADA PARA REMOVER O CARACTERE DE NOVA LINHA, SE PRESENTE.
+
+    
+    FILE I/O
+
+        EM C, A BIBLIOTECA PADRÃO `stdio.h` FORNECE FUNÇÕES PARA TRABALHAR COM ARQUIVOS, PERMITINDO QUE VOCÊ LEIA E 
+        ESCREVA DADOS EM ARQUIVOS NO DISCO. ISSO É CONHECIDO COMO FILE I/O (ENTRADA E SAÍDA DE ARQUIVOS).
+
+        ABRINDO UM ARQUIVO:
+
+        PARA ABRIR UM ARQUIVO, USE A FUNÇÃO `fopen`, QUE RETORNA UM PONTEIRO PARA O ARQUIVO ABERTO.
+
+            FILE *fopen(const char *filename, const char *mode);
+
+        O PRIMEIRO ARGUMENTO É O NOME DO ARQUIVO, E O SEGUNDO ARGUMENTO É O MODO DE ABERTURA DO ARQUIVO. MODOS COMUNS 
+        INCLUEM:
+
+            - "r": ABRE O ARQUIVO PARA LEITURA.
+            - "w": ABRE O ARQUIVO PARA ESCRITA (CRIA UM NOVO ARQUIVO SE NÃO EXISTIR, OU TRUNCA O ARQUIVO EXISTENTE).
+            - "a": ABRE O ARQUIVO PARA ANEXAR (ADICIONAR DADOS AO FINAL DO ARQUIVO).
+            - "r+": ABRE O ARQUIVO PARA LEITURA E ESCRITA.
+            - "w+": ABRE O ARQUIVO PARA LEITURA E ESCRITA (CRIA UM NOVO ARQUIVO SE NÃO EXISTIR, OU TRUNCA O ARQUIVO EXISTENTE).
+            - "a+": ABRE O ARQUIVO PARA LEITURA E ESCRITA (ADICIONA DADOS AO FINAL DO ARQUIVO).
+
+        EXEMPLO:
+
+            #include <stdio.h>
+
+            int main() {
+                FILE *file = fopen("example.txt", "r");
+                if (file == NULL) {
+                    printf("Erro ao abrir o arquivo.\n");
+                    return 1;
+                }
+                // Operações com o arquivo
+                fclose(file);
+                return 0;
+            }
+
+        NESTE EXEMPLO, O ARQUIVO "example.txt" É ABERTO PARA LEITURA. SE O ARQUIVO NÃO PUDER SER ABERTO, UMA MENSAGEM DE
+        ERRO É IMPRESSA.
+
+        LENDO DE UM ARQUIVO:
+
+        PARA LER DADOS DE UM ARQUIVO, USE AS FUNÇÕES `fgetc`, `fgets` OU `fread`.
+
+        EXEMPLO COM `fgets`:
+
+            #include <stdio.h>
+
+            int main() {
+                FILE *file = fopen("example.txt", "r");
+                if (file == NULL) {
+                    printf("Erro ao abrir o arquivo.\n");
+                    return 1;
+                }
+
+                char buffer[100];
+                while (fgets(buffer, sizeof(buffer), file) != NULL) {
+                    printf("%s", buffer);
+                }
+
+                fclose(file);
+                return 0;
+            }
+
+        NESTE EXEMPLO, `fgets` LÊ LINHAS DO ARQUIVO "example.txt" E AS IMPRIME NO CONSOLE.
+
+        ESCREVENDO EM UM ARQUIVO:
+
+        PARA ESCREVER DADOS EM UM ARQUIVO, USE AS FUNÇÕES `fputc`, `fputs` OU `fwrite`.
+
+        EXEMPLO COM `fputs`:
+
+            #include <stdio.h>
+
+            int main() {
+                FILE *file = fopen("example.txt", "w");
+                if (file == NULL) {
+                    printf("Erro ao abrir o arquivo.\n");
+                    return 1;
+                }
+
+                fputs("Hello, World!\n", file);
+
+                fclose(file);
+                return 0;
+            }
+
+        NESTE EXEMPLO, `fputs` ESCREVE A STRING "Hello, World!\n" NO ARQUIVO "example.txt".
+
+        FECHANDO UM ARQUIVO:
+
+        SEMPRE FECHE UM ARQUIVO APÓS TERMINAR DE USÁ-LO USANDO A FUNÇÃO `fclose`.
+
+            int fclose(FILE *stream);
+
+        EXEMPLO:
+
+            FILE *file = fopen("example.txt", "r");
+            // Operações com o arquivo
+            fclose(file);
+
+        AQUI, `fclose` FECHA O ARQUIVO "example.txt" APÓS AS OPERAÇÕES DE LEITURA.
+
+        ERROS DE ARQUIVO:
+
+        PARA DETECTAR ERROS AO TRABALHAR COM ARQUIVOS, USE AS FUNÇÕES `ferror` E `feof`.
+
+            int ferror(FILE *stream);
+            int feof(FILE *stream);
+
+        `ferror` RETORNA UM VALOR DIFERENTE DE ZERO SE OCORRER UM ERRO DE LEITURA/ESCRITA. `feof` RETORNA UM VALOR DIFERENTE DE ZERO SE O FIM DO ARQUIVO FOR ALCANÇADO.
+
+        EXEMPLO:
+
+            if (ferror(file)) {
+                printf("Erro de leitura/escrita.\n");
+            }
+
+            if (feof(file)) {
+                printf("Fim do arquivo alcançado.\n");
+            }
+
+        AQUI, `ferror` E `feof` SÃO USADOS PARA DETECTAR ERROS E O FIM DO ARQUIVO, RESPECTIVAMENTE.
+
+        FILE I/O É UMA FERRAMENTA PODEROSA EM C QUE PERMITE QUE VOCÊ LEIA E ESCREVA DADOS EM ARQUIVOS NO DISCO, FORNECENDO UMA FORMA FLEXÍVEL DE ARMAZENAR E RECUPERAR INFORMAÇÕES.
