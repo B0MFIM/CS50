@@ -367,3 +367,37 @@ MEMORY
         SE `malloc` NÃO CONSEGUIR ALOCAR A MEMÓRIA NECESSÁRIA, ELE RETORNARÁ `NULL`. É IMPORTANTE SEMPRE VERIFICAR 
         SE O RETORNO DE `malloc` É `NULL` ANTES DE USAR A MEMÓRIA ALOCADA. SE `str2` FOR `NULL`, O PROGRAMA IMPRIME 
         UMA MENSAGEM DE ERRO E RETORNA UM CÓDIGO DE SAÍDA DIFERENTE DE ZERO PARA INDICAR QUE OCORREU UM ERRO.
+
+    USANDO `free` PARA LIBERAR MEMÓRIA
+
+        EM C, É IMPORTANTE LIBERAR A MEMÓRIA ALOCADA DINAMICAMENTE QUANDO ELA NÃO FOR MAIS NECESSÁRIA. ISSO PODE SER 
+        FEITO USANDO A FUNÇÃO `free` DA BIBLIOTECA PADRÃO `stdlib.h`. LIBERAR A MEMÓRIA EVITA VAZAMENTOS DE MEMÓRIA 
+        E GARANTE QUE OS RECURSOS DO SISTEMA SEJAM UTILIZADOS DE FORMA EFICIENTE.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+            #include <stdlib.h>
+            #include <string.h>
+
+            int main() {
+                char *str1 = "CS50";
+                char *str2 = malloc(strlen(str1) + 1);
+
+                if (str2 == NULL) {
+                    printf("Erro ao alocar memória.\n");
+                    return 1;
+                }
+
+                strcpy(str2, str1);
+
+                printf("%s\n", str2); // Imprime "CS50"
+
+                free(str2); // Libera a memória alocada para `str2`
+
+                return 0;
+            }
+
+        AQUI, `malloc` ALOCA MEMÓRIA PARA `str2` E `strcpy` COPIA O CONTEÚDO DE `str1` PARA `str2`. APÓS USAR `str2`, 
+        A MEMÓRIA ALOCADA É LIBERADA COM `free`. ISSO GARANTE QUE A MEMÓRIA NÃO FIQUE ALOCADA INDEFINIDAMENTE, 
+        EVITANDO VAZAMENTOS DE MEMÓRIA.
