@@ -557,3 +557,144 @@ MEMORY
         A PASSAGEM POR REFERÊNCIA É UMA FERRAMENTA PODEROSA EM C QUE PERMITE QUE VOCÊ MODIFIQUE DIRETAMENTE OS VALORES 
         DAS VARIÁVEIS ORIGINAIS, ENQUANTO A PASSAGEM POR VALOR É ÚTIL QUANDO VOCÊ DESEJA TRABALHAR COM CÓPIAS DOS VALORES 
         E EVITAR MODIFICAÇÕES NOS VALORES ORIGINAIS.
+
+    
+    HEAP OVERFLOW
+
+        UM HEAP OVERFLOW OCORRE QUANDO UM PROGRAMA TENTA ALOCAR MAIS MEMÓRIA NO HEAP DO QUE O DISPONÍVEL, OU QUANDO 
+        ELE TENTA ACESSAR MEMÓRIA FORA DOS LIMITES ALOCADOS. ISSO PODE RESULTAR EM COMPORTAMENTO INDEFINIDO, 
+        INCLUINDO CORRUPÇÃO DE DADOS, FALHAS DE SEGURANÇA E CRASHES DO PROGRAMA.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+            #include <stdlib.h>
+            #include <string.h>
+
+            int main() {
+                char *str = malloc(10);
+                if (str == NULL) {
+                    printf("Erro ao alocar memória.\n");
+                    return 1;
+                }
+
+                strcpy(str, "Esta string é muito longa para o buffer alocado!"); // Heap overflow
+                printf("%s\n", str);
+
+                free(str);
+                return 0;
+            }
+
+        NESTE EXEMPLO, A STRING COPIADA PARA `str` EXCEDE O TAMANHO DO BUFFER ALOCADO, RESULTANDO EM UM HEAP OVERFLOW.
+
+        PARA EVITAR HEAP OVERFLOW, SEMPRE VERIFIQUE SE O TAMANHO DA MEMÓRIA ALOCADA É SUFICIENTE PARA OS DADOS QUE 
+        VOCÊ PRETENDE ARMAZENAR E USE FUNÇÕES QUE LIMITAM O TAMANHO DA CÓPIA, COMO `strncpy`.
+
+        EXEMPLO CORRIGIDO:
+
+            #include <stdio.h>
+            #include <stdlib.h>
+            #include <string.h>
+
+            int main() {
+                char *str = malloc(50);
+                if (str == NULL) {
+                    printf("Erro ao alocar memória.\n");
+                    return 1;
+                }
+
+                strncpy(str, "Esta string é muito longa para o buffer alocado!", 49);
+                str[49] = '\0'; // Garantir que a string esteja terminada em nulo
+                printf("%s\n", str);
+
+                free(str);
+                return 0;
+            }
+
+        NESTE EXEMPLO, `strncpy` É USADO PARA COPIAR A STRING COM SEGURANÇA, LIMITANDO O TAMANHO DA CÓPIA E EVITANDO 
+        HEAP OVERFLOW.
+
+
+    STACK OVERFLOW
+
+        UM STACK OVERFLOW OCORRE QUANDO UM PROGRAMA EXCEDE O LIMITE DE MEMÓRIA DA PILHA (STACK), QUE É UMA ÁREA DE 
+        MEMÓRIA USADA PARA ARMAZENAR VARIÁVEIS LOCAIS E INFORMAÇÕES DE CONTROLE DE FLUXO. ISSO PODE RESULTAR EM 
+        COMPORTAMENTO INDEFINIDO, INCLUINDO CRASHES DO PROGRAMA E VULNERABILIDADES DE SEGURANÇA.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+
+            void func() {
+                int arr[1000000]; // Grande alocação na pilha
+                printf("Array alocado na pilha.\n");
+            }
+
+            int main() {
+                func();
+                return 0;
+            }
+
+        NESTE EXEMPLO, A ALOCAÇÃO DE UM GRANDE ARRAY NA PILHA PODE RESULTAR EM UM STACK OVERFLOW, ESPECIALMENTE SE 
+        A PILHA TIVER UM TAMANHO LIMITADO.
+
+        PARA EVITAR STACK OVERFLOW, EVITE ALOCAÇÕES GRANDES NA PILHA. EM VEZ DISSO, USE ALOCAÇÃO DINÂMICA DE MEMÓRIA 
+        NO HEAP.
+
+        EXEMPLO CORRIGIDO:
+
+            #include <stdio.h>
+            #include <stdlib.h>
+
+            void func() {
+                int *arr = malloc(1000000 * sizeof(int)); // Grande alocação no heap
+                if (arr == NULL) {
+                    printf("Erro ao alocar memória.\n");
+                    return;
+                }
+                printf("Array alocado no heap.\n");
+                free(arr);
+            }
+
+            int main() {
+                func();
+                return 0;
+            }
+
+        NESTE EXEMPLO, O ARRAY É ALOCADO NO HEAP USANDO `malloc`, EVITANDO UM STACK OVERFLOW.
+
+        STACK OVERFLOW TAMBÉM PODE OCORRER DEVIDO A RECURSÃO INFINITA OU PROFUNDA DEMAIS.
+
+        EXEMPLO:
+
+            #include <stdio.h>
+
+            void func() {
+                func(); // Recursão infinita
+            }
+
+            int main() {
+                func();
+                return 0;
+            }
+
+        NESTE EXEMPLO, A RECURSÃO INFINITA RESULTA EM UM STACK OVERFLOW.
+
+        PARA EVITAR STACK OVERFLOW DEVIDO A RECURSÃO, CERTIFIQUE-SE DE QUE SUAS FUNÇÕES RECURSIVAS TENHAM CONDIÇÕES 
+        DE PARADA ADEQUADAS.
+
+        EXEMPLO CORRIGIDO:
+
+            #include <stdio.h>
+
+            void func(int n) {
+                if (n <= 0) return;
+                func(n - 1); // Recursão com condição de parada
+            }
+
+            int main() {
+                func(10);
+                return 0;
+            }
+
+        NESTE EXEMPLO, A FUNÇÃO `func` TEM UMA CONDIÇÃO DE PARADA ADEQUADA, EVITANDO UM STACK OVERFLOW.
