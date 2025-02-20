@@ -802,36 +802,36 @@ MEMORY
 
         CUIDADOS AO USAR `scanf`:
 
-        - CERTIFIQUE-SE DE USAR O ESPECIFICADOR DE FORMATO CORRETO PARA O TIPO DE DADO QUE VOCÊ DESEJA LER.
-        - PARA STRINGS, GARANTA QUE O BUFFER SEJA GRANDE O SUFICIENTE PARA ARMAZENAR A ENTRADA.
-        - `scanf` NÃO VERIFICA LIMITES DE BUFFER, O QUE PODE LEVAR A VULNERABILIDADES DE SEGURANÇA. CONSIDERE USAR 
-          `fgets` PARA LER STRINGS DE FORMA MAIS SEGURA.
+            - CERTIFIQUE-SE DE USAR O ESPECIFICADOR DE FORMATO CORRETO PARA O TIPO DE DADO QUE VOCÊ DESEJA LER.
+            - PARA STRINGS, GARANTA QUE O BUFFER SEJA GRANDE O SUFICIENTE PARA ARMAZENAR A ENTRADA.
+            - `scanf` NÃO VERIFICA LIMITES DE BUFFER, O QUE PODE LEVAR A VULNERABILIDADES DE SEGURANÇA. CONSIDERE USAR 
+              `fgets` PARA LER STRINGS DE FORMA MAIS SEGURA.
 
-    PROBLEMA DE STRINGS COM SCANF:
+        STRINGS COM SCANF:
 
-        AO USAR `scanf` PARA LER STRINGS, HÁ UM RISCO DE BUFFER OVERFLOW SE A ENTRADA DO USUÁRIO EXCEDER O TAMANHO DO 
-        BUFFER ALOCADO. ISSO PODE LEVAR A COMPORTAMENTO INDEFINIDO E VULNERABILIDADES DE SEGURANÇA.
+            AO USAR `scanf` PARA LER STRINGS, HÁ UM RISCO DE BUFFER OVERFLOW SE A ENTRADA DO USUÁRIO EXCEDER O TAMANHO DO 
+            BUFFER ALOCADO. ISSO PODE LEVAR A COMPORTAMENTO INDEFINIDO E VULNERABILIDADES DE SEGURANÇA.
 
-        EXEMPLO DE PROBLEMA:
+            EXEMPLO DE PROBLEMA:
 
-            #include <stdio.h>
+                #include <stdio.h>
 
-            int main() {
-                char nome[10];
-                printf("Digite seu nome: ");
-                scanf("%s", nome); // Potencial buffer overflow
-                printf("Nome: %s\n", nome);
-                return 0;
-            }
+                int main() {
+                    char nome[10];
+                    printf("Digite seu nome: ");
+                    scanf("%s", nome); // Potencial buffer overflow
+                    printf("Nome: %s\n", nome);
+                    return 0;
+                }
 
-        NESTE EXEMPLO, SE O USUÁRIO DIGITAR MAIS DE 9 CARACTERES, OCORRERÁ UM BUFFER OVERFLOW.
+            NESTE EXEMPLO, SE O USUÁRIO DIGITAR MAIS DE 9 CARACTERES, OCORRERÁ UM BUFFER OVERFLOW.
 
-        SOLUÇÃO ADEQUADA:
+    FGETS
 
         PARA EVITAR BUFFER OVERFLOW, USE `fgets` EM VEZ DE `scanf` PARA LER STRINGS. `fgets` PERMITE ESPECIFICAR O 
         TAMANHO DO BUFFER, GARANTINDO QUE A ENTRADA NÃO EXCEDA O TAMANHO ALOCADO.
 
-        EXEMPLO CORRIGIDO:
+        EXEMPLO:
 
             #include <stdio.h>
 
