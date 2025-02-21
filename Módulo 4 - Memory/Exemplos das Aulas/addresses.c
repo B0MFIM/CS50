@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <cs50.h>
 
+/* Esse código é um exemplo de como os endereços de memória são organizados
+   na memória do computador. Ele mostra como os endereços de memória de
+   variáveis de diferentes tipos são organizados na memória. */
+
 int main(void)
 {
     printf("\n");
